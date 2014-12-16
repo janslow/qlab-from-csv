@@ -1,0 +1,18 @@
+GIT
+  remote: git@github.com:janslow/qlab-ruby.git
+  revision: 79a776f53c69b2f666fdefea5a3f2ddf57b22323
+  branch: master
+  specs:
+    qlab-ruby (0.1.2)
+      osc-ruby
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    osc-ruby (1.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  qlab-ruby!
