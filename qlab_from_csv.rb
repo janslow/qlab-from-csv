@@ -3,14 +3,20 @@
 require 'csv'
 require 'qlab-ruby'
 
+# Set the path to the source file.
 csv_file = './sample_cues.csv'
-qlab_hostname = 'localhost'
-qlab_workspace_name = nil
-qlab_machine = QLab.connect qlab_hostname
 
 # Set the path to QLX script (from http://www.qlx.io/).
 @qlx_script_file = '/path/to/QLX.scpt'
 
+# Set the path to the cue log.
+@log_file = '/path/to/log.csv'
+
+# These should not need changing in most situations.
+qlab_hostname = 'localhost'
+qlab_workspace_name = nil
+
+qlab_machine = QLab.connect qlab_hostname
 if qlab_workspace_name
   @qlab_workspace = qlab_machine.workspaces.find! { |w| w.name == qlab_workspace_name }
 else
@@ -90,7 +96,7 @@ def create_q cue
   log_q.number = ''
   log_q.name = "Log #{q_number}"
   # TODO: Extract the log dir into a user configurable variable.
-  log_q.scriptSource = "do shell script \"echo \\\"`date '+%Y-%m-%d %H:%M:%S'`,#{q_number}\\\" >> /path/to/logs/qlab_log.csv\""
+  log_q.scriptSource = "do shell script \"echo \\\"`date '+%Y-%m-%d %H:%M:%S'`,#{q_number}\\\" >> #{@log_file}\""
   sub_qs << log_q
 
   # Add LX sub-cues.
