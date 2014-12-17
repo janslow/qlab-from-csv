@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:janslow/qlab-ruby.git
-  revision: 79a776f53c69b2f666fdefea5a3f2ddf57b22323
+  revision: 351db203b61fad017a54324c85d692c0164d89a4
   branch: master
   specs:
     qlab-ruby (0.1.2)
