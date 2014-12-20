@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Cue {
-    var cueNumber : String? { get set }
+    var cueNumber : String? { get }
     var cueName : String { get }
     var cueShortName : String { get }
     var preWait : Float { get set }
