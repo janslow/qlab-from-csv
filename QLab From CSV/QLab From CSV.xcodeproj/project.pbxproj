@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DE11C9B1A44EB25001C7FE8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11C9A1A44EB25001C7FE8 /* main.swift */; };
+		1DE11CA31A4506FF001C7FE8 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA21A4506FF001C7FE8 /* csv.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		1DE11C971A44EB25001C7FE8 /* QLab From CSV */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "QLab From CSV"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DE11C9A1A44EB25001C7FE8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
+		1DE11CA21A4506FF001C7FE8 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,7 @@
 		1DE11C8E1A44EB24001C7FE8 = {
 			isa = PBXGroup;
 			children = (
+				1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */,
 				1DE11C991A44EB25001C7FE8 /* QLab From CSV */,
 				1DE11C981A44EB25001C7FE8 /* Products */,
 			);
@@ -58,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				1DE11C9A1A44EB25001C7FE8 /* main.swift */,
+				1DE11CA21A4506FF001C7FE8 /* csv.swift */,
 			);
 			path = "QLab From CSV";
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DE11CA31A4506FF001C7FE8 /* csv.swift in Sources */,
 				1DE11C9B1A44EB25001C7FE8 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +239,7 @@
 				1DE11CA01A44EB25001C7FE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
