@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1DE11C9B1A44EB25001C7FE8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11C9A1A44EB25001C7FE8 /* main.swift */; };
 		1DE11CA31A4506FF001C7FE8 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA21A4506FF001C7FE8 /* csv.swift */; };
+		1DE11CA51A459FEE001C7FE8 /* cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* cue.swift */; };
+		1DE11CA71A45A0BB001C7FE8 /* group_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */; };
+		1DE11CAA1A45A268001C7FE8 /* start_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* start_cue.swift */; };
+		1DE11CAC1A45A9E8001C7FE8 /* lx_go_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +32,10 @@
 		1DE11C9A1A44EB25001C7FE8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
 		1DE11CA21A4506FF001C7FE8 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
+		1DE11CA41A459FEE001C7FE8 /* cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cue.swift; sourceTree = "<group>"; };
+		1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = group_cue.swift; sourceTree = "<group>"; };
+		1DE11CA91A45A268001C7FE8 /* start_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = start_cue.swift; sourceTree = "<group>"; };
+		1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lx_go_cue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +69,22 @@
 		1DE11C991A44EB25001C7FE8 /* QLab From CSV */ = {
 			isa = PBXGroup;
 			children = (
+				1DE11CA81A45A0C5001C7FE8 /* cues */,
 				1DE11C9A1A44EB25001C7FE8 /* main.swift */,
 				1DE11CA21A4506FF001C7FE8 /* csv.swift */,
 			);
 			path = "QLab From CSV";
+			sourceTree = "<group>";
+		};
+		1DE11CA81A45A0C5001C7FE8 /* cues */ = {
+			isa = PBXGroup;
+			children = (
+				1DE11CA41A459FEE001C7FE8 /* cue.swift */,
+				1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */,
+				1DE11CA91A45A268001C7FE8 /* start_cue.swift */,
+				1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */,
+			);
+			name = cues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +143,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DE11CAA1A45A268001C7FE8 /* start_cue.swift in Sources */,
+				1DE11CAC1A45A9E8001C7FE8 /* lx_go_cue.swift in Sources */,
+				1DE11CA51A459FEE001C7FE8 /* cue.swift in Sources */,
 				1DE11CA31A4506FF001C7FE8 /* csv.swift in Sources */,
 				1DE11C9B1A44EB25001C7FE8 /* main.swift in Sources */,
+				1DE11CA71A45A0BB001C7FE8 /* group_cue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
