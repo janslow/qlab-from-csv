@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroupCue : Cue {
+class GroupCue : Cue, Comparable {
     var cueNumber : String?
     var cueName : String {
         var name = ""
@@ -47,4 +47,11 @@ class GroupCue : Cue {
         }
         return names.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\""))
     }
+}
+
+func <(lhs: GroupCue, rhs: GroupCue) -> Bool {
+    return lhs.cueNumber < rhs.cueNumber
+}
+func ==(lhs: GroupCue, rhs: GroupCue) -> Bool {
+    return lhs.cueNumber == rhs.cueNumber
 }
