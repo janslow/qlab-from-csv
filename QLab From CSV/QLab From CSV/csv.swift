@@ -9,20 +9,20 @@
 import Foundation
 
 public class Csv {
-    public class func parse(contents : String) -> (headers: [String], rows: [Dictionary<String,String?>]) {
+    public class func parse(contents : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
         var lines: [String] = []
         contents.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()).enumerateLines { line, stop in lines.append(line) }
         
         if lines.count < 1 {
-            println("There must be at least one line including the header")
-            exit(EXIT_FAILURE)
+            println("ERROR: There must be at least one line including the header")
+            return nil
         }
         
         let headers = lines[0].componentsSeparatedByString(",").map({
             (s : String) -> String in
             return s.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         })
-        var rows : [Dictionary<String, String?>] = []
+        var rows : [Dictionary<String, String>] = []
         
         
         for (lineNumber, line) in enumerate(lines) {
@@ -30,7 +30,7 @@ public class Csv {
                 continue
             }
             
-            var row = Dictionary<String, String?>()
+            var row = Dictionary<String, String>()
             
             let scanner = NSScanner(string: line)
             let delimiter = ","
@@ -40,33 +40,35 @@ public class Csv {
             for (index, header) in enumerate(headers) {
                 scanner.scanCharactersFromSet(whitespace, intoString: nil)
                 
-                var value : NSString? = nil
+                var value : NSString = ""
                 if scanner.scanCharactersFromSet(doubleQuote, intoString: nil) {
-                    value = ""
-                    var result : NSString? = nil
+                    var result : NSString?
                     while true {
                         scanner.scanUpToCharactersFromSet(doubleQuote, intoString: &result)
                         if result != nil {
-                            value = value! + result!
+                            value = value + result!
                         }
                         if scanner.scanString("\"\"", intoString: nil) {
-                            value = value! + "\""
+                            value = value + "\""
                         } else {
                             scanner.scanCharactersFromSet(doubleQuote, intoString: nil)
                             break
                         }
                     }
                 } else {
+                    var result : NSString?
                     // Case where value is not quoted
-                    scanner.scanUpToString(delimiter, intoString: &value)
+                    scanner.scanUpToString(delimiter, intoString: &result)
+                    if result != nil {
+                        value = result!
+                    }
                 }
                 // Trim whitespace
-                var trimmedVal = value?.stringByTrimmingCharactersInSet(whitespace)
-                // If value is empty, set it to nil
-                if trimmedVal != nil && trimmedVal!.isEmpty {
-                    trimmedVal = nil
+                var trimmedVal = value.stringByTrimmingCharactersInSet(whitespace)
+                // If value is non-empty store it in the row
+                if !trimmedVal.isEmpty {
+                    row[header] = trimmedVal
                 }
-                row[header] = trimmedVal
                 // Remove whitespace and comma
                 scanner.scanCharactersFromSet(whitespace, intoString: nil)
                 scanner.scanString(delimiter, intoString: nil)
@@ -76,10 +78,10 @@ public class Csv {
         
         return (headers, rows)
     }
-    public class func parseFromFile(path : String) -> (headers: [String], rows: [Dictionary<String,String?>])? {
+    public class func parseFromFile(path : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
         let contents = String(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil)
         if contents == nil {
-            println("Unable to read CSV")
+            println("ERROR: Unable to read CSV")
             return nil
         }
         return parse(contents!)
