@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Parser {
+class RowParser {
     func load(rows : [Dictionary<String, String>]) -> [GroupCue] {
         // Set up categories of sub-cues and the closures to create the sub-cues.
         let subCueCategories : Dictionary<String, ([String], Float) -> Cue> = [
@@ -69,10 +69,10 @@ class Parser {
                 // ...Ignore any empty strings...
                 !$0.isEmpty
             }).map({
-                // ...Extract the pre wait time...
-                (s : String) -> ([String], Float) in
-                // Split the string by slashes
+                (s : String) -> Cue in
+                // ...Split the string into parts...
                 var parts : [String] = s.componentsSeparatedByString("/")
+                // ...Extract the pre-wait time...
                 var preWait : Float = 0.0
                 if parts.count > 1 {
                     let preWaitString = parts[parts.count - 1]
@@ -81,10 +81,7 @@ class Parser {
                     }
                     parts = Array(parts[0...parts.count - 2])
                 }
-                return (parts, preWait)
-            }).map({
-                // ...Create a cue
-                (parts : [String], preWait : Float) -> Cue in
+                // ...Create and return the cue.
                 return cueCreator(parts, preWait)
             })
         return cues

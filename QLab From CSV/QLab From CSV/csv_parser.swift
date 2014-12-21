@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Csv {
+public class CsvParser {
     public class func parse(contents : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
         var lines: [String] = []
         contents.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()).enumerateLines { line, stop in lines.append(line) }
