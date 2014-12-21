@@ -9,7 +9,17 @@
 import Foundation
 
 public class CsvParser {
-    public class func parse(contents : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
+    public class func csv() -> CsvParser {
+        return CsvParser(delimiter: ",")
+    }
+    
+    private var delimiter : String
+    
+    init(delimiter : String) {
+        self.delimiter = delimiter
+    }
+    
+    func parse(contents : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
         var lines: [String] = []
         contents.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()).enumerateLines { line, stop in lines.append(line) }
         
@@ -78,12 +88,13 @@ public class CsvParser {
         
         return (headers, rows)
     }
-    public class func parseFromFile(path : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
+    func parseFromFile(path : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
         let contents = String(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil)
         if contents == nil {
             println("ERROR: Unable to read CSV")
             return nil
+        } else {
+            return parse(contents!)
         }
-        return parse(contents!)
     }
 }
