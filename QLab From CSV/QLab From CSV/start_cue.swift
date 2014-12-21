@@ -15,7 +15,7 @@ class StartCue : Cue {
     var cueName : String {
         return "Start \(targetNumber)"
     }
-    var cueShortName : String {
+    var description : String {
         return targetNumber
     }
     var preWait : Float

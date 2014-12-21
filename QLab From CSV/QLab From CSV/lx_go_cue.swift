@@ -15,7 +15,7 @@ class LxGoCue : Cue {
     var cueName : String {
         return "LX \(lxNumber) Go"
     }
-    var cueShortName : String {
+    var description : String {
         return "LX\(lxNumber)"
     }
     var preWait : Float

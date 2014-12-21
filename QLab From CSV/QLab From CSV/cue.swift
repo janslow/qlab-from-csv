@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol Cue {
+protocol Cue : Printable {
     var cueNumber : String? { get }
     var cueName : String { get }
-    var cueShortName : String { get }
+    var description : String { get }
     var preWait : Float { get set }
     func create()
 }

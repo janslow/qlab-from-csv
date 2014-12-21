@@ -18,12 +18,16 @@ class GroupCue : Cue, Comparable {
         if page != nil {
             name += "(" + page! + ") "
         }
-        name = name + "<" + getChildrenShortNames() + ">"
+        name = name + "<" + getChildrenDescription() + ">"
         return name
     }
-    var cueShortName : String {
-        let childCueShortNames = getChildrenShortNames()
-        return "\(cueNumber)<\(childCueShortNames)>"
+    var description : String {
+        let childCueShortNames = getChildrenDescription()
+        if let cueNumberString = cueNumber {
+            return "\(cueNumberString)<\(childCueShortNames)>"
+        } else {
+            return "#<\(childCueShortNames)>"
+        }
     }
     var children : [Cue]
     var comment : String?
@@ -40,10 +44,10 @@ class GroupCue : Cue, Comparable {
         // TODO
     }
     
-    private func getChildrenShortNames() -> String {
+    private func getChildrenDescription() -> String {
         var names : String = ""
         for cue in children {
-            names += cue.cueShortName + "/"
+            names += cue.description + "/"
         }
         return names.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\""))
     }
