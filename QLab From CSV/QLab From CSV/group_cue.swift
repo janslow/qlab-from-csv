@@ -49,7 +49,7 @@ class GroupCue : Cue, Comparable {
         for cue in children {
             names += cue.description + "/"
         }
-        return names.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "\""))
+        return names.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "/"))
     }
 }
 
