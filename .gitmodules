@@ -1,0 +1,3 @@
+[submodule "QLabKit.objc"]
+	path = QLabKit.objc
+	url = https://github.com/Figure53/QLabKit.objc.git
