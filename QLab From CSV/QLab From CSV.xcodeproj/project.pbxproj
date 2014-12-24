@@ -23,10 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D0193331A478610000A9F53 /* QLab From CSV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "QLab From CSV-Bridging-Header.h"; path = "../QLab From CSV/QLab From CSV-Bridging-Header.h"; sourceTree = "<group>"; };
-		1D0193341A478611000A9F53 /* QLabKitImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLabKitImport.m; path = "../QLab From CSV/QLabKitImport.m"; sourceTree = "<group>"; };
+		1D0193331A478610000A9F53 /* QLab From CSV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QLab From CSV-Bridging-Header.h"; sourceTree = "<group>"; };
+		1D0193341A478611000A9F53 /* QLabKitImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLabKitImport.m; sourceTree = "<group>"; };
 		1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
-		1D2A4C891A46353000903B9C /* row_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = row_parser.swift; path = "../QLab From CSV/row_parser.swift"; sourceTree = "<group>"; };
+		1D2A4C891A46353000903B9C /* row_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = row_parser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1DA02BC81A4A40D500F095A6 /* QLabFromCsv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLabFromCsv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA02BCB1A4A40D500F095A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,9 +34,9 @@
 		1DA02BCE1A4A40D500F095A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1DA02BD01A4A40D500F095A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1DA02BD31A4A40D500F095A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QLabKitImport.h; path = "../QLab From CSV/QLabKitImport.h"; sourceTree = "<group>"; };
+		1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLabKitImport.h; sourceTree = "<group>"; };
 		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
-		1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = csv_parser.swift; path = "../QLab From CSV/csv_parser.swift"; sourceTree = "<group>"; };
+		1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv_parser.swift; sourceTree = "<group>"; };
 		1DE11CA41A459FEE001C7FE8 /* cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cue.swift; sourceTree = "<group>"; };
 		1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = group_cue.swift; sourceTree = "<group>"; };
 		1DE11CA91A45A268001C7FE8 /* start_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = start_cue.swift; sourceTree = "<group>"; };
@@ -117,8 +117,7 @@
 				1DE11CA91A45A268001C7FE8 /* start_cue.swift */,
 				1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */,
 			);
-			name = cues;
-			path = "../QLab From CSV";
+			path = cues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
