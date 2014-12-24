@@ -7,33 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D2A4C8A1A46353000903B9C /* row_parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A4C891A46353000903B9C /* row_parser.swift */; };
-		1DE11C9B1A44EB25001C7FE8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11C9A1A44EB25001C7FE8 /* main.swift */; };
-		1DE11CA31A4506FF001C7FE8 /* csv_parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */; };
-		1DE11CA51A459FEE001C7FE8 /* cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* cue.swift */; };
-		1DE11CA71A45A0BB001C7FE8 /* group_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */; };
-		1DE11CAA1A45A268001C7FE8 /* start_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* start_cue.swift */; };
-		1DE11CAC1A45A9E8001C7FE8 /* lx_go_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */; };
+		1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */; };
+		1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCE1A4A40D500F095A6 /* ViewController.swift */; };
+		1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD01A4A40D500F095A6 /* Images.xcassets */; };
+		1DA02BD41A4A40D500F095A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD21A4A40D500F095A6 /* Main.storyboard */; };
+		1DA02BE91A4A428700F095A6 /* cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* cue.swift */; };
+		1DA02BEA1A4A428700F095A6 /* group_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */; };
+		1DA02BEB1A4A428700F095A6 /* start_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* start_cue.swift */; };
+		1DA02BEC1A4A428700F095A6 /* lx_go_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */; };
+		1DA02BED1A4A428700F095A6 /* csv_parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */; };
+		1DA02BEE1A4A428700F095A6 /* row_parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A4C891A46353000903B9C /* row_parser.swift */; };
+		1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193341A478611000A9F53 /* QLabKitImport.m */; };
+		1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2A4CC01A477F6F00903B9C /* Security.framework */; };
+		1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		1DE11C951A44EB24001C7FE8 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		1D2A4C891A46353000903B9C /* row_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = row_parser.swift; sourceTree = "<group>"; };
-		1DE11C971A44EB25001C7FE8 /* QLab From CSV */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "QLab From CSV"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DE11C9A1A44EB25001C7FE8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1D0193331A478610000A9F53 /* QLab From CSV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "QLab From CSV-Bridging-Header.h"; path = "../QLab From CSV/QLab From CSV-Bridging-Header.h"; sourceTree = "<group>"; };
+		1D0193341A478611000A9F53 /* QLabKitImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLabKitImport.m; path = "../QLab From CSV/QLabKitImport.m"; sourceTree = "<group>"; };
+		1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
+		1D2A4C891A46353000903B9C /* row_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = row_parser.swift; path = "../QLab From CSV/row_parser.swift"; sourceTree = "<group>"; };
+		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1DA02BC81A4A40D500F095A6 /* QLabFromCsv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLabFromCsv.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DA02BCB1A4A40D500F095A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1DA02BCE1A4A40D500F095A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DA02BD01A4A40D500F095A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1DA02BD31A4A40D500F095A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QLabKitImport.h; path = "../QLab From CSV/QLabKitImport.h"; sourceTree = "<group>"; };
 		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
-		1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv_parser.swift; sourceTree = "<group>"; };
+		1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = csv_parser.swift; path = "../QLab From CSV/csv_parser.swift"; sourceTree = "<group>"; };
 		1DE11CA41A459FEE001C7FE8 /* cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cue.swift; sourceTree = "<group>"; };
 		1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = group_cue.swift; sourceTree = "<group>"; };
 		1DE11CA91A45A268001C7FE8 /* start_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = start_cue.swift; sourceTree = "<group>"; };
@@ -41,21 +44,59 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1DE11C941A44EB24001C7FE8 /* Frameworks */ = {
+		1DA02BC51A4A40D500F095A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */,
+				1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DA02BC91A4A40D500F095A6 /* QLabFromCsv */ = {
+			isa = PBXGroup;
+			children = (
+				1DE11CA81A45A0C5001C7FE8 /* cues */,
+				1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */,
+				1D2A4C891A46353000903B9C /* row_parser.swift */,
+				1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */,
+				1D0193341A478611000A9F53 /* QLabKitImport.m */,
+				1D0193331A478610000A9F53 /* QLab From CSV-Bridging-Header.h */,
+				1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */,
+				1DA02BCE1A4A40D500F095A6 /* ViewController.swift */,
+				1DA02BE81A4A427300F095A6 /* UI */,
+			);
+			path = QLabFromCsv;
+			sourceTree = "<group>";
+		};
+		1DA02BCA1A4A40D500F095A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1DA02BCB1A4A40D500F095A6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DA02BE81A4A427300F095A6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1DA02BD01A4A40D500F095A6 /* Images.xcassets */,
+				1DA02BD21A4A40D500F095A6 /* Main.storyboard */,
+				1DA02BCA1A4A40D500F095A6 /* Supporting Files */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		1DE11C8E1A44EB24001C7FE8 = {
 			isa = PBXGroup;
 			children = (
+				1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */,
+				1D2A4CC01A477F6F00903B9C /* Security.framework */,
 				1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */,
-				1DE11C991A44EB25001C7FE8 /* QLab From CSV */,
+				1DA02BC91A4A40D500F095A6 /* QLabFromCsv */,
 				1DE11C981A44EB25001C7FE8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,20 +104,9 @@
 		1DE11C981A44EB25001C7FE8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1DE11C971A44EB25001C7FE8 /* QLab From CSV */,
+				1DA02BC81A4A40D500F095A6 /* QLabFromCsv.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1DE11C991A44EB25001C7FE8 /* QLab From CSV */ = {
-			isa = PBXGroup;
-			children = (
-				1DE11CA81A45A0C5001C7FE8 /* cues */,
-				1DE11C9A1A44EB25001C7FE8 /* main.swift */,
-				1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */,
-				1D2A4C891A46353000903B9C /* row_parser.swift */,
-			);
-			path = "QLab From CSV";
 			sourceTree = "<group>";
 		};
 		1DE11CA81A45A0C5001C7FE8 /* cues */ = {
@@ -88,27 +118,28 @@
 				1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */,
 			);
 			name = cues;
+			path = "../QLab From CSV";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1DE11C961A44EB24001C7FE8 /* QLab From CSV */ = {
+		1DA02BC71A4A40D500F095A6 /* QLabFromCsv */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DE11C9E1A44EB25001C7FE8 /* Build configuration list for PBXNativeTarget "QLab From CSV" */;
+			buildConfigurationList = 1DA02BE51A4A40D600F095A6 /* Build configuration list for PBXNativeTarget "QLabFromCsv" */;
 			buildPhases = (
-				1DE11C931A44EB24001C7FE8 /* Sources */,
-				1DE11C941A44EB24001C7FE8 /* Frameworks */,
-				1DE11C951A44EB24001C7FE8 /* CopyFiles */,
+				1DA02BC41A4A40D500F095A6 /* Sources */,
+				1DA02BC51A4A40D500F095A6 /* Frameworks */,
+				1DA02BC61A4A40D500F095A6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "QLab From CSV";
-			productName = "QLab From CSV";
-			productReference = 1DE11C971A44EB25001C7FE8 /* QLab From CSV */;
-			productType = "com.apple.product-type.tool";
+			name = QLabFromCsv;
+			productName = QLabFromCsv;
+			productReference = 1DA02BC81A4A40D500F095A6 /* QLabFromCsv.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -119,7 +150,7 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Jay Anslow";
 				TargetAttributes = {
-					1DE11C961A44EB24001C7FE8 = {
+					1DA02BC71A4A40D500F095A6 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
@@ -130,39 +161,103 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 1DE11C8E1A44EB24001C7FE8;
 			productRefGroup = 1DE11C981A44EB25001C7FE8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1DE11C961A44EB24001C7FE8 /* QLab From CSV */,
+				1DA02BC71A4A40D500F095A6 /* QLabFromCsv */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		1DA02BC61A4A40D500F095A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */,
+				1DA02BD41A4A40D500F095A6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		1DE11C931A44EB24001C7FE8 /* Sources */ = {
+		1DA02BC41A4A40D500F095A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2A4C8A1A46353000903B9C /* row_parser.swift in Sources */,
-				1DE11CAA1A45A268001C7FE8 /* start_cue.swift in Sources */,
-				1DE11CAC1A45A9E8001C7FE8 /* lx_go_cue.swift in Sources */,
-				1DE11CA51A459FEE001C7FE8 /* cue.swift in Sources */,
-				1DE11CA31A4506FF001C7FE8 /* csv_parser.swift in Sources */,
-				1DE11C9B1A44EB25001C7FE8 /* main.swift in Sources */,
-				1DE11CA71A45A0BB001C7FE8 /* group_cue.swift in Sources */,
+				1DA02BE91A4A428700F095A6 /* cue.swift in Sources */,
+				1DA02BEA1A4A428700F095A6 /* group_cue.swift in Sources */,
+				1DA02BEB1A4A428700F095A6 /* start_cue.swift in Sources */,
+				1DA02BEC1A4A428700F095A6 /* lx_go_cue.swift in Sources */,
+				1DA02BED1A4A428700F095A6 /* csv_parser.swift in Sources */,
+				1DA02BEE1A4A428700F095A6 /* row_parser.swift in Sources */,
+				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
+				1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */,
+				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		1DA02BD21A4A40D500F095A6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DA02BD31A4A40D500F095A6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		1DA02BE11A4A40D600F095A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QLabFromCsv/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QLab From CSV/QLab From CSV-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		1DA02BE21A4A40D600F095A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = QLabFromCsv/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QLab From CSV/QLab From CSV-Bridging-Header.h";
+			};
+			name = Release;
+		};
 		1DE11C9C1A44EB25001C7FE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -197,13 +292,14 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "../**";
 			};
 			name = Debug;
 		};
 		1DE11C9D1A44EB25001C7FE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -231,40 +327,26 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		1DE11C9F1A44EB25001C7FE8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		1DE11CA01A44EB25001C7FE8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../**";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1DA02BE51A4A40D600F095A6 /* Build configuration list for PBXNativeTarget "QLabFromCsv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DA02BE11A4A40D600F095A6 /* Debug */,
+				1DA02BE21A4A40D600F095A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		1DE11C921A44EB24001C7FE8 /* Build configuration list for PBXProject "QLab From CSV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DE11C9C1A44EB25001C7FE8 /* Debug */,
 				1DE11C9D1A44EB25001C7FE8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1DE11C9E1A44EB25001C7FE8 /* Build configuration list for PBXNativeTarget "QLab From CSV" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DE11C9F1A44EB25001C7FE8 /* Debug */,
-				1DE11CA01A44EB25001C7FE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

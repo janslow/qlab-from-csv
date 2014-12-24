@@ -89,7 +89,7 @@ public class CsvParser {
         return (headers, rows)
     }
     func parseFromFile(path : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
-        let contents = String(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil)
+        let contents = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
         if contents == nil {
             println("ERROR: Unable to read CSV")
             return nil
