@@ -20,16 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let rowParser = RowParser()
         let cues = rowParser.load(csv.rows)
         println(cues)
-        
-        var complete = false
-        
-        let server = QLKServer(host: "localhost", port: 53000)
-        server.refreshWorkspacesWithCompletion({
-            (obj : [AnyObject]!) -> () in
-            println(obj)
-            println(server.workspaces)
-            complete = true
-        })
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */; };
 		1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */; };
 		1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCE1A4A40D500F095A6 /* ViewController.swift */; };
 		1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD01A4A40D500F095A6 /* Images.xcassets */; };
@@ -20,20 +21,25 @@
 		1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193341A478611000A9F53 /* QLabKitImport.m */; };
 		1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2A4CC01A477F6F00903B9C /* Security.framework */; };
 		1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */; };
+		1DAC45B01A4DC570004ED504 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAC45AF1A4DC570004ED504 /* AppKit.framework */; };
+		1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D0193331A478610000A9F53 /* QLab From CSV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QLab From CSV-Bridging-Header.h"; sourceTree = "<group>"; };
+		1D0193331A478610000A9F53 /* QLabFromCsv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QLabFromCsv-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D0193341A478611000A9F53 /* QLabKitImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLabKitImport.m; sourceTree = "<group>"; };
 		1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
 		1D2A4C891A46353000903B9C /* row_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = row_parser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkspaceComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1DA02BC81A4A40D500F095A6 /* QLabFromCsv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLabFromCsv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA02BCB1A4A40D500F095A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DA02BCE1A4A40D500F095A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1DA02BD01A4A40D500F095A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1DA02BD31A4A40D500F095A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1DAC45AF1A4DC570004ED504 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLabKitImport.h; sourceTree = "<group>"; };
 		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
 		1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv_parser.swift; sourceTree = "<group>"; };
@@ -48,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DAC45B01A4DC570004ED504 /* AppKit.framework in Frameworks */,
 				1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */,
 				1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */,
 			);
@@ -64,7 +71,7 @@
 				1D2A4C891A46353000903B9C /* row_parser.swift */,
 				1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */,
 				1D0193341A478611000A9F53 /* QLabKitImport.m */,
-				1D0193331A478610000A9F53 /* QLab From CSV-Bridging-Header.h */,
+				1D0193331A478610000A9F53 /* QLabFromCsv-Bridging-Header.h */,
 				1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */,
 				1DA02BCE1A4A40D500F095A6 /* ViewController.swift */,
 				1DA02BE81A4A427300F095A6 /* UI */,
@@ -83,6 +90,7 @@
 		1DA02BE81A4A427300F095A6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1DAC45AC1A4DABDE004ED504 /* model */,
 				1DA02BD01A4A40D500F095A6 /* Images.xcassets */,
 				1DA02BD21A4A40D500F095A6 /* Main.storyboard */,
 				1DA02BCA1A4A40D500F095A6 /* Supporting Files */,
@@ -90,9 +98,19 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		1DAC45AC1A4DABDE004ED504 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */,
+				1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		1DE11C8E1A44EB24001C7FE8 = {
 			isa = PBXGroup;
 			children = (
+				1DAC45AF1A4DC570004ED504 /* AppKit.framework */,
 				1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */,
 				1D2A4CC01A477F6F00903B9C /* Security.framework */,
 				1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */,
@@ -197,6 +215,8 @@
 				1DA02BEE1A4A428700F095A6 /* row_parser.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
 				1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */,
+				1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */,
+				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +252,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QLab From CSV/QLab From CSV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QLabFromCsv/QLabFromCsv-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -249,7 +269,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "QLab From CSV/QLab From CSV-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "QLabFromCsv/QLabFromCsv-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -340,6 +360,7 @@
 				1DA02BE21A4A40D600F095A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DE11C921A44EB24001C7FE8 /* Build configuration list for PBXProject "QLab From CSV" */ = {
 			isa = XCConfigurationList;
