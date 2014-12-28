@@ -35,20 +35,19 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         }
     }
     
-    
     func browserDidUpdateServers(browser : QLKBrowser) {
-        serverComboBoxDataSource.setServers(browser.servers as AnyObject as [QLKServer])
+        serverComboBoxDataSource.setItems(browser.servers)
     }
     
     func serverDidUpdateWorkspaces(server : QLKServer) {
         if serverComboBoxDataSource.getSelectedServer()?.host == server.host {
-            workspaceComboBoxDataSource.setWorkspaces(server.workspaces as AnyObject as [QLKWorkspace])
+            workspaceComboBoxDataSource.setItems(server.workspaces)
         }
     }
     
     @IBAction func onServerChange(sender: NSComboBox) {
         let workspaces = serverComboBoxDataSource.getSelectedServer()?.workspaces ?? []
-        workspaceComboBoxDataSource.setWorkspaces(workspaces as AnyObject as [QLKWorkspace])
+        workspaceComboBoxDataSource.setItems(workspaces)
     }
     @IBAction func onWorkspaceChange(sender: NSComboBox) {
         println(workspaceComboBoxDataSource.getSelectedWorkspace()?.name)

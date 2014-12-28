@@ -103,6 +103,7 @@
 			children = (
 				1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */,
 				1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */,
+				1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -214,6 +215,7 @@
 				1DA02BED1A4A428700F095A6 /* csv_parser.swift in Sources */,
 				1DA02BEE1A4A428700F095A6 /* row_parser.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
+				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
 				1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */,
 				1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */,
 				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
