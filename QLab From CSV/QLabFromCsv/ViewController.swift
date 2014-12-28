@@ -107,22 +107,20 @@ class ViewController: NSViewController, QLKBrowserDelegate {
     }
     
     private func setStateConnecting(connecting : Bool) {
-        // Lock the server/workspace combo boxes if not disconnected.
-        let lockControls = connecting || isConnected
-        serverComboBox.editable = !lockControls
-        workspaceComboBox.editable = !lockControls
-        
-        // If connecting, disable the connect button and show the progress spinner.
+        serverComboBox.enabled = !connecting && !isConnected
+        workspaceComboBox.enabled = !connecting && !isConnected
+        cueListComboBox.enabled = !connecting && isConnected
         connectButton.enabled = !connecting
+        
         cueListProgressAnimation.hidden = !connecting
         
         if (connecting) {
-            // If connecting, start the spinner.
             cueListProgressAnimation.startAnimation(self)
+            
             connectButton.title = "Connecting"
         } else {
-            // Otherwise, stop the spinner.
             cueListProgressAnimation.stopAnimation(self)
+            
             if (isConnected) {
                 connectButton.title = "Disconnect"
             } else {
