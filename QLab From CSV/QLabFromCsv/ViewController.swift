@@ -13,12 +13,26 @@ class ViewController: NSViewController, QLKBrowserDelegate {
     
     @IBOutlet weak var serverComboBox: NSComboBox!
     @IBOutlet weak var workspaceComboBox: NSComboBox!
+    @IBOutlet weak var cueListComboBox: NSComboBox!
+    @IBOutlet weak var cueListProgressAnimation: NSProgressIndicator!
+    @IBOutlet weak var connectButton: NSButton!
     
-    private var serverComboBoxDataSource = ServerComboBoxDataSource()
-    private var workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
-
+    private let serverComboBoxDataSource = ServerComboBoxDataSource()
+    private let workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
+    private let cueListComboBoxDataSource = CueComboBoxDataSource(showNumber: false)
+    
+    private var connectedWorkspace : QLKWorkspace? = nil
+    private var isConnected : Bool {
+        get {
+            return connectedWorkspace != nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "workspaceDidUpdateCues:", name: QLKWorkspaceDidUpdateCuesNotification, object: nil)
         
         let browser = QLKBrowser()
         browser.delegate = self;
@@ -27,6 +41,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         
         serverComboBoxDataSource.bindToComboBox(serverComboBox)
         workspaceComboBoxDataSource.bindToComboBox(workspaceComboBox)
+        cueListComboBoxDataSource.bindToComboBox(cueListComboBox)
     }
 
     override var representedObject: AnyObject? {
@@ -45,11 +60,77 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         }
     }
     
+    func workspaceDidUpdateCues(notification : NSNotification) {
+        setStateConnecting(false)
+        if let workspace = connectedWorkspace {
+            let cueLists = (workspace.root.cues as [AnyObject]).filter({
+                // Exclude fake cue lists (i.e., Active Cues).
+                ($0 as QLKCue).number != nil
+            })
+            cueListComboBoxDataSource.setItems(cueLists)
+        }
+    }
+    
     @IBAction func onServerChange(sender: NSComboBox) {
         let workspaces = serverComboBoxDataSource.getSelectedServer()?.workspaces ?? []
         workspaceComboBoxDataSource.setItems(workspaces)
     }
     @IBAction func onWorkspaceChange(sender: NSComboBox) {
-        println(workspaceComboBoxDataSource.getSelectedWorkspace()?.name)
+        //        connectButton.enabled = isConnected workspaceComboBoxDataSource.getSelectedWorkspace() != nil
+    }
+    
+    @IBAction func onConnectClick(sender: NSButton) {
+        // Already connected to a workspace.
+        if isConnected {
+            // Disconnect from workspace.
+            connectedWorkspace!.disconnect()
+            connectedWorkspace = nil
+            setStateConnecting(false)
+        // Not connected to a workspace
+        } else if let workspace = workspaceComboBoxDataSource.getSelectedWorkspace() {
+            setStateConnecting(true)
+            // Try to connect to the workspace.
+            workspace.connectWithPasscode(nil) {
+                (reply : AnyObject!) in
+                if (reply as? String) == "ok" {
+                    self.connectedWorkspace = workspace
+                    workspace.fetchCueLists()
+                } else {
+                    // If unable to connect, show an error message.
+                    let alert = NSAlert()
+                    alert.addButtonWithTitle("OK")
+                    alert.messageText = "Connection Error"
+                    alert.informativeText = reply as? String
+                    alert.alertStyle = NSAlertStyle.WarningAlertStyle
+                    alert.runModal()
+                    self.setStateConnecting(false)
+                }
+            }
+        }
+    }
+    
+    private func setStateConnecting(connecting : Bool) {
+        // Lock the server/workspace combo boxes if not disconnected.
+        let lockControls = connecting || isConnected
+        serverComboBox.editable = !lockControls
+        workspaceComboBox.editable = !lockControls
+        
+        // If connecting, disable the connect button and show the progress spinner.
+        connectButton.enabled = !connecting
+        cueListProgressAnimation.hidden = !connecting
+        
+        if (connecting) {
+            // If connecting, start the spinner.
+            cueListProgressAnimation.startAnimation(self)
+            connectButton.title = "Connecting"
+        } else {
+            // Otherwise, stop the spinner.
+            cueListProgressAnimation.stopAnimation(self)
+            if (isConnected) {
+                connectButton.title = "Disconnect"
+            } else {
+                connectButton.title = "Connect"
+            }
+        }
     }
 }

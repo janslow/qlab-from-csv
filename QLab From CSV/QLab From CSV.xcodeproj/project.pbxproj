@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */; };
+		1D8F9D831A4F8CCA00F94D55 /* CueComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */; };
 		1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */; };
 		1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */; };
 		1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCE1A4A40D500F095A6 /* ViewController.swift */; };
@@ -31,6 +33,8 @@
 		1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
 		1D2A4C891A46353000903B9C /* row_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = row_parser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxDataSource.swift; sourceTree = "<group>"; };
+		1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkspaceComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1DA02BC81A4A40D500F095A6 /* QLabFromCsv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLabFromCsv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA02BCB1A4A40D500F095A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */,
 				1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */,
 				1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */,
+				1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				1DA02BEA1A4A428700F095A6 /* group_cue.swift in Sources */,
 				1DA02BEB1A4A428700F095A6 /* start_cue.swift in Sources */,
 				1DA02BEC1A4A428700F095A6 /* lx_go_cue.swift in Sources */,
+				1D8F9D831A4F8CCA00F94D55 /* CueComboBoxDataSource.swift in Sources */,
 				1DA02BED1A4A428700F095A6 /* csv_parser.swift in Sources */,
 				1DA02BEE1A4A428700F095A6 /* row_parser.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,

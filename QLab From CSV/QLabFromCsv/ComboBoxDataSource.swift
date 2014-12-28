@@ -28,7 +28,7 @@ class ComboBoxDataSource : NSObject, NSComboBoxDataSource {
     }
     
     func comboBox(aComboBox: NSComboBox, objectValueForItemAtIndex index: Int) -> AnyObject {
-        let item = _items[index]
+        let item : AnyObject = _items[index]
         return itemToString(item)
     }
     
