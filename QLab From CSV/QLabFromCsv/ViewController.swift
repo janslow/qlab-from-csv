@@ -75,9 +75,6 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         let workspaces = serverComboBoxDataSource.getSelectedServer()?.workspaces ?? []
         workspaceComboBoxDataSource.setItems(workspaces)
     }
-    @IBAction func onWorkspaceChange(sender: NSComboBox) {
-        //        connectButton.enabled = isConnected workspaceComboBoxDataSource.getSelectedWorkspace() != nil
-    }
     
     @IBAction func onConnectClick(sender: NSButton) {
         // Already connected to a workspace.
