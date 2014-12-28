@@ -14,12 +14,12 @@
 		1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCE1A4A40D500F095A6 /* ViewController.swift */; };
 		1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD01A4A40D500F095A6 /* Images.xcassets */; };
 		1DA02BD41A4A40D500F095A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD21A4A40D500F095A6 /* Main.storyboard */; };
-		1DA02BE91A4A428700F095A6 /* cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* cue.swift */; };
-		1DA02BEA1A4A428700F095A6 /* group_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */; };
-		1DA02BEB1A4A428700F095A6 /* start_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* start_cue.swift */; };
-		1DA02BEC1A4A428700F095A6 /* lx_go_cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */; };
-		1DA02BED1A4A428700F095A6 /* csv_parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */; };
-		1DA02BEE1A4A428700F095A6 /* row_parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A4C891A46353000903B9C /* row_parser.swift */; };
+		1DA02BE91A4A428700F095A6 /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* Cue.swift */; };
+		1DA02BEA1A4A428700F095A6 /* GroupCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */; };
+		1DA02BEB1A4A428700F095A6 /* StartCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* StartCue.swift */; };
+		1DA02BEC1A4A428700F095A6 /* LxGoCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */; };
+		1DA02BED1A4A428700F095A6 /* CsvParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA21A4506FF001C7FE8 /* CsvParser.swift */; };
+		1DA02BEE1A4A428700F095A6 /* RowParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A4C891A46353000903B9C /* RowParser.swift */; };
 		1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193341A478611000A9F53 /* QLabKitImport.m */; };
 		1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2A4CC01A477F6F00903B9C /* Security.framework */; };
 		1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */; };
@@ -31,7 +31,7 @@
 		1D0193331A478610000A9F53 /* QLabFromCsv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QLabFromCsv-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D0193341A478611000A9F53 /* QLabKitImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLabKitImport.m; sourceTree = "<group>"; };
 		1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
-		1D2A4C891A46353000903B9C /* row_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = row_parser.swift; sourceTree = "<group>"; };
+		1D2A4C891A46353000903B9C /* RowParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowParser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueComboBoxDataSource.swift; sourceTree = "<group>"; };
@@ -46,11 +46,11 @@
 		1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLabKitImport.h; sourceTree = "<group>"; };
 		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
-		1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv_parser.swift; sourceTree = "<group>"; };
-		1DE11CA41A459FEE001C7FE8 /* cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cue.swift; sourceTree = "<group>"; };
-		1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = group_cue.swift; sourceTree = "<group>"; };
-		1DE11CA91A45A268001C7FE8 /* start_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = start_cue.swift; sourceTree = "<group>"; };
-		1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lx_go_cue.swift; sourceTree = "<group>"; };
+		1DE11CA21A4506FF001C7FE8 /* CsvParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvParser.swift; sourceTree = "<group>"; };
+		1DE11CA41A459FEE001C7FE8 /* Cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cue.swift; sourceTree = "<group>"; };
+		1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCue.swift; sourceTree = "<group>"; };
+		1DE11CA91A45A268001C7FE8 /* StartCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCue.swift; sourceTree = "<group>"; };
+		1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxGoCue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +67,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D8F9D841A4F90CB00F94D55 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				1DE11CA21A4506FF001C7FE8 /* CsvParser.swift */,
+				1D2A4C891A46353000903B9C /* RowParser.swift */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
 		1DA02BC91A4A40D500F095A6 /* QLabFromCsv */ = {
 			isa = PBXGroup;
 			children = (
-				1DE11CA81A45A0C5001C7FE8 /* cues */,
-				1DE11CA21A4506FF001C7FE8 /* csv_parser.swift */,
-				1D2A4C891A46353000903B9C /* row_parser.swift */,
+				1D8F9D841A4F90CB00F94D55 /* Parsers */,
+				1DE11CA81A45A0C5001C7FE8 /* Cues */,
+				1DAC45AC1A4DABDE004ED504 /* DataSources */,
 				1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */,
 				1D0193341A478611000A9F53 /* QLabKitImport.m */,
 				1D0193331A478610000A9F53 /* QLabFromCsv-Bridging-Header.h */,
@@ -94,7 +103,6 @@
 		1DA02BE81A4A427300F095A6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1DAC45AC1A4DABDE004ED504 /* model */,
 				1DA02BD01A4A40D500F095A6 /* Images.xcassets */,
 				1DA02BD21A4A40D500F095A6 /* Main.storyboard */,
 				1DA02BCA1A4A40D500F095A6 /* Supporting Files */,
@@ -102,7 +110,7 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
-		1DAC45AC1A4DABDE004ED504 /* model */ = {
+		1DAC45AC1A4DABDE004ED504 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
 				1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */,
@@ -110,7 +118,7 @@
 				1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */,
 				1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */,
 			);
-			name = model;
+			name = DataSources;
 			sourceTree = "<group>";
 		};
 		1DE11C8E1A44EB24001C7FE8 = {
@@ -133,14 +141,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1DE11CA81A45A0C5001C7FE8 /* cues */ = {
+		1DE11CA81A45A0C5001C7FE8 /* Cues */ = {
 			isa = PBXGroup;
 			children = (
-				1DE11CA41A459FEE001C7FE8 /* cue.swift */,
-				1DE11CA61A45A0BB001C7FE8 /* group_cue.swift */,
-				1DE11CA91A45A268001C7FE8 /* start_cue.swift */,
-				1DE11CAB1A45A9E8001C7FE8 /* lx_go_cue.swift */,
+				1DE11CA41A459FEE001C7FE8 /* Cue.swift */,
+				1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */,
+				1DE11CA91A45A268001C7FE8 /* StartCue.swift */,
+				1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */,
 			);
+			name = Cues;
 			path = cues;
 			sourceTree = "<group>";
 		};
@@ -213,13 +222,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DA02BE91A4A428700F095A6 /* cue.swift in Sources */,
-				1DA02BEA1A4A428700F095A6 /* group_cue.swift in Sources */,
-				1DA02BEB1A4A428700F095A6 /* start_cue.swift in Sources */,
-				1DA02BEC1A4A428700F095A6 /* lx_go_cue.swift in Sources */,
+				1DA02BE91A4A428700F095A6 /* Cue.swift in Sources */,
+				1DA02BEA1A4A428700F095A6 /* GroupCue.swift in Sources */,
+				1DA02BEB1A4A428700F095A6 /* StartCue.swift in Sources */,
+				1DA02BEC1A4A428700F095A6 /* LxGoCue.swift in Sources */,
 				1D8F9D831A4F8CCA00F94D55 /* CueComboBoxDataSource.swift in Sources */,
-				1DA02BED1A4A428700F095A6 /* csv_parser.swift in Sources */,
-				1DA02BEE1A4A428700F095A6 /* row_parser.swift in Sources */,
+				1DA02BED1A4A428700F095A6 /* CsvParser.swift in Sources */,
+				1DA02BEE1A4A428700F095A6 /* RowParser.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
 				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
 				1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */,
