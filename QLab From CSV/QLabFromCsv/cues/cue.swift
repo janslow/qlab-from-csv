@@ -13,5 +13,4 @@ protocol Cue : Printable {
     var cueName : String { get }
     var description : String { get }
     var preWait : Float { get set }
-    func create()
 }

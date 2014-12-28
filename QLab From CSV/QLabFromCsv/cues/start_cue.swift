@@ -25,8 +25,4 @@ class StartCue : Cue {
         self.targetNumber = targetNumber
         self.preWait = preWait
     }
-    
-    func create() {
-        // TODO
-    }
 }

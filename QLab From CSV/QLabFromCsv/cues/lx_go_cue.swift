@@ -25,7 +25,4 @@ class LxGoCue : Cue {
         self.lxNumber = lxNumber
         self.preWait = preWait
     }
-    func create() {
-        // TODO
-    }
 }

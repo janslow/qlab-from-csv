@@ -40,9 +40,6 @@ class GroupCue : Cue, Comparable {
         self.page = page
         self.children = children
     }
-    func create() {
-        // TODO
-    }
     
     private func getChildrenDescription() -> String {
         var names : String = ""
