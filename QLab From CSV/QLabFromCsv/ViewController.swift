@@ -16,6 +16,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
     @IBOutlet weak var cueListComboBox: NSComboBox!
     @IBOutlet weak var cueListProgressAnimation: NSProgressIndicator!
     @IBOutlet weak var connectButton: NSButton!
+    @IBOutlet weak var inputFileTextField: NSTextFieldCell!
     
     private let serverComboBoxDataSource = ServerComboBoxDataSource()
     private let workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
@@ -103,6 +104,17 @@ class ViewController: NSViewController, QLKBrowserDelegate {
                     self.setStateConnecting(false)
                 }
             }
+        }
+    }
+    @IBAction func onInputFileBrowseClick(sender: NSButton) {
+        let dialog = NSOpenPanel()
+        dialog.canChooseFiles = true
+        dialog.canChooseDirectories = false
+        dialog.allowsMultipleSelection = false
+        
+        if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
+            let fileUrl = dialog.URLs[0] as NSURL
+            inputFileTextField.stringValue = fileUrl.lastPathComponent ?? fileUrl.path ?? "#UNKNOWN#"
         }
     }
     

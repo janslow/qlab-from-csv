@@ -682,7 +682,7 @@
                             </textField>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vVa-8C-Uar" userLabel="Server Combo Box">
                                 <rect key="frame" x="107" y="384" width="330" height="26"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a computer running QLab" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="r8y-zE-7hv">
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a computer running QLab" bezelStyle="round" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="r8y-zE-7hv">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -701,7 +701,7 @@
                             </textField>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZk-6C-BAK" userLabel="Workspace Combo Box">
                                 <rect key="frame" x="107" y="355" width="330" height="26"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a workspace on the specified server" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="i0Q-7B-t2D">
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a workspace on the specified server" bezelStyle="round" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="i0Q-7B-t2D">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -717,14 +717,14 @@
                             </textField>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-jU-DZr" userLabel="Cue List Combo Box">
                                 <rect key="frame" x="107" y="326" width="330" height="26"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a cue list in the specified workspace" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="S45-QM-hNY">
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a cue list in the specified workspace" bezelStyle="round" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="S45-QM-hNY">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
                             </comboBox>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qQq-2S-EK6" userLabel="Connect Button">
-                                <rect key="frame" x="436" y="352" width="116" height="32"/>
+                                <rect key="frame" x="436" y="351" width="116" height="32"/>
                                 <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="El4-sX-F4E">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -736,12 +736,39 @@
                             <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="laD-mu-DI0">
                                 <rect key="frame" x="442" y="390" width="16" height="16"/>
                             </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ff-9N-ENa" userLabel="Input File Label">
+                                <rect key="frame" x="15" y="303" width="86" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Input File" id="lXe-3o-iO3">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-qL-Rdj" userLabel="Input File Text Field">
+                                <rect key="frame" x="107" y="300" width="327" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" bezelStyle="round" id="QzP-H8-ctQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-Yp-Ved" userLabel="Input File Browse Button">
+                                <rect key="frame" x="436" y="294" width="116" height="32"/>
+                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F1N-OR-PgE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onInputFileBrowseClick:" target="XfG-lQ-9wD" id="NfL-6r-PY5"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="connectButton" destination="qQq-2S-EK6" id="y3z-cn-68d"/>
                         <outlet property="cueListComboBox" destination="eyv-jU-DZr" id="GDa-xI-5hH"/>
                         <outlet property="cueListProgressAnimation" destination="laD-mu-DI0" id="b9J-IL-uZr"/>
+                        <outlet property="inputFileTextField" destination="QzP-H8-ctQ" id="TJB-Rm-LoD"/>
                         <outlet property="serverComboBox" destination="vVa-8C-Uar" id="e1w-wY-gzV"/>
                         <outlet property="workspaceComboBox" destination="LZk-6C-BAK" id="apP-SV-1Hm"/>
                     </connections>
