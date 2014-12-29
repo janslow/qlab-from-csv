@@ -11,8 +11,11 @@ import Foundation
 class CueQLabConnector {
     private let _workspace : QLKWorkspace
     
+    private let _groupCueConnector : GroupCueQLabConnector
+    
     init(workspace : QLKWorkspace) {
         _workspace = workspace
+        _groupCueConnector = GroupCueQLabConnector(workspace: workspace)
     }
     func appendCues(var cues : [Cue], completion : () -> ()) {
         if cues.isEmpty {
@@ -26,12 +29,10 @@ class CueQLabConnector {
         }
     }
     func appendCue(cue : Cue, completion : () -> ()) {
-        // TODO: Handle cues correctly
-        _workspace.sendMessage("group", toAddress:"/new", block: {
-            (data : AnyObject!) in
-            let uid = data as String
-            println("Created cue with UID=\(uid)")
-            completion()
-        })
+        if (cue is GroupCue) {
+            _groupCueConnector.appendCue(cue as GroupCue, completion: completion)
+        } else {
+            println("Unknown cue type \(cue)")
+        }
     }
 }
