@@ -13,13 +13,6 @@ import Foundation
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let csvParser = CsvParser.csv()
-        let csvPath = "/Users/janslow/dev/qlab_from_csv/sample_cues.csv"
-        let csv = csvParser.parseFromFile(csvPath)!
-        
-        let rowParser = RowParser()
-        let cues = rowParser.load(csv.rows)
-        println(cues)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
