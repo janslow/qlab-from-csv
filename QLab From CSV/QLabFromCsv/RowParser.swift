@@ -9,7 +9,7 @@
 import Foundation
 
 class RowParser {
-    func load(rows : [Dictionary<String, String>]) -> [GroupCue] {
+    func load(rows : [Dictionary<String, String>]) -> [Cue] {
         // Set up categories of sub-cues and the closures to create the sub-cues.
         let subCueCategories : Dictionary<String, ([String], Float) -> Cue> = [
             "LX" : {
@@ -34,7 +34,9 @@ class RowParser {
             .map({ $0! })
         // Sort the cues by cue number.
         cues.sort({ $0 < $1 })
-        return cues
+        return cues.map({
+            $0 as Cue
+        })
     }
     func convertRowToCue(row : Dictionary<String, String>, subCueCategories : Dictionary<String, ([String], Float) -> Cue>) -> GroupCue? {
         // Each row must have a QLab value.
