@@ -15,14 +15,15 @@ class CueQLabConnector {
         _workspace = workspace
     }
     func appendCues(var cues : [Cue], completion : () -> ()) {
-        if (cues.isEmpty) {
+        if cues.isEmpty {
             completion()
+        } else {
+            var nextCue = cues.removeAtIndex(0)
+            appendCue(nextCue, {
+                println("Created \(nextCue)")
+                self.appendCues(cues, completion)
+            })
         }
-        var remainingCues = cues
-        var nextCue = cues.removeAtIndex(0)
-        appendCue(nextCue, {
-            self.appendCues(remainingCues, completion)
-        })
     }
     func appendCue(cue : Cue, completion : () -> ()) {
         // TODO: Handle cues correctly
