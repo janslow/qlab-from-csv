@@ -25,6 +25,7 @@
 		1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */; };
 		1DAC45B01A4DC570004ED504 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAC45AF1A4DC570004ED504 /* AppKit.framework */; };
 		1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */; };
+		1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCue.swift; sourceTree = "<group>"; };
 		1DE11CA91A45A268001C7FE8 /* StartCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCue.swift; sourceTree = "<group>"; };
 		1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxGoCue.swift; sourceTree = "<group>"; };
+		1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CueQLabConnector.swift; path = CueCreators/CueQLabConnector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		1DA02BC91A4A40D500F095A6 /* QLabFromCsv */ = {
 			isa = PBXGroup;
 			children = (
+				1DEAF4C41A507C6F00BA7FD3 /* QLabConnector */,
 				1D8F9D841A4F90CB00F94D55 /* Parsers */,
 				1DE11CA81A45A0C5001C7FE8 /* Cues */,
 				1DAC45AC1A4DABDE004ED504 /* DataSources */,
@@ -151,6 +154,14 @@
 			);
 			name = Cues;
 			path = cues;
+			sourceTree = "<group>";
+		};
+		1DEAF4C41A507C6F00BA7FD3 /* QLabConnector */ = {
+			isa = PBXGroup;
+			children = (
+				1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */,
+			);
+			name = QLabConnector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 				1DA02BED1A4A428700F095A6 /* CsvParser.swift in Sources */,
 				1DA02BEE1A4A428700F095A6 /* RowParser.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
+				1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */,
 				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
 				1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */,
 				1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */,

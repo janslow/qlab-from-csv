@@ -762,9 +762,20 @@
                                     <action selector="onInputFileBrowseClick:" target="XfG-lQ-9wD" id="NfL-6r-PY5"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNN-9Q-jiL" userLabel="Append Button">
+                                <rect key="frame" x="101" y="261" width="116" height="32"/>
+                                <buttonCell key="cell" type="push" title="Append" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Z5-2i-vt5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onAppendClick:" target="XfG-lQ-9wD" id="Y2c-dq-hbp"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="appendButton" destination="RNN-9Q-jiL" id="eVZ-05-QEH"/>
                         <outlet property="connectButton" destination="qQq-2S-EK6" id="y3z-cn-68d"/>
                         <outlet property="cueListComboBox" destination="eyv-jU-DZr" id="GDa-xI-5hH"/>
                         <outlet property="cueListProgressAnimation" destination="laD-mu-DI0" id="b9J-IL-uZr"/>

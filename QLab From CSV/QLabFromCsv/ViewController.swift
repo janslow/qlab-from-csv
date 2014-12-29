@@ -16,11 +16,14 @@ class ViewController: NSViewController, QLKBrowserDelegate {
     @IBOutlet weak var cueListComboBox: NSComboBox!
     @IBOutlet weak var cueListProgressAnimation: NSProgressIndicator!
     @IBOutlet weak var connectButton: NSButton!
+    @IBOutlet weak var appendButton: NSButton!
     @IBOutlet weak var inputFileTextField: NSTextFieldCell!
     
     private let serverComboBoxDataSource = ServerComboBoxDataSource()
     private let workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
     private let cueListComboBoxDataSource = CueComboBoxDataSource(showNumber: false)
+    private let csvParser = CsvParser.csv()
+    private let rowParser = RowParser()
     
     private var selectedCsv : NSURL? = nil
     private var connectedWorkspace : QLKWorkspace? = nil
@@ -93,6 +96,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
                 (reply : AnyObject!) in
                 if (reply as? String) == "ok" {
                     self.connectedWorkspace = workspace
+                    workspace.enableAlwaysReply()
                     workspace.fetchCueLists()
                 } else {
                     // If unable to connect, show an error message.
@@ -118,12 +122,33 @@ class ViewController: NSViewController, QLKBrowserDelegate {
             inputFileTextField.stringValue = selectedCsv?.lastPathComponent ?? selectedCsv?.path ?? "#UNKNOWN#"
         }
     }
+    @IBAction func onAppendClick(sender: NSButton) {
+        if let workspace : QLKWorkspace = connectedWorkspace {
+            if let csvPath = selectedCsv?.path {
+                if let csv = csvParser.parseFromFile(csvPath) {
+                    let cues = rowParser.load(csv.rows)
+                    
+                    let connector = CueQLabConnector(workspace: workspace)
+                    connector.appendCues(cues) {
+                        println("Created all cues")
+                    }
+                } else {
+                    println("Unable to read input file")
+                }
+            } else {
+                println("No input file")
+            }
+        } else {
+            println("Not connected")
+        }
+    }
     
     private func setStateConnecting(connecting : Bool) {
         serverComboBox.enabled = !connecting && !isConnected
         workspaceComboBox.enabled = !connecting && !isConnected
         cueListComboBox.enabled = !connecting && isConnected
         connectButton.enabled = !connecting
+        appendButton.enabled = !connecting && isConnected
         
         cueListProgressAnimation.hidden = !connecting
         
