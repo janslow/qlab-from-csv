@@ -30,7 +30,7 @@ class CueComboBoxDataSource : ComboBoxDataSource {
         }
     }
     
-    func getSelectedWorkspace() -> QLKWorkspace? {
-        return getSelectedItem() as? QLKWorkspace
+    func getSelectedCue() -> QLKCue? {
+        return getSelectedItem() as? QLKCue
     }
 }
