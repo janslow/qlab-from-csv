@@ -22,6 +22,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
     private let workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
     private let cueListComboBoxDataSource = CueComboBoxDataSource(showNumber: false)
     
+    private var selectedCsv : NSURL? = nil
     private var connectedWorkspace : QLKWorkspace? = nil
     private var isConnected : Bool {
         get {
@@ -113,8 +114,8 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         dialog.allowsMultipleSelection = false
         
         if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
-            let fileUrl = dialog.URLs[0] as NSURL
-            inputFileTextField.stringValue = fileUrl.lastPathComponent ?? fileUrl.path ?? "#UNKNOWN#"
+            selectedCsv = dialog.URLs[0] as? NSURL
+            inputFileTextField.stringValue = selectedCsv?.lastPathComponent ?? selectedCsv?.path ?? "#UNKNOWN#"
         }
     }
     
