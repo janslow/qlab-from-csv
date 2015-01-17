@@ -39,6 +39,9 @@ class ComboBoxDataSource : NSObject, NSComboBoxDataSource {
     func setItems(items : [AnyObject]) {
         _items = items
         _comboBox?.noteNumberOfItemsChanged()
+        if _items.count > 0 && (_comboBox?.indexOfSelectedItem) == -1 {
+            _comboBox?.selectItemAtIndex(0);
+        }
     }
     
     func numberOfItemsInComboBox(aComboBox : NSComboBox) -> Int {
