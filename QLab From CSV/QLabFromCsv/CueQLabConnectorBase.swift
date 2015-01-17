@@ -10,7 +10,7 @@
 import Foundation
 
 class CueQLabConnectorBase {
-    private let _workspace : QLKWorkspace
+    internal let _workspace : QLKWorkspace
     
     internal init(workspace : QLKWorkspace) {
         _workspace = workspace
