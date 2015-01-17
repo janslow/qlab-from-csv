@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LxGoCue : Cue {
+class LxGoCue : OscUdpCue {
     var cueNumber : String? {
         return nil
     }
@@ -20,6 +20,9 @@ class LxGoCue : Cue {
     }
     var preWait : Float
     var lxNumber : String
+    var udpString : String {
+        return "Cue 0 \(lxNumber)"
+    }
     
     init(lxNumber : String, preWait : Float) {
         self.lxNumber = lxNumber
