@@ -15,10 +15,14 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
         super.init(workspace: workspace)
     }
     
-    func appendCue(cue : GroupCue, completion : () -> ()) {
+    func appendCue(cue : GroupCue, completion : (uid : String) -> ()) {
         createCue("group", cue: cue as Cue) {
             (uid : String) in
-            self.cueConnector!.appendCues(cue.children, completion)
+            self.cueConnector!.appendCues(cue.children) {
+                (uids : [String]) in
+                println("Created children for \(cue) : (\(uids))")
+                completion(uid: uid)
+            }
         }
     }
 }

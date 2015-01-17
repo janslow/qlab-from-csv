@@ -22,25 +22,28 @@ class CueQLabConnector {
         
         _groupCueConnector.cueConnector = self
     }
-    func appendCues(var cues : [Cue], completion : () -> ()) {
+    func appendCues(var cues : [Cue], completion : (uids : [String]) -> ()) {
         if cues.isEmpty {
-            completion()
+            completion(uids: [])
         } else {
             var nextCue = cues.removeAtIndex(0)
-            appendCue(nextCue, {
+            appendCue(nextCue) {
+                (uid : String) in
                 println("Created \(nextCue)")
-                self.appendCues(cues, completion)
-            })
+                self.appendCues(cues) {
+                    (uids : [String]) in
+                    completion(uids: [uid] + uids)
+                }
+            }
         }
     }
-    func appendCue(cue : Cue, completion : () -> ()) {
+    func appendCue(cue : Cue, completion : (uid : String) -> ()) {
         if (cue is GroupCue) {
             _groupCueConnector.appendCue(cue as GroupCue, completion: completion)
         } else if (cue is StartCue) {
             _startCueConnector.appendCue(cue as StartCue, completion: completion)
         } else {
             println("Unknown cue type for \(cue)")
-            completion();
         }
     }
 }

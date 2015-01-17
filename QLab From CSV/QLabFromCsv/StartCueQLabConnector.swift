@@ -12,10 +12,10 @@ class StartCueQLabConnector : CueQLabConnectorBase {
     override init(workspace : QLKWorkspace) {
         super.init(workspace: workspace)
     }
-    func appendCue(cue : StartCue, completion : () -> ()) {
+    func appendCue(cue : StartCue, completion : (uid : String) -> ()) {
         createCue("start", cue: cue as Cue) {
             (uid : String) in
-            completion()
+                    completion(uid: uid)
         }
     }
 }

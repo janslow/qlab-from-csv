@@ -130,7 +130,8 @@ class ViewController: NSViewController, QLKBrowserDelegate {
                     
                     let connector = CueQLabConnector(workspace: workspace)
                     connector.appendCues(cues) {
-                        println("Created all cues")
+                        (uids : [String]) in
+                        println("Created all \(uids.count) cues : (\(uids))")
                     }
                 } else {
                     println("Unable to read input file")
