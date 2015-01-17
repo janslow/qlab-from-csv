@@ -12,11 +12,11 @@ import Foundation
 class CueQLabConnectorBase {
     private let _workspace : QLKWorkspace
     
-    init(workspace : QLKWorkspace) {
+    internal init(workspace : QLKWorkspace) {
         _workspace = workspace
     }
     
-    private func createCue(cueType : String, cue : Cue, completion : (uid : String) -> ()) {
+    internal func createCue(cueType : String, cue : Cue, completion : (uid : String) -> ()) {
         _workspace.sendMessage(cueType, toAddress:"/new", block: {
             (data : AnyObject!) in
             let uid = data as String
