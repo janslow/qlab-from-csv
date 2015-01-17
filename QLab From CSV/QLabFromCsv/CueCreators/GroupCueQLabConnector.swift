@@ -9,13 +9,16 @@
 import Foundation
 
 class GroupCueQLabConnector : CueQLabConnectorBase {
+    internal var cueConnector : CueQLabConnector?
+    
     override init(workspace : QLKWorkspace) {
         super.init(workspace: workspace)
     }
+    
     func appendCue(cue : GroupCue, completion : () -> ()) {
         createCue("group", cue: cue as Cue) {
             (uid : String) in
-            completion()
+            self.cueConnector!.appendCues(cue.children, completion)
         }
     }
 }

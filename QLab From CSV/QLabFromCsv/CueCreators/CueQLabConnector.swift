@@ -16,6 +16,8 @@ class CueQLabConnector {
     init(workspace : QLKWorkspace) {
         _workspace = workspace
         _groupCueConnector = GroupCueQLabConnector(workspace: workspace)
+        
+        _groupCueConnector.cueConnector = self
     }
     func appendCues(var cues : [Cue], completion : () -> ()) {
         if cues.isEmpty {
