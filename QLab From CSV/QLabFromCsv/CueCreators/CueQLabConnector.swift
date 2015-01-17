@@ -34,7 +34,8 @@ class CueQLabConnector {
         if (cue is GroupCue) {
             _groupCueConnector.appendCue(cue as GroupCue, completion: completion)
         } else {
-            println("Unknown cue type \(cue)")
+            println("Unknown cue type for \(cue)")
+            completion();
         }
     }
 }
