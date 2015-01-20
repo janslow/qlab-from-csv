@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Figure53">
+      <FileRef
+         location = "group:QLabKit.objc/QLabKit.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:QLabKitLibrary/QLabKitLibrary.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:QLab From CSV"
+      name = "QLabFromCsv">
+      <FileRef
+         location = "group:QLab From CSV.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>
