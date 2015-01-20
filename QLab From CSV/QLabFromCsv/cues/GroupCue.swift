@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GroupCue : Cue, Comparable {
+class GroupCue : Cue, Comparable, Printable {
     var cueNumber : String?
     var cueName : String {
         var name = ""

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StartCue : Cue {
+class StartCue : Cue, Printable {
     var cueNumber : String? {
         return nil
     }
