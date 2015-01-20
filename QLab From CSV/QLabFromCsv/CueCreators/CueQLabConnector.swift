@@ -13,12 +13,14 @@ class CueQLabConnector {
     
     private let _groupCueConnector : GroupCueQLabConnector
     private let _startCueConnector : StartCueQLabConnector
+    private let _oscUdpCueConnector : OscUdpCueQLabConnector
     
     init(workspace : QLKWorkspace) {
         _workspace = workspace
         
         _groupCueConnector = GroupCueQLabConnector(workspace: workspace)
         _startCueConnector = StartCueQLabConnector(workspace: workspace)
+        _oscUdpCueConnector = OscUdpCueQLabConnector(workspace : workspace)
         
         _groupCueConnector.cueConnector = self
     }
@@ -42,6 +44,8 @@ class CueQLabConnector {
             _groupCueConnector.appendCue(cue as GroupCue, completion: completion)
         } else if (cue is StartCue) {
             _startCueConnector.appendCue(cue as StartCue, completion: completion)
+        } else if (cue is OscUdpCue) {
+            _oscUdpCueConnector.appendCue(cue as OscUdpCue, completion: completion)
         } else {
             println("Unknown cue type for \(cue)")
         }
