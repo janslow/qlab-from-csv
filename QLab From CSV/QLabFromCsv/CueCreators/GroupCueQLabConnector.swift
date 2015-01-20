@@ -16,13 +16,32 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
     }
     
     func appendCue(cue : GroupCue, completion : (uid : String) -> ()) {
-        createCue("group", cue: cue as Cue) {
-            (uid : String) in
-            self.cueConnector!.appendCues(cue.children) {
-                (uids : [String]) in
-                println("Created children for \(cue) : (\(uids))")
-                completion(uid: uid)
+        appendChildren(cue.children) {
+            (uids : [String]) in
+            self.selectCues(uids) {
+                self.createCue("group", cue: cue as Cue) {
+                    (uid : String) in
+                    completion(uid: uid)
+                }
             }
+        }
+        
+    }
+    
+    private func appendChildren(children : [Cue], completion : (uids : [String]) -> ()) {
+        cueConnector!.appendCues(children) {
+            (uids : [String]) in
+            println("Created children: \(uids)")
+            completion(uids: uids)
+        }
+    }
+    
+    private func selectCues(uids : [String], completion : () -> ()) {
+        let uidsString = ",".join(uids)
+        self._workspace.sendMessage(nil, toAddress:"/select_id/\(uidsString)") {
+            (data : AnyObject!) in
+            println("SELECT WHERE cue.uid IN \(uids) RESPONSE \(data)")
+            completion()
         }
     }
 }
