@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D0193931A4789B4000A9F53 /* QLabKitLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193921A4789B4000A9F53 /* QLabKitLibrary.h */; };
+		1D0193DD1A4789DF000A9F53 /* F53OSC.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193AA1A4789DF000A9F53 /* F53OSC.h */; };
+		1D0193DE1A4789DF000A9F53 /* F53OSCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193AB1A4789DF000A9F53 /* F53OSCBundle.h */; };
+		1D0193E01A4789DF000A9F53 /* F53OSCClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193AD1A4789DF000A9F53 /* F53OSCClient.h */; };
+		1D0193E31A4789DF000A9F53 /* F53OSCMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193B01A4789DF000A9F53 /* F53OSCMessage.h */; };
+		1D0193E51A4789DF000A9F53 /* F53OSCPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193B21A4789DF000A9F53 /* F53OSCPacket.h */; };
+		1D0193E71A4789DF000A9F53 /* F53OSCParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193B41A4789DF000A9F53 /* F53OSCParser.h */; };
+		1D0193E91A4789DF000A9F53 /* F53OSCProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193B61A4789DF000A9F53 /* F53OSCProtocols.h */; };
+		1D0193EA1A4789DF000A9F53 /* F53OSCServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193B71A4789DF000A9F53 /* F53OSCServer.h */; };
+		1D0193EC1A4789DF000A9F53 /* F53OSCSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193B91A4789DF000A9F53 /* F53OSCSocket.h */; };
+		1D0193EE1A4789DF000A9F53 /* F53OSCTimeTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193BB1A4789DF000A9F53 /* F53OSCTimeTag.h */; };
+		1D0193F01A4789DF000A9F53 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193BD1A4789DF000A9F53 /* GCDAsyncSocket.h */; };
+		1D0193F21A4789DF000A9F53 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193BF1A4789DF000A9F53 /* GCDAsyncUdpSocket.h */; };
+		1D0193F41A4789DF000A9F53 /* NSData+F53OSCBlob.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193C21A4789DF000A9F53 /* NSData+F53OSCBlob.h */; };
+		1D0193F61A4789DF000A9F53 /* NSDate+F53OSCTimeTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193C41A4789DF000A9F53 /* NSDate+F53OSCTimeTag.h */; };
+		1D0193F81A4789DF000A9F53 /* NSNumber+F53OSCNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193C61A4789DF000A9F53 /* NSNumber+F53OSCNumber.h */; };
+		1D0193FA1A4789DF000A9F53 /* NSString+F53OSCString.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193C81A4789DF000A9F53 /* NSString+F53OSCString.h */; };
+		1D0193FD1A4789DF000A9F53 /* QLabKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193CB1A4789DF000A9F53 /* QLabKit.h */; };
+		1D0193FE1A4789DF000A9F53 /* QLKBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193CC1A4789DF000A9F53 /* QLKBrowser.h */; };
+		1D0194001A4789DF000A9F53 /* QLKClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193CE1A4789DF000A9F53 /* QLKClient.h */; };
+		1D0194021A4789DF000A9F53 /* QLKColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193D01A4789DF000A9F53 /* QLKColor.h */; };
+		1D0194041A4789DF000A9F53 /* QLKCue_private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193D21A4789DF000A9F53 /* QLKCue_private.h */; };
+		1D0194051A4789DF000A9F53 /* QLKCue.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193D31A4789DF000A9F53 /* QLKCue.h */; };
+		1D0194071A4789DF000A9F53 /* QLKDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193D51A4789DF000A9F53 /* QLKDefines.h */; };
+		1D0194091A4789DF000A9F53 /* QLKMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193D71A4789DF000A9F53 /* QLKMessage.h */; };
+		1D01940B1A4789DF000A9F53 /* QLKServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193D91A4789DF000A9F53 /* QLKServer.h */; };
+		1D01940D1A4789DF000A9F53 /* QLKWorkspace.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D0193DB1A4789DF000A9F53 /* QLKWorkspace.h */; };
+		1D0194121A478B42000A9F53 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194111A478B42000A9F53 /* Security.framework */; };
+		1D0194151A4792F8000A9F53 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194141A4792F8000A9F53 /* Cocoa.framework */; };
+		1DDD5F921A48EC2700F52C40 /* F53OSCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193AC1A4789DF000A9F53 /* F53OSCBundle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F931A48EC2700F52C40 /* F53OSCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193AE1A4789DF000A9F53 /* F53OSCClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F941A48EC2700F52C40 /* F53OSCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193B11A4789DF000A9F53 /* F53OSCMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F951A48EC2700F52C40 /* F53OSCPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193B31A4789DF000A9F53 /* F53OSCPacket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F961A48EC2700F52C40 /* F53OSCParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193B51A4789DF000A9F53 /* F53OSCParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F971A48EC2700F52C40 /* F53OSCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193B81A4789DF000A9F53 /* F53OSCServer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F981A48EC2700F52C40 /* F53OSCSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193BA1A4789DF000A9F53 /* F53OSCSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F991A48EC2700F52C40 /* F53OSCTimeTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193BC1A4789DF000A9F53 /* F53OSCTimeTag.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F9C1A48EC2700F52C40 /* NSData+F53OSCBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193C31A4789DF000A9F53 /* NSData+F53OSCBlob.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F9D1A48EC2700F52C40 /* NSDate+F53OSCTimeTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193C51A4789DF000A9F53 /* NSDate+F53OSCTimeTag.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F9E1A48EC2700F52C40 /* NSNumber+F53OSCNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193C71A4789DF000A9F53 /* NSNumber+F53OSCNumber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5F9F1A48EC2700F52C40 /* NSString+F53OSCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193C91A4789DF000A9F53 /* NSString+F53OSCString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1DDD5FA11A48EEFA00F52C40 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193BE1A4789DF000A9F53 /* GCDAsyncSocket.m */; };
+		1DDD5FA21A48EEFA00F52C40 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193C01A4789DF000A9F53 /* GCDAsyncUdpSocket.m */; };
+		1DE14E5D1A48BF59008E45EB /* QLKBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193CD1A4789DF000A9F53 /* QLKBrowser.m */; };
+		1DE14E5E1A48BF59008E45EB /* QLKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193CF1A4789DF000A9F53 /* QLKClient.m */; };
+		1DE14E5F1A48BF59008E45EB /* QLKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193D11A4789DF000A9F53 /* QLKColor.m */; };
+		1DE14E601A48BF59008E45EB /* QLKCue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193D41A4789DF000A9F53 /* QLKCue.m */; };
+		1DE14E611A48BF59008E45EB /* QLKDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193D61A4789DF000A9F53 /* QLKDefines.m */; };
+		1DE14E621A48BF59008E45EB /* QLKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193D81A4789DF000A9F53 /* QLKMessage.m */; };
+		1DE14E631A48BF59008E45EB /* QLKServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193DA1A4789DF000A9F53 /* QLKServer.m */; };
+		1DE14E641A48BF59008E45EB /* QLKWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193DC1A4789DF000A9F53 /* QLKWorkspace.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D01938F1A4789B4000A9F53 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQLabKitLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D0193921A4789B4000A9F53 /* QLabKitLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLabKitLibrary.h; sourceTree = "<group>"; };
+		1D0193AA1A4789DF000A9F53 /* F53OSC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSC.h; path = ../QLabKit.objc/lib/F53OSC/F53OSC.h; sourceTree = SOURCE_ROOT; };
+		1D0193AB1A4789DF000A9F53 /* F53OSCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCBundle.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCBundle.h; sourceTree = SOURCE_ROOT; };
+		1D0193AC1A4789DF000A9F53 /* F53OSCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCBundle.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCBundle.m; sourceTree = SOURCE_ROOT; };
+		1D0193AD1A4789DF000A9F53 /* F53OSCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCClient.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCClient.h; sourceTree = SOURCE_ROOT; };
+		1D0193AE1A4789DF000A9F53 /* F53OSCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCClient.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCClient.m; sourceTree = SOURCE_ROOT; };
+		1D0193B01A4789DF000A9F53 /* F53OSCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCMessage.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCMessage.h; sourceTree = SOURCE_ROOT; };
+		1D0193B11A4789DF000A9F53 /* F53OSCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCMessage.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCMessage.m; sourceTree = SOURCE_ROOT; };
+		1D0193B21A4789DF000A9F53 /* F53OSCPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCPacket.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCPacket.h; sourceTree = SOURCE_ROOT; };
+		1D0193B31A4789DF000A9F53 /* F53OSCPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCPacket.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCPacket.m; sourceTree = SOURCE_ROOT; };
+		1D0193B41A4789DF000A9F53 /* F53OSCParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCParser.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCParser.h; sourceTree = SOURCE_ROOT; };
+		1D0193B51A4789DF000A9F53 /* F53OSCParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCParser.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCParser.m; sourceTree = SOURCE_ROOT; };
+		1D0193B61A4789DF000A9F53 /* F53OSCProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCProtocols.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCProtocols.h; sourceTree = SOURCE_ROOT; };
+		1D0193B71A4789DF000A9F53 /* F53OSCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCServer.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCServer.h; sourceTree = SOURCE_ROOT; };
+		1D0193B81A4789DF000A9F53 /* F53OSCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCServer.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCServer.m; sourceTree = SOURCE_ROOT; };
+		1D0193B91A4789DF000A9F53 /* F53OSCSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCSocket.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCSocket.h; sourceTree = SOURCE_ROOT; };
+		1D0193BA1A4789DF000A9F53 /* F53OSCSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCSocket.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCSocket.m; sourceTree = SOURCE_ROOT; };
+		1D0193BB1A4789DF000A9F53 /* F53OSCTimeTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCTimeTag.h; path = ../QLabKit.objc/lib/F53OSC/F53OSCTimeTag.h; sourceTree = SOURCE_ROOT; };
+		1D0193BC1A4789DF000A9F53 /* F53OSCTimeTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCTimeTag.m; path = ../QLabKit.objc/lib/F53OSC/F53OSCTimeTag.m; sourceTree = SOURCE_ROOT; };
+		1D0193BD1A4789DF000A9F53 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = ../QLabKit.objc/lib/F53OSC/GCDAsyncSocket.h; sourceTree = SOURCE_ROOT; };
+		1D0193BE1A4789DF000A9F53 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = ../QLabKit.objc/lib/F53OSC/GCDAsyncSocket.m; sourceTree = SOURCE_ROOT; };
+		1D0193BF1A4789DF000A9F53 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = ../QLabKit.objc/lib/F53OSC/GCDAsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
+		1D0193C01A4789DF000A9F53 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = ../QLabKit.objc/lib/F53OSC/GCDAsyncUdpSocket.m; sourceTree = SOURCE_ROOT; };
+		1D0193C11A4789DF000A9F53 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = ../QLabKit.objc/lib/F53OSC/LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		1D0193C21A4789DF000A9F53 /* NSData+F53OSCBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+F53OSCBlob.h"; path = "../QLabKit.objc/lib/F53OSC/NSData+F53OSCBlob.h"; sourceTree = SOURCE_ROOT; };
+		1D0193C31A4789DF000A9F53 /* NSData+F53OSCBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+F53OSCBlob.m"; path = "../QLabKit.objc/lib/F53OSC/NSData+F53OSCBlob.m"; sourceTree = SOURCE_ROOT; };
+		1D0193C41A4789DF000A9F53 /* NSDate+F53OSCTimeTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+F53OSCTimeTag.h"; path = "../QLabKit.objc/lib/F53OSC/NSDate+F53OSCTimeTag.h"; sourceTree = SOURCE_ROOT; };
+		1D0193C51A4789DF000A9F53 /* NSDate+F53OSCTimeTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+F53OSCTimeTag.m"; path = "../QLabKit.objc/lib/F53OSC/NSDate+F53OSCTimeTag.m"; sourceTree = SOURCE_ROOT; };
+		1D0193C61A4789DF000A9F53 /* NSNumber+F53OSCNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+F53OSCNumber.h"; path = "../QLabKit.objc/lib/F53OSC/NSNumber+F53OSCNumber.h"; sourceTree = SOURCE_ROOT; };
+		1D0193C71A4789DF000A9F53 /* NSNumber+F53OSCNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+F53OSCNumber.m"; path = "../QLabKit.objc/lib/F53OSC/NSNumber+F53OSCNumber.m"; sourceTree = SOURCE_ROOT; };
+		1D0193C81A4789DF000A9F53 /* NSString+F53OSCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+F53OSCString.h"; path = "../QLabKit.objc/lib/F53OSC/NSString+F53OSCString.h"; sourceTree = SOURCE_ROOT; };
+		1D0193C91A4789DF000A9F53 /* NSString+F53OSCString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+F53OSCString.m"; path = "../QLabKit.objc/lib/F53OSC/NSString+F53OSCString.m"; sourceTree = SOURCE_ROOT; };
+		1D0193CA1A4789DF000A9F53 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.markdown; path = ../QLabKit.objc/lib/F53OSC/README.markdown; sourceTree = SOURCE_ROOT; };
+		1D0193CB1A4789DF000A9F53 /* QLabKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLabKit.h; path = ../QLabKit.objc/lib/QLabKit.h; sourceTree = SOURCE_ROOT; };
+		1D0193CC1A4789DF000A9F53 /* QLKBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKBrowser.h; path = ../../QLabKit.objc/lib/QLKBrowser.h; sourceTree = "<group>"; };
+		1D0193CD1A4789DF000A9F53 /* QLKBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKBrowser.m; path = ../../QLabKit.objc/lib/QLKBrowser.m; sourceTree = "<group>"; };
+		1D0193CE1A4789DF000A9F53 /* QLKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKClient.h; path = ../../QLabKit.objc/lib/QLKClient.h; sourceTree = "<group>"; };
+		1D0193CF1A4789DF000A9F53 /* QLKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKClient.m; path = ../../QLabKit.objc/lib/QLKClient.m; sourceTree = "<group>"; };
+		1D0193D01A4789DF000A9F53 /* QLKColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKColor.h; path = ../../QLabKit.objc/lib/QLKColor.h; sourceTree = "<group>"; };
+		1D0193D11A4789DF000A9F53 /* QLKColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKColor.m; path = ../../QLabKit.objc/lib/QLKColor.m; sourceTree = "<group>"; };
+		1D0193D21A4789DF000A9F53 /* QLKCue_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKCue_private.h; path = ../../QLabKit.objc/lib/QLKCue_private.h; sourceTree = "<group>"; };
+		1D0193D31A4789DF000A9F53 /* QLKCue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKCue.h; path = ../../QLabKit.objc/lib/QLKCue.h; sourceTree = "<group>"; };
+		1D0193D41A4789DF000A9F53 /* QLKCue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKCue.m; path = ../../QLabKit.objc/lib/QLKCue.m; sourceTree = "<group>"; };
+		1D0193D51A4789DF000A9F53 /* QLKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKDefines.h; path = ../../QLabKit.objc/lib/QLKDefines.h; sourceTree = "<group>"; };
+		1D0193D61A4789DF000A9F53 /* QLKDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKDefines.m; path = ../../QLabKit.objc/lib/QLKDefines.m; sourceTree = "<group>"; };
+		1D0193D71A4789DF000A9F53 /* QLKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKMessage.h; path = ../../QLabKit.objc/lib/QLKMessage.h; sourceTree = "<group>"; };
+		1D0193D81A4789DF000A9F53 /* QLKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKMessage.m; path = ../../QLabKit.objc/lib/QLKMessage.m; sourceTree = "<group>"; };
+		1D0193D91A4789DF000A9F53 /* QLKServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKServer.h; path = ../../QLabKit.objc/lib/QLKServer.h; sourceTree = "<group>"; };
+		1D0193DA1A4789DF000A9F53 /* QLKServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKServer.m; path = ../../QLabKit.objc/lib/QLKServer.m; sourceTree = "<group>"; };
+		1D0193DB1A4789DF000A9F53 /* QLKWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLKWorkspace.h; path = ../../QLabKit.objc/lib/QLKWorkspace.h; sourceTree = "<group>"; };
+		1D0193DC1A4789DF000A9F53 /* QLKWorkspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLKWorkspace.m; path = ../../QLabKit.objc/lib/QLKWorkspace.m; sourceTree = "<group>"; };
+		1D0194111A478B42000A9F53 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1D0194131A478BD7000A9F53 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		1D0194141A4792F8000A9F53 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1D908B9B1A4A2AD800E1F03D /* F53OSCFoundationAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = F53OSCFoundationAdditions.h; path = ../../../../QLabKit.objc/lib/F53OSC/F53OSCFoundationAdditions.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D01938C1A4789B4000A9F53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D0194151A4792F8000A9F53 /* Cocoa.framework in Frameworks */,
+				1D0194121A478B42000A9F53 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D0193861A4789B4000A9F53 = {
+			isa = PBXGroup;
+			children = (
+				1D0194141A4792F8000A9F53 /* Cocoa.framework */,
+				1D0194111A478B42000A9F53 /* Security.framework */,
+				1D0193911A4789B4000A9F53 /* QLabKitLibrary */,
+				1D0193901A4789B4000A9F53 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D0193901A4789B4000A9F53 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D01938F1A4789B4000A9F53 /* libQLabKitLibrary.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D0193911A4789B4000A9F53 /* QLabKitLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				1D0193A91A4789DF000A9F53 /* F53OSC */,
+				1D0193CB1A4789DF000A9F53 /* QLabKit.h */,
+				1D0193CC1A4789DF000A9F53 /* QLKBrowser.h */,
+				1D0193CD1A4789DF000A9F53 /* QLKBrowser.m */,
+				1D0193CE1A4789DF000A9F53 /* QLKClient.h */,
+				1D0193CF1A4789DF000A9F53 /* QLKClient.m */,
+				1D0193D01A4789DF000A9F53 /* QLKColor.h */,
+				1D0193D11A4789DF000A9F53 /* QLKColor.m */,
+				1D0193D21A4789DF000A9F53 /* QLKCue_private.h */,
+				1D0193D31A4789DF000A9F53 /* QLKCue.h */,
+				1D0193D41A4789DF000A9F53 /* QLKCue.m */,
+				1D0193D51A4789DF000A9F53 /* QLKDefines.h */,
+				1D0193D61A4789DF000A9F53 /* QLKDefines.m */,
+				1D0193D71A4789DF000A9F53 /* QLKMessage.h */,
+				1D0193D81A4789DF000A9F53 /* QLKMessage.m */,
+				1D0193D91A4789DF000A9F53 /* QLKServer.h */,
+				1D0193DA1A4789DF000A9F53 /* QLKServer.m */,
+				1D0193DB1A4789DF000A9F53 /* QLKWorkspace.h */,
+				1D0193DC1A4789DF000A9F53 /* QLKWorkspace.m */,
+				1D0193921A4789B4000A9F53 /* QLabKitLibrary.h */,
+				1D0194131A478BD7000A9F53 /* PrefixHeader.pch */,
+			);
+			path = QLabKitLibrary;
+			sourceTree = "<group>";
+		};
+		1D0193A91A4789DF000A9F53 /* F53OSC */ = {
+			isa = PBXGroup;
+			children = (
+				1D0193AA1A4789DF000A9F53 /* F53OSC.h */,
+				1D0193AB1A4789DF000A9F53 /* F53OSCBundle.h */,
+				1D0193AC1A4789DF000A9F53 /* F53OSCBundle.m */,
+				1D0193AD1A4789DF000A9F53 /* F53OSCClient.h */,
+				1D0193AE1A4789DF000A9F53 /* F53OSCClient.m */,
+				1D0193B01A4789DF000A9F53 /* F53OSCMessage.h */,
+				1D0193B11A4789DF000A9F53 /* F53OSCMessage.m */,
+				1D0193B21A4789DF000A9F53 /* F53OSCPacket.h */,
+				1D0193B31A4789DF000A9F53 /* F53OSCPacket.m */,
+				1D0193B41A4789DF000A9F53 /* F53OSCParser.h */,
+				1D0193B51A4789DF000A9F53 /* F53OSCParser.m */,
+				1D0193B61A4789DF000A9F53 /* F53OSCProtocols.h */,
+				1D0193B71A4789DF000A9F53 /* F53OSCServer.h */,
+				1D0193B81A4789DF000A9F53 /* F53OSCServer.m */,
+				1D0193B91A4789DF000A9F53 /* F53OSCSocket.h */,
+				1D0193BA1A4789DF000A9F53 /* F53OSCSocket.m */,
+				1D0193BB1A4789DF000A9F53 /* F53OSCTimeTag.h */,
+				1D0193BC1A4789DF000A9F53 /* F53OSCTimeTag.m */,
+				1D0193BD1A4789DF000A9F53 /* GCDAsyncSocket.h */,
+				1D0193BE1A4789DF000A9F53 /* GCDAsyncSocket.m */,
+				1D0193BF1A4789DF000A9F53 /* GCDAsyncUdpSocket.h */,
+				1D0193C01A4789DF000A9F53 /* GCDAsyncUdpSocket.m */,
+				1D0193C11A4789DF000A9F53 /* LICENSE.txt */,
+				1D0193C21A4789DF000A9F53 /* NSData+F53OSCBlob.h */,
+				1D0193C31A4789DF000A9F53 /* NSData+F53OSCBlob.m */,
+				1D0193C41A4789DF000A9F53 /* NSDate+F53OSCTimeTag.h */,
+				1D0193C51A4789DF000A9F53 /* NSDate+F53OSCTimeTag.m */,
+				1D0193C61A4789DF000A9F53 /* NSNumber+F53OSCNumber.h */,
+				1D0193C71A4789DF000A9F53 /* NSNumber+F53OSCNumber.m */,
+				1D0193C81A4789DF000A9F53 /* NSString+F53OSCString.h */,
+				1D0193C91A4789DF000A9F53 /* NSString+F53OSCString.m */,
+				1D0193CA1A4789DF000A9F53 /* README.markdown */,
+				1D908B9B1A4A2AD800E1F03D /* F53OSCFoundationAdditions.h */,
+			);
+			name = F53OSC;
+			path = QLabKitLibrary/F53OSC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1D01938D1A4789B4000A9F53 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D0193F81A4789DF000A9F53 /* NSNumber+F53OSCNumber.h in Headers */,
+				1D0193931A4789B4000A9F53 /* QLabKitLibrary.h in Headers */,
+				1D0193E31A4789DF000A9F53 /* F53OSCMessage.h in Headers */,
+				1D0193E91A4789DF000A9F53 /* F53OSCProtocols.h in Headers */,
+				1D0193F41A4789DF000A9F53 /* NSData+F53OSCBlob.h in Headers */,
+				1D0193F61A4789DF000A9F53 /* NSDate+F53OSCTimeTag.h in Headers */,
+				1D0193F21A4789DF000A9F53 /* GCDAsyncUdpSocket.h in Headers */,
+				1D0193EE1A4789DF000A9F53 /* F53OSCTimeTag.h in Headers */,
+				1D0193DE1A4789DF000A9F53 /* F53OSCBundle.h in Headers */,
+				1D0193E51A4789DF000A9F53 /* F53OSCPacket.h in Headers */,
+				1D0193E71A4789DF000A9F53 /* F53OSCParser.h in Headers */,
+				1D0194051A4789DF000A9F53 /* QLKCue.h in Headers */,
+				1D0193F01A4789DF000A9F53 /* GCDAsyncSocket.h in Headers */,
+				1D0194091A4789DF000A9F53 /* QLKMessage.h in Headers */,
+				1D0193EA1A4789DF000A9F53 /* F53OSCServer.h in Headers */,
+				1D01940D1A4789DF000A9F53 /* QLKWorkspace.h in Headers */,
+				1D0194021A4789DF000A9F53 /* QLKColor.h in Headers */,
+				1D01940B1A4789DF000A9F53 /* QLKServer.h in Headers */,
+				1D0193E01A4789DF000A9F53 /* F53OSCClient.h in Headers */,
+				1D0194071A4789DF000A9F53 /* QLKDefines.h in Headers */,
+				1D0193EC1A4789DF000A9F53 /* F53OSCSocket.h in Headers */,
+				1D0193FD1A4789DF000A9F53 /* QLabKit.h in Headers */,
+				1D0194041A4789DF000A9F53 /* QLKCue_private.h in Headers */,
+				1D0194001A4789DF000A9F53 /* QLKClient.h in Headers */,
+				1D0193FA1A4789DF000A9F53 /* NSString+F53OSCString.h in Headers */,
+				1D0193FE1A4789DF000A9F53 /* QLKBrowser.h in Headers */,
+				1D0193DD1A4789DF000A9F53 /* F53OSC.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1D01938E1A4789B4000A9F53 /* QLabKitLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D0193A31A4789B4000A9F53 /* Build configuration list for PBXNativeTarget "QLabKitLibrary" */;
+			buildPhases = (
+				1D01938B1A4789B4000A9F53 /* Sources */,
+				1D01938C1A4789B4000A9F53 /* Frameworks */,
+				1D01938D1A4789B4000A9F53 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QLabKitLibrary;
+			productName = QLabKitLibrary;
+			productReference = 1D01938F1A4789B4000A9F53 /* libQLabKitLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D0193871A4789B4000A9F53 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Jay Anslow";
+				TargetAttributes = {
+					1D01938E1A4789B4000A9F53 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 1D01938A1A4789B4000A9F53 /* Build configuration list for PBXProject "QLabKitLibrary" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1D0193861A4789B4000A9F53;
+			productRefGroup = 1D0193901A4789B4000A9F53 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D01938E1A4789B4000A9F53 /* QLabKitLibrary */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D01938B1A4789B4000A9F53 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DDD5F921A48EC2700F52C40 /* F53OSCBundle.m in Sources */,
+				1DDD5F931A48EC2700F52C40 /* F53OSCClient.m in Sources */,
+				1DDD5F941A48EC2700F52C40 /* F53OSCMessage.m in Sources */,
+				1DDD5F951A48EC2700F52C40 /* F53OSCPacket.m in Sources */,
+				1DDD5F961A48EC2700F52C40 /* F53OSCParser.m in Sources */,
+				1DDD5F971A48EC2700F52C40 /* F53OSCServer.m in Sources */,
+				1DDD5F981A48EC2700F52C40 /* F53OSCSocket.m in Sources */,
+				1DDD5F991A48EC2700F52C40 /* F53OSCTimeTag.m in Sources */,
+				1DDD5F9C1A48EC2700F52C40 /* NSData+F53OSCBlob.m in Sources */,
+				1DDD5F9D1A48EC2700F52C40 /* NSDate+F53OSCTimeTag.m in Sources */,
+				1DDD5F9E1A48EC2700F52C40 /* NSNumber+F53OSCNumber.m in Sources */,
+				1DDD5F9F1A48EC2700F52C40 /* NSString+F53OSCString.m in Sources */,
+				1DDD5FA11A48EEFA00F52C40 /* GCDAsyncSocket.m in Sources */,
+				1DDD5FA21A48EEFA00F52C40 /* GCDAsyncUdpSocket.m in Sources */,
+				1DE14E5D1A48BF59008E45EB /* QLKBrowser.m in Sources */,
+				1DE14E5E1A48BF59008E45EB /* QLKClient.m in Sources */,
+				1DE14E5F1A48BF59008E45EB /* QLKColor.m in Sources */,
+				1DE14E601A48BF59008E45EB /* QLKCue.m in Sources */,
+				1DE14E611A48BF59008E45EB /* QLKDefines.m in Sources */,
+				1DE14E621A48BF59008E45EB /* QLKMessage.m in Sources */,
+				1DE14E631A48BF59008E45EB /* QLKServer.m in Sources */,
+				1DE14E641A48BF59008E45EB /* QLKWorkspace.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D0193A11A4789B4000A9F53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QLabKitLibrary/PrefixHeader.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1D0193A21A4789B4000A9F53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QLabKitLibrary/PrefixHeader.pch;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1D0193A41A4789B4000A9F53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1D0193A51A4789B4000A9F53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D01938A1A4789B4000A9F53 /* Build configuration list for PBXProject "QLabKitLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D0193A11A4789B4000A9F53 /* Debug */,
+				1D0193A21A4789B4000A9F53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D0193A31A4789B4000A9F53 /* Build configuration list for PBXNativeTarget "QLabKitLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D0193A41A4789B4000A9F53 /* Debug */,
+				1D0193A51A4789B4000A9F53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D0193871A4789B4000A9F53 /* Project object */;
+}

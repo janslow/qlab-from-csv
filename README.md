@@ -6,29 +6,23 @@ This project is designed to take a list of cues from a spreadsheet (in CSV forma
 Requirements
 ------------
 
-* `Ruby` (tested with `1.9.3p392`)
-* `Bundler` gem (tested with `1.3.4`)
-* [`QLab 3`](http://figure53.com/qlab/) (tested with `3.1.6`)
+* `Xcode` for compiling the project.
+* [`QLab 3`](http://figure53.com/qlab/) (tested with `3.1.6`).
   * Whilst it is theoretically possible to run qlab-for-ruby over a network, it is recommended to run the QLab instance on the same machine.
-* [`QLX`](http://www.qlx.io/) (for controlling ETC Eos desks)
 
-Installation
-------------
+Usage
+-----
 
-* Download the contents of this repository and open a terminal window in it's directory
-* `bundle install`
-* `./qlab_from_csv.rb`
+1) Compile the source code using Xcode and run it.
+2) In the "Server" drop-down box, select the machine which you want to connect to.
+3) In the "Workspace" drop-down box, select the QLab workspace on that machine.
+4) Click "Connect"
+5) Select any "Cue List" (not yet functional)
+6) In QLab, navigate to the cue list you want to append to (clear any previously generated cues).
+7) Click "Browse" and locate the CSV input file (see below, "CSV Syntax")
+8) Click "Append"
 
-Configuration
--------------
-
-Configuration must currently be done by editing the main script. The following values should be configured:
-
-* `csv_file = '/path/to/cues.csv'` - Path to source CSV
-* `@qlx_script_file = '/path/to/QLX.scpt'` - Path to QLX AppleScript file
-* `@log_file = '/path/to/log.csv'` - Path to Cue Log file
-
-In addition, QLX should be configured as stated on [their website](http://www.qlx.io/setup.html). However, the `QLXPATH` configuration cue does not need to be set (it must be hard coded into the cue). QLab should also accept OSC commands on the default port (`Workspace Settings` > `OSC Controls` > `Use OSC Controls` should be ticked)
+All cues will then be appended to the cue list.
 
 CSV Syntax
 ----------
