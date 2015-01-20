@@ -25,7 +25,6 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
                 }
             }
         }
-        
     }
     
     private func appendChildren(children : [Cue], completion : (uids : [String]) -> ()) {

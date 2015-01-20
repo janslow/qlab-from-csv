@@ -17,27 +17,11 @@ class OscUdpCueQLabConnector : CueQLabConnectorBase {
     func appendCue(cue : OscUdpCue, completion : (uid : String) -> ()) {
         createCue("osc", cue: cue as Cue) {
             (uid : String) in
-            self.updateMessageType(uid, messageType: 3) {
-                self.updateUdpString(uid, udpString: cue.udpString) {
+            self.setAttribute(uid, attribute: "messageType", value: 3) {
+                self.setAttribute(uid, attribute: "udpString", value: cue.udpString) {
                     completion(uid: uid)
                 }
             }
-        }
-    }
-    
-    private func updateMessageType(uid : String, messageType : Int, completion : () -> ()) {
-        self._workspace.sendMessage(messageType, toAddress:"/cue_id/\(uid)/messageType") {
-            (data : AnyObject!) in
-            println("UPDATE cue.messageType = \"\(messageType)\" WHERE cue.uid = \(uid) RESPONSE \(data)")
-            completion()
-        }
-    }
-    
-    private func updateUdpString(uid : String, udpString : String, completion : () -> ()) {
-        self._workspace.sendMessage(udpString, toAddress:"/cue_id/\(uid)/udpString") {
-            (data : AnyObject!) in
-            println("UPDATE cue.udpString = \"\(udpString)\" WHERE cue.uid = \(uid) RESPONSE \(data)")
-            completion()
         }
     }
 }
