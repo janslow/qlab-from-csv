@@ -16,18 +16,22 @@ class CueQLabConnectorBase {
         _workspace = workspace
     }
     
-    internal func createCue(cueType : String, cue : Cue, completion : (uid : String) -> ()) {
+    internal func createCue(cueType : String, cue nillableCue : Cue? = nil, completion : (uid : String) -> ()) {
         _workspace.sendMessage(cueType, toAddress:"/new", block: {
             (data : AnyObject!) in
             let uid = data as String
             println("INSERT \(cueType) cue RESPONSE uid = \(uid)")
             
-            self.setAttribute(uid, attribute: "number", nillableValue: cue.cueNumber, defaultValue: "") {
-                self.setAttribute(uid, attribute: "name", nillableValue: cue.cueName) {
-                    self.setAttribute(uid, attribute: "preWait", nillableValue: cue.preWait > 0.0 ? cue.preWait : nil) {
-                        completion(uid: uid)
+            if let cue = nillableCue {
+                self.setAttribute(uid, attribute: "number", nillableValue: cue.cueNumber, defaultValue: "") {
+                    self.setAttribute(uid, attribute: "name", nillableValue: cue.cueName) {
+                        self.setAttribute(uid, attribute: "preWait", nillableValue: cue.preWait > 0.0 ? cue.preWait : nil) {
+                            completion(uid: uid)
+                        }
                     }
                 }
+            } else {
+                completion(uid: uid)
             }
         })
     }
