@@ -124,6 +124,10 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         dialog.canChooseDirectories = false
         dialog.allowsMultipleSelection = false
         
+        if let defaultUrl = selectedCsv {
+            dialog.directoryURL = defaultUrl
+        }
+        
         if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
             selectedCsv = dialog.URLs[0] as? NSURL
             inputFileTextField.stringValue = selectedCsv?.lastPathComponent ?? selectedCsv?.path ?? "#UNKNOWN#"
