@@ -136,7 +136,16 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         dialog.allowsMultipleSelection = false
         
         if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
-            logFileTextField.stringValue = (dialog.URLs[0] as? NSURL)?.path ?? ""
+            if let url = dialog.URLs[0] as? NSURL {
+                if let path = url.path {
+                    var isDirectory : ObjCBool = ObjCBool(false)
+                    if NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory: &isDirectory) && isDirectory.boolValue {
+                        logFileTextField.stringValue = NSURL(string: "log.csv", relativeToURL: url)?.path ?? ""
+                    } else {
+                        logFileTextField.stringValue = url.path ?? ""
+                    }
+                }
+            }
         }
     }
     
