@@ -16,9 +16,9 @@ class GroupCue : Cue, Comparable, Printable {
             name += comment! + " "
         }
         if page != nil {
-            name += "(" + page! + ") "
+            name += "(pg" + page! + ") "
         }
-        name = name + "<" + getChildrenDescription() + ">"
+        name = name + "(" + getChildrenDescription() + ")"
         return name
     }
     var description : String {
