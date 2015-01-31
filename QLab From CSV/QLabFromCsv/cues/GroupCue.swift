@@ -42,11 +42,12 @@ class GroupCue : Cue, Comparable, Printable {
     }
     
     private func getChildrenDescription() -> String {
+        let joiner = ","
         var names : String = ""
         for cue in children {
-            names += cue.description + "/"
+            names += cue.description + joiner
         }
-        return names.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "/"))
+        return names.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: joiner))
     }
 }
 
