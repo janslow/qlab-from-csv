@@ -9,5 +9,5 @@
 import Foundation
 
 @objc protocol ScriptCue : Cue {
-    var scriptString : String { get }
+    var script : String { get }
 }
