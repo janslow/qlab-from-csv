@@ -18,6 +18,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
     @IBOutlet weak var connectButton: NSButton!
     @IBOutlet weak var appendButton: NSButton!
     @IBOutlet weak var inputFileTextField: NSTextFieldCell!
+    @IBOutlet weak var logFileTextField: NSTextFieldCell!
     
     private let serverComboBoxDataSource = ServerComboBoxDataSource()
     private let workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
@@ -122,6 +123,17 @@ class ViewController: NSViewController, QLKBrowserDelegate {
             inputFileTextField.stringValue = selectedCsv?.lastPathComponent ?? selectedCsv?.path ?? "#UNKNOWN#"
         }
     }
+    @IBAction func onLogFileBrowseClick(sender: NSButton) {
+        let dialog = NSOpenPanel()
+        dialog.canChooseFiles = true
+        dialog.canChooseDirectories = true
+        dialog.allowsMultipleSelection = false
+        
+        if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
+            logFileTextField.stringValue = (dialog.URLs[0] as? NSURL)?.path ?? ""
+        }
+    }
+    
     @IBAction func onAppendClick(sender: NSButton) {
         if let workspace : QLKWorkspace = connectedWorkspace {
             if let csvPath = selectedCsv?.path {
