@@ -33,7 +33,6 @@ class RowParser {
             .filter({ $0 != nil })
             .map({ $0! })
         // Sort the cues by cue number.
-        cues.sort({ $0 < $1 })
         return cues.map({
             $0 as Cue
         })
