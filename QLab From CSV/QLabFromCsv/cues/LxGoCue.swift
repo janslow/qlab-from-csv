@@ -21,7 +21,7 @@ class LxGoCue : OscUdpCue, Printable {
     var preWait : Float
     var lxNumber : String
     var udpString : String {
-        return "Cue 0 \(lxNumber)"
+        return "Cue 0 \(lxNumber) #"
     }
     
     init(lxNumber : String, preWait : Float) {
