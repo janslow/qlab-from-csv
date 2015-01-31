@@ -3,6 +3,13 @@
    version = "1.0">
    <Group
       location = "container:"
+      name = "XCGLogger">
+      <FileRef
+         location = "group:XCGLogger/XCGLogger.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
       name = "Figure53">
       <FileRef
          location = "group:QLabKit.objc/QLabKit.xcodeproj">
