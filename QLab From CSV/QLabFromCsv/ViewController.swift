@@ -138,8 +138,17 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         if let workspace : QLKWorkspace = connectedWorkspace {
             if let csvPath = selectedCsv?.path {
                 if let csv = csvParser.parseFromFile(csvPath) {
-                    let cues = rowParser.load(csv.rows)
-                    
+                    var cues = rowParser.load(csv.rows)
+                    let logPath = logFileTextField.stringValue
+                    if !logPath.isEmpty {
+                        cues = cues.map({
+                            (c : Cue) in
+                            if let cue = c as? GroupCue {
+                                cue.children += [LogScriptCue(logId: cue.cueNumber!, logFile: logPath, preWait: 0) as Cue]
+                            }
+                            return c
+                        })
+                    }
                     let connector = CueQLabConnector(workspace: workspace)
                     connector.appendCues(cues) {
                         (uids : [String]) in
