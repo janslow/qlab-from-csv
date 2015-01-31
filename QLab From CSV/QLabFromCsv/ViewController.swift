@@ -44,6 +44,12 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         browser.start()
         browser.enableAutoRefreshWithInterval(3);
         
+        #if DEBUG
+            // Default CSV file when in debug mode.
+            selectedCsv = NSURL(fileURLWithPath: "/Users/jay/dev/qlab_from_csv/sample_cues.csv")
+            inputFileTextField.stringValue = selectedCsv!.lastPathComponent!
+        #endif
+        
         serverComboBoxDataSource.bindToComboBox(serverComboBox)
         workspaceComboBoxDataSource.bindToComboBox(workspaceComboBox)
         cueListComboBoxDataSource.bindToComboBox(cueListComboBox)

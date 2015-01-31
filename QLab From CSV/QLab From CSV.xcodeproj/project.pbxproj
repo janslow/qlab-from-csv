@@ -300,6 +300,7 @@
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
 				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QLabFromCsv/QLabFromCsv-Bridging-Header.h";
 			};
