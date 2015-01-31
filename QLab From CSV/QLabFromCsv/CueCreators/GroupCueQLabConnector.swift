@@ -18,16 +18,44 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
     func appendCue(cue : GroupCue, completion : (uid : String) -> ()) {
         appendChildren(cue.children) {
             (uids : [String]) in
-            self.selectCues(uids) {
-                self.createCue("group", cue: cue as Cue) {
-                    (uid : String) in
-                    completion(uid: uid)
+            // Workaround to insert a temporary sub-cue if there is only one real sub-cue.
+            if uids.count != 1 {
+                self.selectCues(uids) {
+                    self.createCue("group", cue: cue as Cue) {
+                        (uid : String) in
+                        completion(uid: uid)
+                    }
+                }
+            } else {
+                self.withTemporaryCue() {
+                    (tempUid : String, deleteTemporaryCue : (() -> ()) -> ()) in
+                    self.selectCues(uids + [tempUid]) {
+                        self.createCue("group", cue: cue as Cue) {
+                            (uid : String) in
+                            deleteTemporaryCue() {
+                                completion(uid: uid)
+                            }
+                        }
+                    }
                 }
             }
         }
-        
     }
-    
+
+    private func withTemporaryCue(created : (tempUid : String, deleteTemporaryCue : (() -> ()) -> ()) -> ()) {
+        self.createCue("group", completion: {
+        (uid : String) in
+            self.setAttribute(uid, attribute: "number", value: "") {
+                created(tempUid: uid) {
+                    (completion : () -> ()) in
+                    self.deleteCue(uid) {
+                        completion()
+                    }
+                }
+            }
+        })
+    }
+
     private func appendChildren(children : [Cue], completion : (uids : [String]) -> ()) {
         cueConnector!.appendCues(children) {
             (uids : [String]) in
@@ -41,6 +69,14 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
         self._workspace.sendMessage(nil, toAddress:"/select_id/\(uidsString)") {
             (data : AnyObject!) in
             println("SELECT WHERE cue.uid IN \(uids) RESPONSE \(data)")
+            completion()
+        }
+    }
+    
+    private func deleteCue(uid : String, completion : () -> ()) {
+        self._workspace.sendMessage(nil, toAddress:"/delete_id/\(uid)") {
+            (data : AnyObject!) in
+            println("DELETE WHERE cue.uid IN \(uid) RESPONSE \(data)")
             completion()
         }
     }

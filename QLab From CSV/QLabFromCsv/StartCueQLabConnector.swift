@@ -15,17 +15,9 @@ class StartCueQLabConnector : CueQLabConnectorBase {
     func appendCue(cue : StartCue, completion : (uid : String) -> ()) {
         createCue("start", cue: cue as Cue) {
             (uid : String) in
-            self.updateTargetCue(uid, targetNumber: cue.targetNumber) {
+            self.setAttribute(uid, attribute: "cueTargetNumber", value: cue.targetNumber) {
                 completion(uid: uid)
             }
-        }
-    }
-    
-    private func updateTargetCue(uid : String, targetNumber : String, completion : () -> ()) {
-        self._workspace.sendMessage(targetNumber, toAddress:"/cue_id/\(uid)/cueTargetNumber") {
-            (data : AnyObject!) in
-            println("UPDATE cue.cueTargetNumber = \"\(targetNumber)\" WHERE cue.uid = \(uid) RESPONSE \(data)")
-            completion()
         }
     }
 }

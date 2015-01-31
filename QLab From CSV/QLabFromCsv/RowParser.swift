@@ -14,7 +14,13 @@ class RowParser {
         let subCueCategories : Dictionary<String, ([String], Float) -> Cue> = [
             "LX" : {
                 (parts : [String], preWait : Float) -> Cue in
-                return LxGoCue(lxNumber: parts[0], preWait: preWait)
+                var i = 0
+                let cue = LxGoCue(lxNumber: parts[i++], preWait: preWait)
+                if i < parts.count && parts[i].hasPrefix("L") {
+                    let cueListString = parts[i++]
+                    cue.lxCueList = Int((cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as NSString).intValue)
+                }
+                return cue
             },
             "Sound" : {
                 (parts : [String], preWait : Float) -> Cue in
@@ -33,7 +39,6 @@ class RowParser {
             .filter({ $0 != nil })
             .map({ $0! })
         // Sort the cues by cue number.
-        cues.sort({ $0 < $1 })
         return cues.map({
             $0 as Cue
         })
@@ -80,8 +85,8 @@ class RowParser {
                     let preWaitString = parts[parts.count - 1]
                     if preWaitString.hasPrefix("d") {
                         preWait = (preWaitString.substringFromIndex(advance(preWaitString.startIndex, 1)) as NSString).floatValue
+                        parts = Array(parts[0...parts.count - 2])
                     }
-                    parts = Array(parts[0...parts.count - 2])
                 }
                 // ...Create and return the cue.
                 return cueCreator(parts, preWait)

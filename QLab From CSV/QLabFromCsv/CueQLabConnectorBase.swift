@@ -16,50 +16,45 @@ class CueQLabConnectorBase {
         _workspace = workspace
     }
     
-    internal func createCue(cueType : String, cue : Cue, completion : (uid : String) -> ()) {
+    internal func createCue(cueType : String, cue nillableCue : Cue? = nil, completion : (uid : String) -> ()) {
         _workspace.sendMessage(cueType, toAddress:"/new", block: {
             (data : AnyObject!) in
             let uid = data as String
             println("INSERT \(cueType) cue RESPONSE uid = \(uid)")
             
-            self.updateNumber(uid, number: cue.cueNumber) {
-                self.updateName(uid, name: cue.cueName) {
-                    self.updatePreWait(uid, preWait: cue.preWait) {
-                        completion(uid: uid)
+            if let cue = nillableCue {
+                self.setAttribute(uid, attribute: "number", nillableValue: cue.cueNumber, defaultValue: "") {
+                    self.setAttribute(uid, attribute: "name", nillableValue: cue.cueName) {
+                        self.setAttribute(uid, attribute: "preWait", nillableValue: cue.preWait > 0.0 ? cue.preWait : nil) {
+                            completion(uid: uid)
+                        }
                     }
                 }
+            } else {
+                completion(uid: uid)
             }
         })
     }
     
-    private func updateNumber(uid : String, number : String?, completion : () -> ()) {
-        let numberNonNull = number ?? ""
-        self._workspace.sendMessage(numberNonNull, toAddress:"/cue_id/\(uid)/number") {
+    // Set the attribute of a cue.
+    internal func setAttribute(uid : String, attribute : String, value : AnyObject, completion : () -> ()) {
+        self._workspace.sendMessage(value, toAddress:"/cue_id/\(uid)/\(attribute)") {
             (data : AnyObject!) in
-            println("UPDATE cue.number = \"\(numberNonNull)\" WHERE cue.uid = \(uid) RESPONSE \(data)")
+            let valueString = value is String ? "\"\(value)\"" : "\(value)"
+            println("UPDATE cue.\(attribute) = \(valueString) WHERE cue.uid = \(uid) RESPONSE \(data)")
             completion()
         }
     }
     
-    private func updateName(uid : String, name : String?, completion : () -> ()) {
-        if let nameNonNull = name {
-            self._workspace.sendMessage(nameNonNull, toAddress:"/cue_id/\(uid)/name") {
-                (data : AnyObject!) in
-                println("UPDATE cue.name = \"\(nameNonNull)\" WHERE cue.uid = \(uid) RESPONSE \(data)")
-                completion()
-            }
-        } else {
-            completion()
-        }
+    // Set the attribute of a cue, using a default value if the provided value is nil.
+    internal func setAttribute(uid : String, attribute : String, nillableValue : AnyObject?, defaultValue : AnyObject, completion : () -> ()) {
+        setAttribute(uid, attribute: attribute, value: nillableValue ?? defaultValue, completion)
     }
     
-    private func updatePreWait(uid : String, preWait : Float, completion : () -> ()) {
-        if preWait > 0.0 {
-            self._workspace.sendMessage(preWait, toAddress:"/cue_id/\(uid)/preWait") {
-                (data : AnyObject!) in
-                println("UPDATE cue.preWait = \(preWait) WHERE cue.uid = \(uid) RESPONSE \(data)")
-                completion()
-            }
+    // Set the attribute of a cue, iff the value is non-nil.
+    internal func setAttribute(uid : String, attribute : String, nillableValue : AnyObject?, completion : () -> ()) {
+        if let value : AnyObject = nillableValue {
+            setAttribute(uid, attribute: attribute, value: value, completion)
         } else {
             completion()
         }
