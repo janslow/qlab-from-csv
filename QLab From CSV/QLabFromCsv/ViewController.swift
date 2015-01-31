@@ -18,6 +18,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
     @IBOutlet weak var connectButton: NSButton!
     @IBOutlet weak var appendButton: NSButton!
     @IBOutlet weak var inputFileTextField: NSTextFieldCell!
+    @IBOutlet weak var logFileTextField: NSTextFieldCell!
     
     private let serverComboBoxDataSource = ServerComboBoxDataSource()
     private let workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
@@ -128,12 +129,41 @@ class ViewController: NSViewController, QLKBrowserDelegate {
             inputFileTextField.stringValue = selectedCsv?.lastPathComponent ?? selectedCsv?.path ?? "#UNKNOWN#"
         }
     }
+    @IBAction func onLogFileBrowseClick(sender: NSButton) {
+        let dialog = NSOpenPanel()
+        dialog.canChooseFiles = true
+        dialog.canChooseDirectories = true
+        dialog.allowsMultipleSelection = false
+        
+        if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
+            if let url = dialog.URLs[0] as? NSURL {
+                if let path = url.path {
+                    var isDirectory : ObjCBool = ObjCBool(false)
+                    if NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory: &isDirectory) && isDirectory.boolValue {
+                        logFileTextField.stringValue = NSURL(string: "log.csv", relativeToURL: url)?.path ?? ""
+                    } else {
+                        logFileTextField.stringValue = url.path ?? ""
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func onAppendClick(sender: NSButton) {
         if let workspace : QLKWorkspace = connectedWorkspace {
             if let csvPath = selectedCsv?.path {
                 if let csv = csvParser.parseFromFile(csvPath) {
-                    let cues = rowParser.load(csv.rows)
-                    
+                    var cues = rowParser.load(csv.rows)
+                    let logPath = logFileTextField.stringValue
+                    if !logPath.isEmpty {
+                        cues = cues.map({
+                            (c : Cue) in
+                            if let cue = c as? GroupCue {
+                                cue.children += [LogScriptCue(logId: cue.cueNumber!, logFile: logPath, preWait: 0) as Cue]
+                            }
+                            return c
+                        })
+                    }
                     let connector = CueQLabConnector(workspace: workspace)
                     connector.appendCues(cues) {
                         (uids : [String]) in
