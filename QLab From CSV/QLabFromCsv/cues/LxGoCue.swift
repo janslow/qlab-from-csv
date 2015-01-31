@@ -16,7 +16,7 @@ class LxGoCue : OscUdpCue, Printable {
         if lxCueList == 0 {
             return "LX \(lxNumber) Go"
         } else {
-            return "LX \(lxNumber) in \(lxCueList) Go"
+            return "LX \(lxNumber) in Cue List \(lxCueList) Go"
         }
     }
     var description : String {
