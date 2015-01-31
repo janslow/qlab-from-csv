@@ -13,10 +13,18 @@ class LxGoCue : OscUdpCue, Printable {
         return nil
     }
     var cueName : String {
-        return "LX \(lxNumber) Go"
+        if lxCueList == 0 {
+            return "LX \(lxNumber) Go"
+        } else {
+            return "LX \(lxNumber) in \(lxCueList) Go"
+        }
     }
     var description : String {
-        return "LX\(lxNumber)"
+        if lxCueList == 0 {
+            return "LX\(lxNumber)"
+        } else {
+            return "LX\(lxCueList)/\(lxNumber)"
+        }
     }
     var preWait : Float
     var lxNumber : String
