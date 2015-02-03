@@ -9,7 +9,7 @@
 
 import Foundation
 
-private extension NSThread {
+internal extension NSThread {
     class func dateFormatter(format: String, locale: NSLocale? = nil) -> NSDateFormatter? {
 
         let localeToUse = locale ?? NSLocale.currentLocale()

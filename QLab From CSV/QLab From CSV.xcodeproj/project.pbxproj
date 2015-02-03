@@ -32,6 +32,7 @@
 		1DAC45B01A4DC570004ED504 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAC45AF1A4DC570004ED504 /* AppKit.framework */; };
 		1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */; };
 		1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DADB8DA1A816A4800E5F85D /* XCGLogger.swift */; };
+		1DADB8DD1A818FEB00E5F85D /* NSLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DADB8DC1A818FEB00E5F85D /* NSLogDestination.swift */; };
 		1DE7EF1E1A6AC9270046B07F /* CueQLabConnectorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1D1A6AC9270046B07F /* CueQLabConnectorBase.swift */; };
 		1DE7EF201A6AC9D70046B07F /* StartCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1F1A6AC9D70046B07F /* StartCueQLabConnector.swift */; };
 		1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */; };
@@ -61,6 +62,7 @@
 		1DAC45AF1A4DC570004ED504 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1DADB8DA1A816A4800E5F85D /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCGLogger.swift; sourceTree = "<group>"; };
+		1DADB8DC1A818FEB00E5F85D /* NSLogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogDestination.swift; sourceTree = "<group>"; };
 		1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLabKitImport.h; sourceTree = "<group>"; };
 		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
 		1DE11CA21A4506FF001C7FE8 /* CsvParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvParser.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				1DADB8DA1A816A4800E5F85D /* XCGLogger.swift */,
+				1DADB8DC1A818FEB00E5F85D /* NSLogDestination.swift */,
 			);
 			name = XCGLogger;
 			sourceTree = "<group>";
@@ -209,7 +212,6 @@
 				1DA02BC41A4A40D500F095A6 /* Sources */,
 				1DA02BC51A4A40D500F095A6 /* Frameworks */,
 				1DA02BC61A4A40D500F095A6 /* Resources */,
-				1DADB8D81A81640D00E5F85D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +288,7 @@
 				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
 				1DE7EF201A6AC9D70046B07F /* StartCueQLabConnector.swift in Sources */,
 				1D5CEECC1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift in Sources */,
+				1DADB8DD1A818FEB00E5F85D /* NSLogDestination.swift in Sources */,
 				1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */,
 				1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */,
 				1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */,

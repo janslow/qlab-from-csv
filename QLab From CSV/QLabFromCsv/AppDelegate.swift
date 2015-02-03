@@ -15,12 +15,17 @@ let log = XCGLogger.defaultInstance()
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true)
-        log.info("Launched Application")
+        setUpLogging()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+    }
+    
+    private func setUpLogging() {
+        log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true)
+        let nsLogDestination = NSLogDestination(owner: log, identifier: "AppDelegate")
+        log.addLogDestination(nsLogDestination)
     }
 }
 
