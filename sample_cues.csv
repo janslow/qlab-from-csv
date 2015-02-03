@@ -1,3 +1,5 @@
 QLab,Page,LX,Sound,Video,Comment
 1,1,1, ,1,"Fire LX1 and V1 at the same time"
 Q6,1,2,"2, 3/d8",2/d8,"Fire LX2 and S1 at the same time, then S3 and V2 8s later"
+Q7,1,,,,"Empty"
+3,1,"1/L3,2/L4/d1.2",,,"Fire LX 1 in LX Cue List 3 and LX 4/2 after 1.2s"
