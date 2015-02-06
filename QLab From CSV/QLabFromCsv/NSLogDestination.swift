@@ -8,16 +8,13 @@
 
 import Foundation
 
-// - A standard log destination that outputs log details to the System log.
+// - A log destination that outputs log details to the System log.
 public class NSLogDestination : XCGLogDestinationProtocol, DebugPrintable {
     public var owner: XCGLogger
     public var identifier: String
     public var outputLogLevel: XCGLogger.LogLevel = .Warning
     
     public var showLogLevel: Bool = true
-    public var dateFormatter: NSDateFormatter? {
-        return NSThread.dateFormatter("yyyy-MM-dd HH:mm:ss.SSS")
-    }
     
     public init(owner: XCGLogger, identifier: String = "") {
         self.owner = owner
@@ -31,15 +28,10 @@ public class NSLogDestination : XCGLogDestinationProtocol, DebugPrintable {
     public func processInternalLogDetails(logDetails: XCGLogDetails) {
         var extendedDetails: String = ""
         if showLogLevel {
-            extendedDetails += "[" + logDetails.logLevel.description() + "] "
+            extendedDetails += "[" + logDetails.logLevel.description() + "]"
         }
         
-        var formattedDate: String = logDetails.date.description
-        if let unwrappedDataFormatter = dateFormatter {
-            formattedDate = unwrappedDataFormatter.stringFromDate(logDetails.date)
-        }
-        
-        var fullLogMessage: String =  "\(formattedDate) \(extendedDetails): \(logDetails.logMessage)\n"
+        var fullLogMessage: String =  "\(extendedDetails) \(logDetails.logMessage)"
         
         dispatch_async(XCGLogger.logQueue) {
             NSLog(fullLogMessage)
