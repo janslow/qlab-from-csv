@@ -24,7 +24,7 @@ public class CsvParser {
         contents.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()).enumerateLines { line, stop in lines.append(line) }
         
         if lines.count < 1 {
-            println("ERROR: There must be at least one line including the header")
+            log.error("CSV Parser: There must be at least one line including the header.")
             return nil
         }
         
@@ -92,7 +92,7 @@ public class CsvParser {
         if let contents = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) {
             return parse(contents)
         } else {
-            println("ERROR: Unable to read CSV")
+            log.error("CSV Parser: Unable to read CSV file.")
             return nil
         }
     }

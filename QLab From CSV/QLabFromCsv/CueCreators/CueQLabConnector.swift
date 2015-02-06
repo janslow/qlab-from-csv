@@ -33,7 +33,7 @@ class CueQLabConnector {
             var nextCue = cues.removeAtIndex(0)
             appendCue(nextCue) {
                 (uid : String) in
-                println("Created \(nextCue)")
+                log.debug("Created \(nextCue) with UID \(uid)")
                 self.appendCues(cues) {
                     (uids : [String]) in
                     completion(uids: [uid] + uids)
@@ -51,7 +51,7 @@ class CueQLabConnector {
         } else if (cue is ScriptCue) {
             _scriptCueConnector.appendCue(cue as ScriptCue, completion: completion)
         } else {
-            println("Unknown cue type for \(cue)")
+            log.error("No QLab connector for \(cue)")
         }
     }
 }

@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         setUpLogging()
+        
+        log.info("App has finished launching")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
