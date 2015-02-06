@@ -14,6 +14,8 @@
 		<string>github.com:janslow/qlab-from-csv.git</string>
 		<key>8290155778CD077C9D8A85EC03BEA069395BD6EA</key>
 		<string>github.com:Figure53/F53OSC.git</string>
+		<key>CD1557C3AE966BEDF3490D85F9712687801B146C</key>
+		<string>https://github.com/DaveWoodCom/XCGLogger.git</string>
 		<key>F8954E33997D4E2C024FDF19930A231C927153D5</key>
 		<string>https://github.com/Figure53/QLabKit.objc.git</string>
 	</dict>
@@ -25,6 +27,8 @@
 		<string>..</string>
 		<key>8290155778CD077C9D8A85EC03BEA069395BD6EA</key>
 		<string>../../QLabKit.objc/lib/F53OSC</string>
+		<key>CD1557C3AE966BEDF3490D85F9712687801B146C</key>
+		<string>../../XCGLogger</string>
 		<key>F8954E33997D4E2C024FDF19930A231C927153D5</key>
 		<string>../../QLabKit.objc</string>
 	</dict>
@@ -59,6 +63,14 @@
 			<string>F8954E33997D4E2C024FDF19930A231C927153D5</string>
 			<key>IDESourceControlWCCName</key>
 			<string>QLabKit.objc</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CD1557C3AE966BEDF3490D85F9712687801B146C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>XCGLogger</string>
 		</dict>
 	</array>
 </dict>

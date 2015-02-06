@@ -105,6 +105,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
                     self.connectedWorkspace = workspace
                     workspace.enableAlwaysReply()
                     workspace.fetchCueLists()
+                    log.info("Connected to \(workspace.serverName)/\(workspace.name)")
                 } else {
                     // If unable to connect, show an error message.
                     let alert = NSAlert()
@@ -114,6 +115,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
                     alert.alertStyle = NSAlertStyle.WarningAlertStyle
                     alert.runModal()
                     self.setStateConnecting(false)
+                    log.error("QLab connection error: \(workspace.serverName)/\(workspace.name) - \(reply)")
                 }
             }
         }
@@ -131,6 +133,7 @@ class ViewController: NSViewController, QLKBrowserDelegate {
         if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
             selectedCsv = dialog.URLs[0] as? NSURL
             inputFileTextField.stringValue = selectedCsv?.lastPathComponent ?? selectedCsv?.path ?? "#UNKNOWN#"
+            log.debug("Selected input file: \(selectedCsv?.path)")
         }
     }
     @IBAction func onLogFileBrowseClick(sender: NSButton) {
@@ -171,16 +174,17 @@ class ViewController: NSViewController, QLKBrowserDelegate {
                     let connector = CueQLabConnector(workspace: workspace)
                     connector.appendCues(cues) {
                         (uids : [String]) in
-                        println("Created all \(uids.count) cues : (\(uids))")
+                        log.info("Created all \(uids.count) cues")
+                        log.debug("With UIDs: \(uids)")
                     }
                 } else {
-                    println("Unable to read input file")
+                    log.warning("Append error: Unable to parse input file")
                 }
             } else {
-                println("No input file")
+                log.error("Append error: No input file")
             }
         } else {
-            println("Not connected")
+            log.error("Append error: Not connected")
         }
     }
     

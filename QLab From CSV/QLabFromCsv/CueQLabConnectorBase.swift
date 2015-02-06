@@ -20,7 +20,7 @@ class CueQLabConnectorBase {
         _workspace.sendMessage(cueType, toAddress:"/new", block: {
             (data : AnyObject!) in
             let uid = data as String
-            println("INSERT \(cueType) cue RESPONSE uid = \(uid)")
+            log.debug("INSERT \(cueType) cue RESPONSE uid = \(uid)")
             
             if let cue = nillableCue {
                 self.setAttribute(uid, attribute: "number", nillableValue: cue.cueNumber, defaultValue: "") {
@@ -41,7 +41,7 @@ class CueQLabConnectorBase {
         self._workspace.sendMessage(value, toAddress:"/cue_id/\(uid)/\(attribute)") {
             (data : AnyObject!) in
             let valueString = value is String ? "\"\(value)\"" : "\(value)"
-            println("UPDATE cue.\(attribute) = \(valueString) WHERE cue.uid = \(uid) RESPONSE \(data)")
+            log.debug("UPDATE cue.\(attribute) = \(valueString) WHERE cue.uid = \(uid) RESPONSE \(data)")
             completion()
         }
     }
