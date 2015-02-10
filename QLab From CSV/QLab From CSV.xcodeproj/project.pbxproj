@@ -110,7 +110,7 @@
 				1D0193341A478611000A9F53 /* QLabKitImport.m */,
 				1D0193331A478610000A9F53 /* QLabFromCsv-Bridging-Header.h */,
 				1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */,
-				1DA02BCE1A4A40D500F095A6 /* ViewController.swift */,
+				1DA698CD1A8AC42500321D25 /* ViewControllers */,
 				1DA02BE81A4A427300F095A6 /* UI */,
 			);
 			path = QLabFromCsv;
@@ -132,6 +132,14 @@
 				1DA02BCA1A4A40D500F095A6 /* Supporting Files */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		1DA698CD1A8AC42500321D25 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DA02BCE1A4A40D500F095A6 /* ViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		1DAC45AC1A4DABDE004ED504 /* DataSources */ = {
