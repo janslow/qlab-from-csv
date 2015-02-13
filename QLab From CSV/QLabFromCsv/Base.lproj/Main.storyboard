@@ -664,14 +664,14 @@
             </objects>
             <point key="canvasLocation" x="107.5" y="292.5"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--MasterViewController-->
         <scene sceneID="Fg0-dg-8Qn">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="cWi-tX-uDe" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="cWi-tX-uDe" userLabel="MasterViewController" customClass="MasterViewControllerImpl" customModule="QLabFromCsv" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="QLab Connection" identifier="" id="CEV-iQ-cxO"/>
-                        <tabViewItem label="Cues" identifier="" id="7pM-CY-mxX"/>
-                        <tabViewItem label="Execute" id="kxn-Lb-e66"/>
+                        <tabViewItem label="QLab Connection" identifier="" id="CEV-iQ-cxO" userLabel="QLabTab"/>
+                        <tabViewItem identifier="" id="7pM-CY-mxX" userLabel="CuesTab"/>
+                        <tabViewItem id="eYo-UE-AVN" userLabel="ExecuteTab"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="BfU-qg-ctJ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -680,33 +680,38 @@
                         <tabViewItems/>
                     </tabView>
                     <connections>
+                        <outlet property="cuesTab" destination="7pM-CY-mxX" id="tat-Bn-evs"/>
+                        <outlet property="qlabTab" destination="CEV-iQ-cxO" id="zLI-cx-CGq"/>
                         <segue destination="Mly-qf-LFK" kind="relationship" relationship="tabItems" id="vdY-s0-muI"/>
                         <segue destination="UZH-aN-PyL" kind="relationship" relationship="tabItems" id="14Y-uP-w7v"/>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="tabItems" id="Su9-9t-FWq"/>
+                        <segue destination="YUG-pA-5XS" kind="relationship" relationship="tabItems" id="uWh-l2-rse"/>
                     </connections>
                 </tabViewController>
                 <customObject id="nNV-HA-uUv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="702" y="284"/>
         </scene>
-        <!--View Controller-->
+        <!--ExecuteViewController-->
+        <scene sceneID="h9g-3N-yWs">
+            <objects>
+                <viewController title="Execute" id="YUG-pA-5XS" userLabel="ExecuteViewController" customClass="ExecuteViewControllerImpl" sceneMemberID="viewController">
+                    <view key="view" id="QFs-11-KkA">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="RaU-2p-X1a" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="726"/>
+        </scene>
+        <!--QLabViewController-->
         <scene sceneID="Y6E-q3-13Q">
             <objects>
-                <viewController id="Mly-qf-LFK" sceneMemberID="viewController">
+                <viewController title="QLab Connection" id="Mly-qf-LFK" userLabel="QLabViewController" customClass="QLabViewControllerImpl" customModule="QLabFromCsv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="bxx-eM-EhX">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="152"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qQq-2S-EK6" userLabel="Connect Button">
-                                <rect key="frame" x="320" y="15" width="116" height="32"/>
-                                <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="El4-sX-F4E">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onConnectClick:" target="XfG-lQ-9wD" id="Se3-eF-PZD"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6Z-BP-0YU" userLabel="Server Label">
                                 <rect key="frame" x="18" y="114" width="86" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server" id="iur-wV-Se5">
@@ -723,7 +728,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
                                 <connections>
-                                    <action selector="onServerChange:" target="XfG-lQ-9wD" id="HKj-lA-P6f"/>
+                                    <action selector="onServerChange:" target="Mly-qf-LFK" id="egP-QE-tS7"/>
                                 </connections>
                             </comboBox>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U62-pd-Ym1" userLabel="Workspace Label">
@@ -761,23 +766,43 @@
                             <progressIndicator hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="laD-mu-DI0">
                                 <rect key="frame" x="302" y="24" width="16" height="16"/>
                             </progressIndicator>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qQq-2S-EK6" userLabel="Connect Button">
+                                <rect key="frame" x="320" y="15" width="116" height="32"/>
+                                <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="El4-sX-F4E">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <binding destination="Mly-qf-LFK" name="argument" keyPath="self.connectButton" id="sRM-YE-SA9"/>
+                                    </connections>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onConnectClick:" target="Mly-qf-LFK" id="1V8-9H-bQX"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="connectButton" destination="qQq-2S-EK6" id="z2m-5z-E1Q"/>
+                        <outlet property="cueListComboBox" destination="cmn-5W-EyF" id="PgT-cu-mUW"/>
+                        <outlet property="cueListProgressAnimation" destination="laD-mu-DI0" id="Z3V-SN-LP4"/>
+                        <outlet property="serverComboBox" destination="OFC-ew-xmj" id="Wdz-Ti-XUO"/>
+                        <outlet property="workspaceComboBox" destination="yTA-Jg-27T" id="wAb-Eq-ISi"/>
+                    </connections>
                 </viewController>
                 <customObject id="ZtK-2r-1gu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1370" y="28"/>
         </scene>
-        <!--View Controller-->
+        <!--CuesViewController-->
         <scene sceneID="Inm-O5-cUg">
             <objects>
                 <customObject id="Mhd-tQ-fkB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <viewController id="UZH-aN-PyL" sceneMemberID="viewController">
+                <viewController title="Cues" id="UZH-aN-PyL" userLabel="CuesViewController" customClass="CuesViewControllerImpl" customModule="QLabFromCsv" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="i6J-uq-DCu">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="430"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-Yp-Ved" userLabel="Input File Browse Button">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-Yp-Ved" userLabel="Reload Button">
                                 <rect key="frame" x="320" y="262" width="116" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F1N-OR-PgE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -790,11 +815,10 @@
                                 <tabViewItems>
                                     <tabViewItem label="File" identifier="1" id="IAK-FL-iVS">
                                         <view key="view" id="dJd-AM-Wry">
-                                            <rect key="frame" x="10" y="33" width="404" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-qL-Rdj" userLabel="Input File Text Field">
-                                                    <rect key="frame" x="17" y="63" width="370" height="22"/>
+                                                    <rect key="frame" x="17" y="-25" width="370" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Input File" bezelStyle="round" id="QzP-H8-ctQ">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -802,14 +826,11 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnh-6f-MsO" userLabel="Input File Browse Button">
-                                                    <rect key="frame" x="277" y="27" width="116" height="32"/>
+                                                    <rect key="frame" x="277" y="-61" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Kd-59-jye">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
-                                                    <connections>
-                                                        <action selector="onInputFileBrowseClick:" target="XfG-lQ-9wD" id="461-wR-ZkE"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -819,7 +840,7 @@
                                             <rect key="frame" x="10" y="33" width="404" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sR0-2e-r6q" userLabel="Input File Label">
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sR0-2e-r6q" userLabel="Log Cues Label">
                                                     <rect key="frame" x="15" y="68" width="70" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Log Cues" id="xs0-Yy-UhM">
                                                         <font key="font" metaFont="system"/>
@@ -827,7 +848,7 @@
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-Ph-wIt" userLabel="Input File Text Field">
+                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-Ph-wIt" userLabel="Log File Text Field">
                                                     <rect key="frame" x="17" y="12" width="370" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Enter the path to the log file (if required)" bezelStyle="round" id="kmR-9U-wgn">
                                                         <font key="font" metaFont="system"/>
@@ -835,7 +856,7 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17d-3X-29o">
+                                                <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17d-3X-29o" userLabel="Log Enable">
                                                     <rect key="frame" x="17" y="42" width="160" height="18"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     <size key="cellSize" width="76" height="18"/>
@@ -859,15 +880,12 @@
                                                         </column>
                                                     </cells>
                                                 </matrix>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-AY-bDq" userLabel="Input File Browse Button">
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-AY-bDq" userLabel="Log File Browse Button">
                                                     <rect key="frame" x="277" y="34" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nvX-FX-eQY">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
-                                                    <connections>
-                                                        <action selector="onLogFileBrowseClick:" target="XfG-lQ-9wD" id="yEp-J6-pUm"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -876,41 +894,13 @@
                             </tabView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="_inputFileTextField" destination="rbG-qL-Rdj" id="a7W-dZ-b4a"/>
+                        <outlet property="_logFileTextField" destination="J0b-Ph-wIt" id="umj-28-E6I"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1370" y="527"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
-            <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="QLabFromCsv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="566" height="427"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNN-9Q-jiL" userLabel="Append Button">
-                                <rect key="frame" x="101" y="212" width="116" height="32"/>
-                                <buttonCell key="cell" type="push" title="Append" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Z5-2i-vt5">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onAppendClick:" target="XfG-lQ-9wD" id="Y2c-dq-hbp"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="appendButton" destination="RNN-9Q-jiL" id="eVZ-05-QEH"/>
-                        <outlet property="connectButton" destination="qQq-2S-EK6" id="y3z-cn-68d"/>
-                        <outlet property="cueListProgressAnimation" destination="laD-mu-DI0" id="b9J-IL-uZr"/>
-                        <outlet property="inputFileTextField" destination="QzP-H8-ctQ" id="TJB-Rm-LoD"/>
-                        <outlet property="logFileTextField" destination="kmR-9U-wgn" id="gmk-Tb-OsQ"/>
-                    </connections>
-                </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="830" y="932.5"/>
         </scene>
     </scenes>
 </document>
