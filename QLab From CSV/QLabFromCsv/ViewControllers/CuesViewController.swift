@@ -19,9 +19,13 @@ import Foundation
     
     @IBOutlet weak var _inputFileTextField: NSTextField!
     @IBOutlet weak var _logFileTextField: NSTextField!
+    @IBOutlet weak var _rowCountLabel: NSTextField!
+    
     private let _csvParser = CsvParser.csv()
-    private let _rowParser = RowParser()
+    private let _cueParser = RowParser()
     private var _selectedCsv : NSURL? = nil
+    private var _csvHeaders : [String] = []
+    private var _csvRows : [Dictionary<String, String>] = []
     private var _cues : [Cue] = []
     
     public var Cues : [Cue] {
@@ -65,6 +69,29 @@ import Foundation
             _selectedCsv = dialog.URLs[0] as? NSURL
             _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? _selectedCsv?.path ?? "#UNKNOWN#"
             log.debug("Selected input file: \(_selectedCsv?.path)")
+            onReloadClick(sender)
+        }
+    }
+    
+    @IBAction func onReloadClick(sender: NSButton) {
+        _csvHeaders = []
+        _csvRows = []
+        if let csvPath = _selectedCsv?.path {
+            if let csv = _csvParser.parseFromFile(csvPath) {
+                _csvHeaders = csv.headers
+                _csvRows = csv.rows
+                
+                _rowCountLabel.stringValue = "\(_csvRows.count) rows plus header row, \(_csvHeaders.count) header columns."
+                log.debug("Parsed file with \(_rowCountLabel.stringValue)")
+                
+                createCues()
+            } else {
+                log.warning("Append error: Unable to parse input file.")
+                _rowCountLabel.stringValue = "Unable to parse as CSV file."
+            }
+        } else {
+            log.error("Append error: No input file selected.")
+            _rowCountLabel.stringValue = "No input file selected."
         }
     }
     
@@ -88,27 +115,20 @@ import Foundation
         }
     }
     
-    @IBAction func onReloadClick(sender: NSButton) {
-        if let csvPath = _selectedCsv?.path {
-            if let csv = _csvParser.parseFromFile(csvPath) {
-                var cues = _rowParser.load(csv.rows)
-                let logPath = _logFileTextField.stringValue
-                if !logPath.isEmpty {
-                    cues = cues.map({
-                        (c : Cue) in
-                        if let cue = c as? GroupCue {
-                            cue.children += [LogScriptCue(logId: cue.cueNumber!, logFile: logPath, preWait: 0) as Cue]
-                        }
-                        return c
-                    })
+    private func createCues() {
+        var cues = _cueParser.load(_csvRows)
+        let logPath = _logFileTextField.stringValue
+        if !logPath.isEmpty {
+            cues = cues.map({
+                (c : Cue) in
+                if let cue = c as? GroupCue {
+                    cue.children += [LogScriptCue(logId: cue.cueNumber!, logFile: logPath, preWait: 0) as Cue]
                 }
-                _cues = cues
-                
-            } else {
-                log.warning("Append error: Unable to parse input file")
-            }
-        } else {
-            log.error("Append error: No input file")
+                return c
+            })
         }
+        _cues = cues
+        log.debug("Parsed \(_cues.count) cues.")
+        log.debug("\(_cues)")
     }
 }

@@ -747,7 +747,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
                             </comboBox>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1os-8k-QpE" userLabel="Cue List Label">
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1os-8k-QpE" userLabel="Cue List Label">
                                 <rect key="frame" x="18" y="56" width="86" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Cue List" id="1ER-UX-bJ2">
                                     <font key="font" metaFont="system"/>
@@ -755,7 +755,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmn-5W-EyF" userLabel="Cue List Combo Box">
+                            <comboBox hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmn-5W-EyF" userLabel="Cue List Combo Box">
                                 <rect key="frame" x="110" y="50" width="323" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select a cue list in the specified workspace" bezelStyle="round" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="FR9-AY-50e">
                                     <font key="font" metaFont="system"/>
@@ -802,23 +802,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="430"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-Yp-Ved" userLabel="Reload Button">
-                                <rect key="frame" x="320" y="262" width="116" height="32"/>
-                                <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F1N-OR-PgE">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="heG-sE-hMP">
                                 <rect key="frame" x="13" y="290" width="424" height="134"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="File" identifier="1" id="IAK-FL-iVS">
                                         <view key="view" id="dJd-AM-Wry">
+                                            <rect key="frame" x="10" y="33" width="404" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-qL-Rdj" userLabel="Input File Text Field">
-                                                    <rect key="frame" x="17" y="-25" width="370" height="22"/>
+                                                    <rect key="frame" x="17" y="63" width="370" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Input File" bezelStyle="round" id="QzP-H8-ctQ">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -826,12 +820,33 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnh-6f-MsO" userLabel="Input File Browse Button">
-                                                    <rect key="frame" x="277" y="-61" width="116" height="32"/>
+                                                    <rect key="frame" x="277" y="27" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Kd-59-jye">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="onInputFileBrowseClick:" target="UZH-aN-PyL" id="1h7-ah-Mjd"/>
+                                                    </connections>
                                                 </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-Yp-Ved" userLabel="Reload Button">
+                                                    <rect key="frame" x="165" y="27" width="116" height="32"/>
+                                                    <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F1N-OR-PgE">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="onReloadClick:" target="UZH-aN-PyL" id="92E-sH-NLL"/>
+                                                    </connections>
+                                                </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NB5-uA-e4I" userLabel="Row count">
+                                                    <rect key="frame" x="15" y="9" width="374" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="9cC-wU-ifV">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
@@ -886,6 +901,9 @@
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="onLogFileBrowseClick:" target="UZH-aN-PyL" id="gc5-Qn-n5V"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -897,6 +915,7 @@
                     <connections>
                         <outlet property="_inputFileTextField" destination="rbG-qL-Rdj" id="a7W-dZ-b4a"/>
                         <outlet property="_logFileTextField" destination="J0b-Ph-wIt" id="umj-28-E6I"/>
+                        <outlet property="_rowCountLabel" destination="NB5-uA-e4I" id="HSi-Zo-cVc"/>
                     </connections>
                 </viewController>
             </objects>
