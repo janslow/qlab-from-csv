@@ -850,29 +850,24 @@
                                             </subviews>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Configuration" identifier="2" id="CjL-qA-6zE">
+                                    <tabViewItem label="Logging" identifier="2" id="CjL-qA-6zE">
                                         <view key="view" id="5GA-F8-Tkr">
                                             <rect key="frame" x="10" y="33" width="404" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sR0-2e-r6q" userLabel="Log Cues Label">
-                                                    <rect key="frame" x="15" y="68" width="70" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Log Cues" id="xs0-Yy-UhM">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-Ph-wIt" userLabel="Log File Text Field">
-                                                    <rect key="frame" x="17" y="12" width="370" height="22"/>
+                                                <textField identifier="logFileTextBox" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0b-Ph-wIt" userLabel="Log File Text Field">
+                                                    <rect key="frame" x="17" y="35" width="370" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Enter the path to the log file (if required)" bezelStyle="round" id="kmR-9U-wgn">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <connections>
+                                                            <action selector="onLogFileInputChange:" target="UZH-aN-PyL" id="Afd-O8-mcJ"/>
+                                                        </connections>
                                                     </textFieldCell>
                                                 </textField>
-                                                <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17d-3X-29o" userLabel="Log Enable">
-                                                    <rect key="frame" x="17" y="42" width="160" height="18"/>
+                                                <matrix identifier="logRadios" verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17d-3X-29o" userLabel="Log Enable">
+                                                    <rect key="frame" x="17" y="65" width="160" height="18"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     <size key="cellSize" width="76" height="18"/>
                                                     <size key="intercellSpacing" width="4" height="2"/>
@@ -882,21 +877,27 @@
                                                     </buttonCell>
                                                     <cells>
                                                         <column>
-                                                            <buttonCell type="radio" title="Enabled" imagePosition="left" alignment="left" state="on" tag="1" inset="2" id="Bss-Qa-Y6V">
+                                                            <buttonCell type="radio" title="Enabled" imagePosition="left" alignment="left" tag="1" inset="2" id="Bss-Qa-Y6V">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
+                                                                <connections>
+                                                                    <action selector="onLogFileEnable:" target="UZH-aN-PyL" id="xAL-Ci-acH"/>
+                                                                </connections>
                                                             </buttonCell>
                                                         </column>
                                                         <column>
-                                                            <buttonCell type="radio" title="Disabled" imagePosition="left" alignment="left" inset="2" id="n3P-yW-RyJ">
+                                                            <buttonCell type="radio" title="Disabled" imagePosition="left" alignment="left" state="on" inset="2" id="n3P-yW-RyJ">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
+                                                                <connections>
+                                                                    <action selector="onLogFileDisable:" target="UZH-aN-PyL" id="G3q-Pw-1Fe"/>
+                                                                </connections>
                                                             </buttonCell>
                                                         </column>
                                                     </cells>
                                                 </matrix>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-AY-bDq" userLabel="Log File Browse Button">
-                                                    <rect key="frame" x="277" y="34" width="116" height="32"/>
+                                                <button identifier="logBrowseButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-AY-bDq" userLabel="Log File Browse Button">
+                                                    <rect key="frame" x="277" y="57" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nvX-FX-eQY">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -914,6 +915,8 @@
                     </view>
                     <connections>
                         <outlet property="_inputFileTextField" destination="rbG-qL-Rdj" id="a7W-dZ-b4a"/>
+                        <outlet property="_logDisabledRadio" destination="n3P-yW-RyJ" id="pUR-je-1E6"/>
+                        <outlet property="_logEnabledRadio" destination="Bss-Qa-Y6V" id="UNt-On-i63"/>
                         <outlet property="_logFileTextField" destination="J0b-Ph-wIt" id="umj-28-E6I"/>
                         <outlet property="_rowCountLabel" destination="NB5-uA-e4I" id="HSi-Zo-cVc"/>
                     </connections>

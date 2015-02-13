@@ -20,6 +20,8 @@ import Foundation
     @IBOutlet weak var _inputFileTextField: NSTextField!
     @IBOutlet weak var _logFileTextField: NSTextField!
     @IBOutlet weak var _rowCountLabel: NSTextField!
+    @IBOutlet weak var _logEnabledRadio: NSButtonCell!
+    @IBOutlet weak var _logDisabledRadio: NSButtonCell!
     
     private let _csvParser = CsvParser.csv()
     private let _cueParser = RowParser()
@@ -35,7 +37,7 @@ import Foundation
     }
     public var IsValid : Bool {
         get {
-            return true
+            return !_cues.isEmpty
         }
     }
     public override func viewDidLoad() {
@@ -67,7 +69,7 @@ import Foundation
         
         if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
             _selectedCsv = dialog.URLs[0] as? NSURL
-            _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? _selectedCsv?.path ?? "#UNKNOWN#"
+            _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? _selectedCsv?.path ?? ""
             log.debug("Selected input file: \(_selectedCsv?.path)")
             onReloadClick(sender)
         }
@@ -110,25 +112,59 @@ import Foundation
                     } else {
                         _logFileTextField.stringValue = url.path ?? ""
                     }
+                    onLogFileInputChange(sender)
                 }
             }
         }
     }
     
+    // Set the log file to a default log.csv file.
+    @IBAction func onLogFileEnable(sender: AnyObject) {
+        _logFileTextField.stringValue = "log.csv"
+        onLogFileInputChange(sender)
+    }
+    
+    // Clear the log file.
+    @IBAction func onLogFileDisable(sender: AnyObject) {
+        _logFileTextField.stringValue = ""
+        onLogFileInputChange(sender)
+    }
+    
+    // Trigger cue creation because the log file has changed.
+    @IBAction func onLogFileInputChange(sender: AnyObject) {
+        var senderId = "\(sender)"
+        if let senderWithId = sender as? NSUserInterfaceItemIdentification {
+            senderId = senderWithId.identifier
+        }
+        log.debug("Cue creation triggered: Changed log configuration \(senderId).")
+        createCues()
+    }
+    
+    // Update _cues by regenerating all cues from _csvRows and the current configuration.
     private func createCues() {
         var cues = _cueParser.load(_csvRows)
+        
+        _cues = applyLogs(cues)
+        log.debug("Parsed \(_cues.count) cues.")
+        log.debug("\(_cues)")
+    }
+    
+    private func applyLogs(cues : [Cue]) -> [Cue] {
         let logPath = _logFileTextField.stringValue
         if !logPath.isEmpty {
-            cues = cues.map({
+            _logEnabledRadio.state = 1
+            _logDisabledRadio.state = 0
+            return cues.map({
                 (c : Cue) in
                 if let cue = c as? GroupCue {
                     cue.children += [LogScriptCue(logId: cue.cueNumber!, logFile: logPath, preWait: 0) as Cue]
                 }
                 return c
             })
+        } else {
+            _logEnabledRadio.state = 0
+            _logDisabledRadio.state = 1
+            return cues
         }
-        _cues = cues
-        log.debug("Parsed \(_cues.count) cues.")
-        log.debug("\(_cues)")
     }
 }
