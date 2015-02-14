@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D17ACD41A8F84C00014CC36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD21A4A40D500F095A6 /* Main.storyboard */; };
 		1D1A74D51A7D277A007D7E3C /* ScriptCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D41A7D277A007D7E3C /* ScriptCue.swift */; };
 		1D1A74D71A7D29CE007D7E3C /* LogScriptCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D61A7D29CE007D7E3C /* LogScriptCue.swift */; };
 		1D1A74D91A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D81A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift */; };
@@ -20,7 +21,6 @@
 		1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */; };
 		1DA02BCF1A4A40D500F095A6 /* QLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCE1A4A40D500F095A6 /* QLabViewController.swift */; };
 		1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD01A4A40D500F095A6 /* Images.xcassets */; };
-		1DA02BD41A4A40D500F095A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD21A4A40D500F095A6 /* Main.storyboard */; };
 		1DA02BE91A4A428700F095A6 /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* Cue.swift */; };
 		1DA02BEA1A4A428700F095A6 /* GroupCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */; };
 		1DA02BEB1A4A428700F095A6 /* StartCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* StartCue.swift */; };
@@ -274,7 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */,
-				1DA02BD41A4A40D500F095A6 /* Main.storyboard in Resources */,
+				1D17ACD41A8F84C00014CC36 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

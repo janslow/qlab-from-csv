@@ -15,8 +15,10 @@ var APP_DELEGATE : AppDelegate?
 
 @NSApplicationMain
 public class AppDelegate: NSObject, NSApplicationDelegate {
+    @IBOutlet weak var appendMenuItem: NSMenuItem!
 
     public func setIsRunAllowed(allowed : Bool) {
+        appendMenuItem.enabled = allowed
     }
     
     override init() {
@@ -38,6 +40,10 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true)
         let nsLogDestination = NSLogDestination(owner: log, identifier: "AppDelegate")
         log.addLogDestination(nsLogDestination)
+    }
+    
+    @IBAction func onAppend(sender: AnyObject) {
+        MAIN_VIEW_CONTROLLER?.append()
     }
 }
 
