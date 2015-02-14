@@ -34,10 +34,23 @@ enum ConnectionState {
     private let workspaceComboBoxDataSource = WorkspaceComboBoxDataSource()
     private let cueListComboBoxDataSource = CueComboBoxDataSource(showNumber: false)
     
-    public var Workspace : QLKWorkspace? = nil
+    private var state : ConnectionState = ConnectionState.NotConnected {
+    }
+    
+    public var Workspace : QLKWorkspace? {
+        switch state {
+        case let .Connected(workspace):
+            return workspace
+        default:
+            return nil
+        }
+    }
     public var IsConnected : Bool {
-        get {
-            return Workspace != nil
+        switch state {
+        case .Connected:
+            return true
+        default:
+            return false
         }
     }
     
@@ -75,7 +88,6 @@ enum ConnectionState {
     }
     
     func workspaceDidUpdateCues(notification : NSNotification) {
-        setStateConnecting(false)
         if let workspace = Workspace {
             let cueLists = (workspace.root.cues as [AnyObject]).filter({
                 // Exclude fake cue lists (i.e., Active Cues).
@@ -96,10 +108,8 @@ enum ConnectionState {
             // Disconnect from workspace.
             Workspace!.disconnect()
             Workspace = nil
-            setStateConnecting(false)
         // Not connected to a workspace
         } else if let workspace = workspaceComboBoxDataSource.getSelectedWorkspace() {
-            setStateConnecting(true)
             // Try to connect to the workspace.
             workspace.connectWithPasscode(nil) {
                 (reply : AnyObject!) in
