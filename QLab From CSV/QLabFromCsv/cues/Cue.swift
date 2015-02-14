@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc protocol Cue {
+@objc public protocol Cue {
     var cueNumber : String? { get }
     var cueName : String { get }
     var description : String { get }

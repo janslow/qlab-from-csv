@@ -10,17 +10,29 @@ import Cocoa
 import Foundation
 
 let log = XCGLogger.defaultInstance()
+var MAIN_VIEW_CONTROLLER : MasterViewController?
+var APP_DELEGATE : AppDelegate?
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+public class AppDelegate: NSObject, NSApplicationDelegate {
+    @IBOutlet weak var appendMenuItem: NSMenuItem!
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    public func setIsRunAllowed(allowed : Bool) {
+        appendMenuItem.enabled = allowed
+    }
+    
+    override init() {
+        super.init()
+        APP_DELEGATE = self
+    }
+    
+    public func applicationDidFinishLaunching(aNotification: NSNotification) {
         setUpLogging()
         
         log.info("App has finished launching")
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    public func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
     
@@ -28,6 +40,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true)
         let nsLogDestination = NSLogDestination(owner: log, identifier: "AppDelegate")
         log.addLogDestination(nsLogDestination)
+    }
+    
+    @IBAction func onAppend(sender: AnyObject) {
+        MAIN_VIEW_CONTROLLER?.append()
     }
 }
 
