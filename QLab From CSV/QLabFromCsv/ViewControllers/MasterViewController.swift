@@ -11,6 +11,8 @@ import Foundation
 @objc public protocol MasterViewController {
     var QLabController : QLabViewController { get }
     var CuesController : CuesViewController { get }
+    
+    func fireCheckValid()
 }
 
 @objc public protocol ChildViewController {
@@ -21,6 +23,11 @@ import Foundation
     @IBOutlet weak var qlabTab: NSTabViewItem!
     @IBOutlet weak var cuesTab: NSTabViewItem!
     @IBOutlet weak var executeTab: NSTabViewItem!
+    
+    required public init?(coder : NSCoder) {
+        super.init(coder: coder)
+        MAIN_VIEW_CONTROLLER = self
+    }
     
     public var QLabController : QLabViewController {
         get {
@@ -46,7 +53,8 @@ import Foundation
         }
     }
     
-    @IBAction func onReloadClick(sender: NSButton) {
-        
+    public func fireCheckValid() {
+        APP_DELEGATE?.setIsRunAllowed(QLabController.IsConnected && CuesController.IsValid)
+    }
     }
 }

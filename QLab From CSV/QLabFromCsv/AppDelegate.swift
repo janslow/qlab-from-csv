@@ -10,11 +10,21 @@ import Cocoa
 import Foundation
 
 let log = XCGLogger.defaultInstance()
+var MAIN_VIEW_CONTROLLER : MasterViewController?
+var APP_DELEGATE : AppDelegate?
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    public func setIsRunAllowed(allowed : Bool) {
+    }
+    
+    override init() {
+        super.init()
+        APP_DELEGATE = self
+    }
+    
+    public func applicationDidFinishLaunching(aNotification: NSNotification) {
         setUpLogging()
         
         log.info("App has finished launching")
