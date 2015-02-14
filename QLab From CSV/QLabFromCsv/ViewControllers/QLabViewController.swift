@@ -35,6 +35,9 @@ enum ConnectionState {
     private let cueListComboBoxDataSource = CueComboBoxDataSource(showNumber: false)
     
     private var state : ConnectionState = ConnectionState.NotConnected {
+        didSet {
+            onStateChange()
+        }
     }
     
     public var Workspace : QLKWorkspace? {
@@ -79,11 +82,13 @@ enum ConnectionState {
     
     public func browserDidUpdateServers(browser : QLKBrowser) {
         serverComboBoxDataSource.setItems(browser.servers)
+        onStateChange()
     }
     
     public func serverDidUpdateWorkspaces(server : QLKServer) {
         if serverComboBoxDataSource.getSelectedServer()?.host == server.host {
             workspaceComboBoxDataSource.setItems(server.workspaces)
+            onStateChange()
         }
     }
     
@@ -94,12 +99,14 @@ enum ConnectionState {
                 ($0 as QLKCue).number != nil
             })
             cueListComboBoxDataSource.setItems(cueLists)
+            onStateChange()
         }
     }
     
     @IBAction func onServerChange(sender: NSComboBox) {
         let workspaces = serverComboBoxDataSource.getSelectedServer()?.workspaces ?? []
         workspaceComboBoxDataSource.setItems(workspaces)
+        onStateChange()
     }
     
     @IBAction func onConnectClick(sender: NSButton) {
@@ -133,26 +140,40 @@ enum ConnectionState {
         }
     }
     
-    private func setStateConnecting(connecting : Bool) {
-        serverComboBox.enabled = !connecting && !IsConnected
-        workspaceComboBox.enabled = !connecting && !IsConnected
-        cueListComboBox.enabled = !connecting && IsConnected
-        connectButton.enabled = !connecting
-        
-        cueListProgressAnimation.hidden = !connecting
-        
-        if (connecting) {
-            cueListProgressAnimation.startAnimation(self)
-            
+    private func onStateChange() {
+        log.debug("Update QLab Connection UI: state is \(state)")
+        var isLocked = false
+        var isConnecting = false
+        var isConnected = false
+        var canConnectDisconnect = false
+        switch state {
+        case .NotConnected:
+            canConnectDisconnect = workspaceComboBoxDataSource.getSelectedWorkspace() != nil
+            connectButton.title = "Connect"
+        case .Connecting:
+            isLocked = true
+            isConnecting = true
             connectButton.title = "Connecting"
+        case .Connected:
+            isLocked = true
+            isConnected = true
+            canConnectDisconnect = true
+            connectButton.title = "Disconnect"
+        }
+        
+        serverComboBox.enabled = !isLocked
+        workspaceComboBox.enabled = !isLocked
+        
+        cueListComboBox.enabled = isConnected
+        
+        connectButton.enabled = !isConnecting
+        cueListProgressAnimation.hidden = !isConnecting
+        if (isConnecting) {
+            cueListProgressAnimation.startAnimation(self)
         } else {
             cueListProgressAnimation.stopAnimation(self)
-            
-            if (IsConnected) {
-                connectButton.title = "Disconnect"
-            } else {
-                connectButton.title = "Connect"
-            }
         }
+        
+        MAIN_VIEW_CONTROLLER?.fireCheckValid()
     }
 }
