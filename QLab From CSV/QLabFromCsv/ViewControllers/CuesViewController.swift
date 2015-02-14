@@ -146,7 +146,6 @@ import Foundation
         
         _cues = applyLogs(cues)
         log.debug("Parsed \(_cues.count) cues.")
-        log.debug("\(_cues)")
         
         Parent?.fireCheckValid()
     }

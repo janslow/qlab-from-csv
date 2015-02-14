@@ -339,7 +339,7 @@
                             </menuItem>
                             <menuItem title="Run" id="4et-2E-vlQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Run" id="aYG-Dm-rtK">
+                                <menu key="submenu" title="Run" autoenablesItems="NO" id="aYG-Dm-rtK">
                                     <items>
                                         <menuItem title="Append" enabled="NO" keyEquivalent="r" id="fPe-xx-dUQ">
                                             <connections>
