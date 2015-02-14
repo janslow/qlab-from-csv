@@ -11,7 +11,6 @@ import Foundation
 @objc public protocol MasterViewController {
     var QLabController : QLabViewController { get }
     var CuesController : CuesViewController { get }
-    var ExecuteController : ExecuteViewController { get }
 }
 
 @objc public protocol ChildViewController {
@@ -33,18 +32,12 @@ import Foundation
             return cuesTab.viewController! as CuesViewController
         }
     }
-    public var ExecuteController : ExecuteViewController {
-        get {
-            return executeTab.viewController! as ExecuteViewController
-        }
-    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         log.debug("Loaded MasterViewController")
         QLabController.Parent = self
         CuesController.Parent = self
-        // ExecuteController.Parent = self
     }
     
     public override var representedObject: AnyObject? {
