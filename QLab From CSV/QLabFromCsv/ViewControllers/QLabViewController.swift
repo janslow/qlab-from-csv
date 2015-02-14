@@ -110,34 +110,46 @@ enum ConnectionState {
     }
     
     @IBAction func onConnectClick(sender: NSButton) {
-        // Already connected to a workspace.
-        if IsConnected {
-            // Disconnect from workspace.
-            Workspace!.disconnect()
-            Workspace = nil
-        // Not connected to a workspace
-        } else if let workspace = workspaceComboBoxDataSource.getSelectedWorkspace() {
-            // Try to connect to the workspace.
-            workspace.connectWithPasscode(nil) {
-                (reply : AnyObject!) in
-                if (reply as? String) == "ok" {
-                    self.Workspace = workspace
-                    workspace.enableAlwaysReply()
-                    workspace.fetchCueLists()
-                    log.info("Connected to \(workspace.serverName)/\(workspace.name)")
-                } else {
-                    // If unable to connect, show an error message.
-                    let alert = NSAlert()
-                    alert.addButtonWithTitle("OK")
-                    alert.messageText = "Connection Error"
-                    alert.informativeText = reply as? String
-                    alert.alertStyle = NSAlertStyle.WarningAlertStyle
-                    alert.runModal()
-                    self.setStateConnecting(false)
-                    log.error("QLab connection error: \(workspace.serverName)/\(workspace.name) - \(reply)")
-                }
+        switch state {
+        case .NotConnected:
+            if let workspace = workspaceComboBoxDataSource.getSelectedWorkspace() {
+                connect(workspace)
+            }
+        case let .Connecting(workspace):
+            disconnect(workspace)
+        case let .Connected(workspace):
+            disconnect(workspace)
+        }
+    }
+    
+    private func connect(workspace : QLKWorkspace) {
+        state = ConnectionState.Connecting(workspace)
+        
+        // Try to connect to the workspace.
+        workspace.connectWithPasscode(nil) {
+            (reply : AnyObject!) in
+            if (reply as? String) == "ok" {
+                self.state = ConnectionState.Connected(workspace)
+                workspace.enableAlwaysReply()
+                workspace.fetchCueLists()
+                log.info("Connected to \(workspace.serverName)/\(workspace.name)")
+            } else {
+                self.state = ConnectionState.NotConnected
+                log.error("QLab connection error: \(workspace.serverName)/\(workspace.name) - \(reply)")
+                // If unable to connect, show an error message.
+                let alert = NSAlert()
+                alert.addButtonWithTitle("OK")
+                alert.messageText = "Connection Error"
+                alert.informativeText = reply as? String
+                alert.alertStyle = NSAlertStyle.WarningAlertStyle
+                alert.runModal()
             }
         }
+    }
+    
+    private func disconnect(workspace : QLKWorkspace) {
+        Workspace!.disconnect()
+        state = ConnectionState.NotConnected
     }
     
     private func onStateChange() {
