@@ -14,7 +14,7 @@ var MAIN_VIEW_CONTROLLER : MasterViewController?
 var APP_DELEGATE : AppDelegate?
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+public class AppDelegate: NSObject, NSApplicationDelegate {
 
     public func setIsRunAllowed(allowed : Bool) {
     }
@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         log.info("App has finished launching")
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    public func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
     
