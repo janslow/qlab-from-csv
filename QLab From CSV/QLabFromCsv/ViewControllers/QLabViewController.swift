@@ -19,7 +19,6 @@ enum ConnectionState {
     case NotConnected
     case Connecting(QLKWorkspace)
     case Connected(QLKWorkspace)
-    case Disconnecting(QLKWorkspace)
 }
 
 @objc public class QLabViewControllerImpl: NSViewController, QLKBrowserDelegate, QLabViewController {
