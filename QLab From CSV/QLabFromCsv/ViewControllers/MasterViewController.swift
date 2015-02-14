@@ -13,6 +13,7 @@ import Foundation
     var CuesController : CuesViewController { get }
     
     func fireCheckValid()
+    func append()
 }
 
 @objc public protocol ChildViewController {
@@ -56,5 +57,16 @@ import Foundation
     public func fireCheckValid() {
         APP_DELEGATE?.setIsRunAllowed(QLabController.IsConnected && CuesController.IsValid)
     }
+    
+    public func append() {
+        if QLabController.IsConnected && CuesController.IsValid {
+            let connector = CueQLabConnector(workspace: QLabController.Workspace!)
+            log.info("Appending cues.")
+            connector.appendCues(CuesController.Cues) {
+                (uids : [String]) in
+                log.info("Appended \(uids.count) cues.")
+            }
+        }
     }
+    
 }
