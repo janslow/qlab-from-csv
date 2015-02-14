@@ -153,7 +153,6 @@ enum ConnectionState {
     }
     
     private func onStateChange() {
-        log.debug("Update QLab Connection UI: state is \(state)")
         var isLocked = false
         var isConnecting = false
         var isConnected = false
