@@ -21,7 +21,7 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
             // Workaround to insert a temporary sub-cue if there is only one real sub-cue.
             if uids.count != 1 {
                 self.selectCues(uids) {
-                    self.createCue("group", cue: cue as Cue) {
+                    self.createGroupCueWithMode(cue) {
                         (uid : String) in
                         completion(uid: uid)
                     }
@@ -30,7 +30,7 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
                 self.withTemporaryCue() {
                     (tempUid : String, deleteTemporaryCue : (() -> ()) -> ()) in
                     self.selectCues(uids + [tempUid]) {
-                        self.createCue("group", cue: cue as Cue) {
+                        self.createGroupCueWithMode(cue) {
                             (uid : String) in
                             deleteTemporaryCue() {
                                 completion(uid: uid)
@@ -38,6 +38,15 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    private func createGroupCueWithMode(cue : Cue, completion : (uid : String) -> ()) {
+        self.createCue("group", cue: cue as Cue) {
+            (uid : String) in
+            self.setAttribute(uid, attribute: "mode", value: 3) {
+                completion(uid: uid)
             }
         }
     }
