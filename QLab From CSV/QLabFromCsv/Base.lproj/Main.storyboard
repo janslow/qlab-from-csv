@@ -411,7 +411,7 @@
         <scene sceneID="Fg0-dg-8Qn">
             <objects>
                 <customObject id="nNV-HA-uUv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <tabViewController selectedTabViewItemIndex="1" id="cWi-tX-uDe" userLabel="MasterViewController" customClass="MasterViewControllerImpl" customModule="QLabFromCsv" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="cWi-tX-uDe" userLabel="MasterViewController" customClass="MasterViewControllerImpl" customModule="QLabFromCsv" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="QLab Connection" identifier="" id="CEV-iQ-cxO" userLabel="QLabTab"/>
                         <tabViewItem identifier="" id="7pM-CY-mxX" userLabel="CuesTab"/>
@@ -536,11 +536,10 @@
                                 <tabViewItems>
                                     <tabViewItem label="File" identifier="1" id="IAK-FL-iVS">
                                         <view key="view" id="dJd-AM-Wry">
-                                            <rect key="frame" x="10" y="33" width="404" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-qL-Rdj" userLabel="Input File Text Field">
-                                                    <rect key="frame" x="17" y="63" width="370" height="22"/>
+                                                    <rect key="frame" x="17" y="-25" width="370" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Input File" bezelStyle="round" id="QzP-H8-ctQ">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -548,7 +547,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnh-6f-MsO" userLabel="Input File Browse Button">
-                                                    <rect key="frame" x="277" y="27" width="116" height="32"/>
+                                                    <rect key="frame" x="277" y="-61" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Kd-59-jye">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -558,7 +557,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-Yp-Ved" userLabel="Reload Button">
-                                                    <rect key="frame" x="165" y="27" width="116" height="32"/>
+                                                    <rect key="frame" x="165" y="-61" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F1N-OR-PgE">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -568,7 +567,7 @@
                                                     </connections>
                                                 </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NB5-uA-e4I" userLabel="Row count">
-                                                    <rect key="frame" x="15" y="9" width="374" height="17"/>
+                                                    <rect key="frame" x="15" y="-79" width="374" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="9cC-wU-ifV">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
