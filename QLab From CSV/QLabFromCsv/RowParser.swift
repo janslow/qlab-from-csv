@@ -47,8 +47,8 @@ class RowParser {
         // Each row must have a QLab value.
         let cueNumber = row["QLab"]
         if cueNumber == nil {
-            println("ERROR: Cue must have a QLab number")
-            println(row)
+            log.error("Row Parser: Cue must have a QLab number")
+            log.debug("\(row)")
             return nil
         }
         // Comment and Page values are optional.

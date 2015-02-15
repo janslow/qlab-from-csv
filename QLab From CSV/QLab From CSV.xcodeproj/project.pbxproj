@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D17ACD41A8F84C00014CC36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD21A4A40D500F095A6 /* Main.storyboard */; };
 		1D1A74D51A7D277A007D7E3C /* ScriptCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D41A7D277A007D7E3C /* ScriptCue.swift */; };
 		1D1A74D71A7D29CE007D7E3C /* LogScriptCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D61A7D29CE007D7E3C /* LogScriptCue.swift */; };
 		1D1A74D91A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D81A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift */; };
+		1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */; };
 		1D5CEECC1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECB1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift */; };
 		1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */; };
 		1D6B76111A514C2000B8E24F /* GroupCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6B76101A514C2000B8E24F /* GroupCueQLabConnector.swift */; };
@@ -17,9 +19,8 @@
 		1D8F9D831A4F8CCA00F94D55 /* CueComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */; };
 		1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D990A3E1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift */; };
 		1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */; };
-		1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCE1A4A40D500F095A6 /* ViewController.swift */; };
+		1DA02BCF1A4A40D500F095A6 /* QLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA02BCE1A4A40D500F095A6 /* QLabViewController.swift */; };
 		1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD01A4A40D500F095A6 /* Images.xcassets */; };
-		1DA02BD41A4A40D500F095A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA02BD21A4A40D500F095A6 /* Main.storyboard */; };
 		1DA02BE91A4A428700F095A6 /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* Cue.swift */; };
 		1DA02BEA1A4A428700F095A6 /* GroupCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */; };
 		1DA02BEB1A4A428700F095A6 /* StartCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* StartCue.swift */; };
@@ -29,8 +30,11 @@
 		1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193341A478611000A9F53 /* QLabKitImport.m */; };
 		1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2A4CC01A477F6F00903B9C /* Security.framework */; };
 		1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */; };
+		1DA698D11A8ACB8F00321D25 /* CuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA698D01A8ACB8F00321D25 /* CuesViewController.swift */; };
 		1DAC45B01A4DC570004ED504 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAC45AF1A4DC570004ED504 /* AppKit.framework */; };
 		1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */; };
+		1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DADB8DA1A816A4800E5F85D /* XCGLogger.swift */; };
+		1DADB8DD1A818FEB00E5F85D /* NSLogDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DADB8DC1A818FEB00E5F85D /* NSLogDestination.swift */; };
 		1DE7EF1E1A6AC9270046B07F /* CueQLabConnectorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1D1A6AC9270046B07F /* CueQLabConnectorBase.swift */; };
 		1DE7EF201A6AC9D70046B07F /* StartCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1F1A6AC9D70046B07F /* StartCueQLabConnector.swift */; };
 		1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */; };
@@ -45,6 +49,7 @@
 		1D1A74D81A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScriptCueQLabConnector.swift; path = CueCreators/ScriptCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D2A4C891A46353000903B9C /* RowParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowParser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ViewControllers/MasterViewController.swift; sourceTree = "<group>"; };
 		1D5CEECB1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OscUdpCueQLabConnector.swift; path = CueCreators/OscUdpCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscUdpCue.swift; sourceTree = "<group>"; };
 		1D6B76101A514C2000B8E24F /* GroupCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCueQLabConnector.swift; path = CueCreators/GroupCueQLabConnector.swift; sourceTree = "<group>"; };
@@ -54,11 +59,14 @@
 		1DA02BC81A4A40D500F095A6 /* QLabFromCsv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLabFromCsv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA02BCB1A4A40D500F095A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1DA02BCE1A4A40D500F095A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DA02BCE1A4A40D500F095A6 /* QLabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QLabViewController.swift; path = ViewControllers/QLabViewController.swift; sourceTree = "<group>"; };
 		1DA02BD01A4A40D500F095A6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1DA02BD31A4A40D500F095A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1DA698D01A8ACB8F00321D25 /* CuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CuesViewController.swift; path = ViewControllers/CuesViewController.swift; sourceTree = "<group>"; };
 		1DAC45AF1A4DC570004ED504 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerComboBoxDataSource.swift; sourceTree = "<group>"; };
+		1DADB8DA1A816A4800E5F85D /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCGLogger.swift; sourceTree = "<group>"; };
+		1DADB8DC1A818FEB00E5F85D /* NSLogDestination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLogDestination.swift; sourceTree = "<group>"; };
 		1DDD5FA31A49CB2C00F52C40 /* QLabKitImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLabKitImport.h; sourceTree = "<group>"; };
 		1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sample_cues.csv; path = ../sample_cues.csv; sourceTree = "<group>"; };
 		1DE11CA21A4506FF001C7FE8 /* CsvParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvParser.swift; sourceTree = "<group>"; };
@@ -97,6 +105,7 @@
 		1DA02BC91A4A40D500F095A6 /* QLabFromCsv */ = {
 			isa = PBXGroup;
 			children = (
+				1DADB8D91A816A3100E5F85D /* XCGLogger */,
 				1DEAF4C41A507C6F00BA7FD3 /* QLabConnector */,
 				1D8F9D841A4F90CB00F94D55 /* Parsers */,
 				1DE11CA81A45A0C5001C7FE8 /* Cues */,
@@ -105,7 +114,7 @@
 				1D0193341A478611000A9F53 /* QLabKitImport.m */,
 				1D0193331A478610000A9F53 /* QLabFromCsv-Bridging-Header.h */,
 				1DA02BCC1A4A40D500F095A6 /* AppDelegate.swift */,
-				1DA02BCE1A4A40D500F095A6 /* ViewController.swift */,
+				1DA698CD1A8AC42500321D25 /* ViewControllers */,
 				1DA02BE81A4A427300F095A6 /* UI */,
 			);
 			path = QLabFromCsv;
@@ -129,6 +138,16 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		1DA698CD1A8AC42500321D25 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DA02BCE1A4A40D500F095A6 /* QLabViewController.swift */,
+				1DA698D01A8ACB8F00321D25 /* CuesViewController.swift */,
+				1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1DAC45AC1A4DABDE004ED504 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +157,15 @@
 				1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */,
 			);
 			name = DataSources;
+			sourceTree = "<group>";
+		};
+		1DADB8D91A816A3100E5F85D /* XCGLogger */ = {
+			isa = PBXGroup;
+			children = (
+				1DADB8DA1A816A4800E5F85D /* XCGLogger.swift */,
+				1DADB8DC1A818FEB00E5F85D /* NSLogDestination.swift */,
+			);
+			name = XCGLogger;
 			sourceTree = "<group>";
 		};
 		1DE11C8E1A44EB24001C7FE8 = {
@@ -246,7 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DA02BD11A4A40D500F095A6 /* Images.xcassets in Resources */,
-				1DA02BD41A4A40D500F095A6 /* Main.storyboard in Resources */,
+				1D17ACD41A8F84C00014CC36 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +302,15 @@
 				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
 				1DE7EF201A6AC9D70046B07F /* StartCueQLabConnector.swift in Sources */,
 				1D5CEECC1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift in Sources */,
-				1DA02BCF1A4A40D500F095A6 /* ViewController.swift in Sources */,
+				1DADB8DD1A818FEB00E5F85D /* NSLogDestination.swift in Sources */,
+				1DA02BCF1A4A40D500F095A6 /* QLabViewController.swift in Sources */,
+				1DA698D11A8ACB8F00321D25 /* CuesViewController.swift in Sources */,
 				1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */,
+				1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */,
 				1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */,
 				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
+				1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
