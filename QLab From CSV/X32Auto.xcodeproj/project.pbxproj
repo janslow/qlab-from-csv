@@ -243,14 +243,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "Jay Anslow";
+				ORGANIZATIONNAME = "John Evans";
 				TargetAttributes = {
 					1DA02BC71A4A40D500F095A6 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
 			};
-			buildConfigurationList = 1DE11C921A44EB24001C7FE8 /* Build configuration list for PBXProject "QLab From CSV" */;
+			buildConfigurationList = 1DE11C921A44EB24001C7FE8 /* Build configuration list for PBXProject "X32Auto" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -456,7 +456,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DE11C921A44EB24001C7FE8 /* Build configuration list for PBXProject "QLab From CSV" */ = {
+		1DE11C921A44EB24001C7FE8 /* Build configuration list for PBXProject "X32Auto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DE11C9C1A44EB25001C7FE8 /* Debug */,
