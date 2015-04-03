@@ -11,6 +11,9 @@
 		1D1A74D51A7D277A007D7E3C /* ScriptCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D41A7D277A007D7E3C /* ScriptCue.swift */; };
 		1D1A74D71A7D29CE007D7E3C /* LogScriptCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D61A7D29CE007D7E3C /* LogScriptCue.swift */; };
 		1D1A74D91A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D81A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift */; };
+		1D23D46B1ACF48F3009C0081 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D23D46A1ACF48F3009C0081 /* libQLabKitLibrary.a */; };
+		1D23D46E1ACF52B1009C0081 /* CsvTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D46D1ACF52B1009C0081 /* CsvTemplate.swift */; };
+		1D23D4701ACF5388009C0081 /* SimpleCsvTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */; };
 		1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */; };
 		1D5CEECC1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECB1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift */; };
 		1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */; };
@@ -29,7 +32,6 @@
 		1DA02BEE1A4A428700F095A6 /* RowParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A4C891A46353000903B9C /* RowParser.swift */; };
 		1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193341A478611000A9F53 /* QLabKitImport.m */; };
 		1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2A4CC01A477F6F00903B9C /* Security.framework */; };
-		1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */; };
 		1DA698D11A8ACB8F00321D25 /* CuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA698D01A8ACB8F00321D25 /* CuesViewController.swift */; };
 		1DAC45B01A4DC570004ED504 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DAC45AF1A4DC570004ED504 /* AppKit.framework */; };
 		1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC45B11A4EE9AB004ED504 /* ServerComboBoxDataSource.swift */; };
@@ -43,10 +45,12 @@
 /* Begin PBXFileReference section */
 		1D0193331A478610000A9F53 /* QLabFromCsv-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QLabFromCsv-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D0193341A478611000A9F53 /* QLabKitImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLabKitImport.m; sourceTree = "<group>"; };
-		1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
 		1D1A74D41A7D277A007D7E3C /* ScriptCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptCue.swift; sourceTree = "<group>"; };
 		1D1A74D61A7D29CE007D7E3C /* LogScriptCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogScriptCue.swift; sourceTree = "<group>"; };
 		1D1A74D81A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScriptCueQLabConnector.swift; path = CueCreators/ScriptCueQLabConnector.swift; sourceTree = "<group>"; };
+		1D23D46A1ACF48F3009C0081 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-bkjmkwhjqndzlcdshghxqdizhcfg/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
+		1D23D46D1ACF52B1009C0081 /* CsvTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvTemplate.swift; sourceTree = "<group>"; };
+		1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCsvTemplate.swift; sourceTree = "<group>"; };
 		1D2A4C891A46353000903B9C /* RowParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowParser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ViewControllers/MasterViewController.swift; sourceTree = "<group>"; };
@@ -84,8 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D23D46B1ACF48F3009C0081 /* libQLabKitLibrary.a in Frameworks */,
 				1DAC45B01A4DC570004ED504 /* AppKit.framework in Frameworks */,
-				1DA02BF11A4A429400F095A6 /* libQLabKitLibrary.a in Frameworks */,
 				1DA02BF01A4A429100F095A6 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D23D46C1ACF51AF009C0081 /* CsvTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				1D23D46D1ACF52B1009C0081 /* CsvTemplate.swift */,
+				1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */,
+			);
+			name = CsvTemplates;
+			sourceTree = "<group>";
+		};
 		1D8F9D841A4F90CB00F94D55 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		1DA02BC91A4A40D500F095A6 /* QLabFromCsv */ = {
 			isa = PBXGroup;
 			children = (
+				1D23D46C1ACF51AF009C0081 /* CsvTemplates */,
 				1DADB8D91A816A3100E5F85D /* XCGLogger */,
 				1DEAF4C41A507C6F00BA7FD3 /* QLabConnector */,
 				1D8F9D841A4F90CB00F94D55 /* Parsers */,
@@ -171,8 +185,8 @@
 		1DE11C8E1A44EB24001C7FE8 = {
 			isa = PBXGroup;
 			children = (
+				1D23D46A1ACF48F3009C0081 /* libQLabKitLibrary.a */,
 				1DAC45AF1A4DC570004ED504 /* AppKit.framework */,
-				1D0194491A48B3E9000A9F53 /* libQLabKitLibrary.a */,
 				1D2A4CC01A477F6F00903B9C /* Security.framework */,
 				1DE11CA11A44ED10001C7FE8 /* sample_cues.csv */,
 				1DA02BC91A4A40D500F095A6 /* QLabFromCsv */,
@@ -297,6 +311,7 @@
 				1D6B76111A514C2000B8E24F /* GroupCueQLabConnector.swift in Sources */,
 				1D1A74D91A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift in Sources */,
 				1DE7EF1E1A6AC9270046B07F /* CueQLabConnectorBase.swift in Sources */,
+				1D23D4701ACF5388009C0081 /* SimpleCsvTemplate.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
 				1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */,
 				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
@@ -304,6 +319,7 @@
 				1D5CEECC1A6AE29E00BAABAE /* OscUdpCueQLabConnector.swift in Sources */,
 				1DADB8DD1A818FEB00E5F85D /* NSLogDestination.swift in Sources */,
 				1DA02BCF1A4A40D500F095A6 /* QLabViewController.swift in Sources */,
+				1D23D46E1ACF52B1009C0081 /* CsvTemplate.swift in Sources */,
 				1DA698D11A8ACB8F00321D25 /* CuesViewController.swift in Sources */,
 				1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */,
 				1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */,
@@ -343,6 +359,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-bkjmkwhjqndzlcdshghxqdizhcfg/Build/Products/Debug",
 				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -361,6 +378,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-bkjmkwhjqndzlcdshghxqdizhcfg/Build/Products/Debug",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QLabFromCsv/QLabFromCsv-Bridging-Header.h";
