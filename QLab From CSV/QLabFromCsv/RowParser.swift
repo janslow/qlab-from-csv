@@ -9,32 +9,17 @@
 import Foundation
 
 class RowParser {
+    private let _csvTemplate : CsvTemplate
+    
+    init(csvTemplate : CsvTemplate) {
+        self._csvTemplate = csvTemplate
+    }
+    
     func load(rows : [Dictionary<String, String>]) -> [Cue] {
-        // Set up categories of sub-cues and the closures to create the sub-cues.
-        let subCueCategories : Dictionary<String, ([String], Float) -> Cue> = [
-            "LX" : {
-                (parts : [String], preWait : Float) -> Cue in
-                var i = 0
-                let cue = LxGoCue(lxNumber: parts[i++], preWait: preWait)
-                if i < parts.count && parts[i].hasPrefix("L") {
-                    let cueListString = parts[i++]
-                    cue.lxCueList = Int((cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as NSString).intValue)
-                }
-                return cue
-            },
-            "Sound" : {
-                (parts : [String], preWait : Float) -> Cue in
-                return StartCue(targetNumber: "S" + parts[0], preWait: preWait)
-            },
-            "Video" : {
-                (parts : [String], preWait : Float) -> Cue in
-                    return StartCue(targetNumber: "V" + parts[0], preWait: preWait)
-            }
-        ]
         // Create a GroupCue from each row.
         var cues : [GroupCue] = rows.map({
             (row : Dictionary<String, String>) -> GroupCue? in
-            return self.convertRowToCue(row, subCueCategories: subCueCategories);
+            return self.convertRowToCue(row, subCueCategories: self._csvTemplate.categories);
             })
             .filter({ $0 != nil })
             .map({ $0! })
@@ -45,15 +30,25 @@ class RowParser {
     }
     func convertRowToCue(row : Dictionary<String, String>, subCueCategories : Dictionary<String, ([String], Float) -> Cue>) -> GroupCue? {
         // Each row must have a QLab value.
-        let cueNumber = row["QLab"]
+        let cueNumber = row[self._csvTemplate.idCategory]
         if cueNumber == nil {
             log.error("Row Parser: Cue must have a QLab number")
             log.debug("\(row)")
             return nil
         }
         // Comment and Page values are optional.
-        let comment = row["Comment"]
-        let page = row["Page"]
+        var comment : String?
+        if let commentCategory = self._csvTemplate.commentCategory {
+            comment = row[commentCategory]
+        } else {
+            comment = nil
+        }
+        var page : String?
+        if let pageCategory = self._csvTemplate.pageCategory {
+            page = row[pageCategory]
+        } else {
+            page = nil
+        }
         // Create all the child cues by creating cues for each category.
         var children : [Cue] = []
         for (categoryName, categoryCueCreator) in subCueCategories {

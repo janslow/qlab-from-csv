@@ -24,7 +24,7 @@ import Foundation
     @IBOutlet weak var _logDisabledRadio: NSButtonCell!
     
     private let _csvParser = CsvParser.csv()
-    private let _cueParser = RowParser()
+    private let _cueParser = RowParser(csvTemplate: SimpleCsvTemplate())
     private var _selectedCsv : NSURL? = nil
     private var _csvHeaders : [String] = []
     private var _csvRows : [Dictionary<String, String>] = []
@@ -46,7 +46,7 @@ import Foundation
         
         #if DEBUG
             // Default CSV file when in debug mode.
-            _selectedCsv = NSURL(fileURLWithPath: "/Users/jay/dev/qlab_from_csv/sample_cues.csv")
+            _selectedCsv = NSURL(fileURLWithPath: "/Users/janslow/dev/qlab_from_csv/sample_cues.csv")
             _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? "Unable to load sample_cues.csv"
         #endif
     }
