@@ -17,9 +17,11 @@ class OscCueQLabConnector : CueQLabConnectorBase {
     func appendCue(cue : OscCue, completion : (uid : String) -> ()) {
         createCue("osc", cue: cue as Cue) {
             (uid : String) in
-            self.setAsUdpCue(cue as OscUdpCue, uid: uid) {
-                (uid: String) in
-                completion(uid: uid)
+            self.setAttribute(uid, attribute: "patch", value: cue.patch) {
+                self.setAsUdpCue(cue as OscUdpCue, uid: uid) {
+                    (uid: String) in
+                    completion(uid: uid)
+                }
             }
         }
     }
