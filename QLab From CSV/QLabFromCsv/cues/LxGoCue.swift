@@ -37,10 +37,4 @@ class LxGoCue : OscCueBase, OscUdpCue, Printable {
         self.lxNumber = lxNumber
         self.preWait = preWait
     }
-    
-    init(lxNumber : String, lxCueList : Int, preWait : Float) {
-        self.lxNumber = lxNumber
-        self.lxCueList = lxCueList
-        self.preWait = preWait
-    }
 }
