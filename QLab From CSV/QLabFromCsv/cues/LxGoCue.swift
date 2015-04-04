@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LxGoCue : OscUdpCue, Printable {
+class LxGoCue : OscCueBase, OscUdpCue, Printable {
     var cueNumber : String? {
         return nil
     }
