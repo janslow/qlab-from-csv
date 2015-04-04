@@ -18,17 +18,30 @@ class OscCueQLabConnector : CueQLabConnectorBase {
         createCue("osc", cue: cue as Cue) {
             (uid : String) in
             self.setAttribute(uid, attribute: "patch", value: cue.patch) {
-                self.setAsUdpCue(cue as OscUdpCue, uid: uid) {
-                    (uid: String) in
+                var messageType : Int
+                var messageAttribute : String
+                var message : String
+                if let oscCustomCue = cue as? OscCustomCue {
+                    messageType = 2
+                    messageAttribute = "customString"
+                    message = oscCustomCue.customString
+                } else if let oscUdpCue = cue as? OscUdpCue {
+                    messageType = 3
+                    messageAttribute = "udpString"
+                    message = oscUdpCue.udpString
+                } else {
+                    log.error("OscCueQLabConnector: Unknown OSC type for \(cue)")
                     completion(uid: uid)
+                    return
                 }
+                self.setOscDetails(uid, messageType: messageType, messageAttribute: messageAttribute, message: message, completion)
             }
         }
     }
     
-    func setAsUdpCue(cue : OscUdpCue, uid : String, completion : (uid : String) -> ()) {
-        self.setAttribute(uid, attribute: "messageType", value: 3) {
-            self.setAttribute(uid, attribute: "udpString", value: cue.udpString) {
+    func setOscDetails(uid : String, messageType : Int, messageAttribute : String, message : String, completion : (uid : String) -> ()) {
+        self.setAttribute(uid, attribute: "messageType", value: messageType) {
+            self.setAttribute(uid, attribute: messageAttribute, value: message) {
                 completion(uid: uid)
             }
         }

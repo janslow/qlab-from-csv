@@ -16,6 +16,8 @@
 		1D23D4701ACF5388009C0081 /* SimpleCsvTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */; };
 		1D23D4721ACF5967009C0081 /* OscCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4711ACF5967009C0081 /* OscCue.swift */; };
 		1D23D4741ACF5F5D009C0081 /* OscCueBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4731ACF5F5D009C0081 /* OscCueBase.swift */; };
+		1D23D4761ACF61F5009C0081 /* OscCustomCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4751ACF61F5009C0081 /* OscCustomCue.swift */; };
+		1D23D4781ACF62D8009C0081 /* OscCustomCueImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4771ACF62D8009C0081 /* OscCustomCueImpl.swift */; };
 		1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */; };
 		1D5CEECC1A6AE29E00BAABAE /* OscCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */; };
 		1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */; };
@@ -55,6 +57,8 @@
 		1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCsvTemplate.swift; sourceTree = "<group>"; };
 		1D23D4711ACF5967009C0081 /* OscCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscCue.swift; sourceTree = "<group>"; };
 		1D23D4731ACF5F5D009C0081 /* OscCueBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscCueBase.swift; sourceTree = "<group>"; };
+		1D23D4751ACF61F5009C0081 /* OscCustomCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscCustomCue.swift; sourceTree = "<group>"; };
+		1D23D4771ACF62D8009C0081 /* OscCustomCueImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscCustomCueImpl.swift; sourceTree = "<group>"; };
 		1D2A4C891A46353000903B9C /* RowParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowParser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ViewControllers/MasterViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				1D1A74D61A7D29CE007D7E3C /* LogScriptCue.swift */,
 				1D23D4711ACF5967009C0081 /* OscCue.swift */,
 				1D23D4731ACF5F5D009C0081 /* OscCueBase.swift */,
+				1D23D4751ACF61F5009C0081 /* OscCustomCue.swift */,
+				1D23D4771ACF62D8009C0081 /* OscCustomCueImpl.swift */,
 			);
 			name = Cues;
 			path = cues;
@@ -305,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D23D4781ACF62D8009C0081 /* OscCustomCueImpl.swift in Sources */,
 				1D1A74D51A7D277A007D7E3C /* ScriptCue.swift in Sources */,
 				1DA02BE91A4A428700F095A6 /* Cue.swift in Sources */,
 				1DA02BEA1A4A428700F095A6 /* GroupCue.swift in Sources */,
@@ -332,6 +339,7 @@
 				1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */,
 				1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */,
 				1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */,
+				1D23D4761ACF61F5009C0081 /* OscCustomCue.swift in Sources */,
 				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
 				1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */,
