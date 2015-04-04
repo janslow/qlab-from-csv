@@ -46,7 +46,7 @@ import Foundation
         
         #if DEBUG
             // Default CSV file when in debug mode.
-            _selectedCsv = NSURL(fileURLWithPath: "/Users/janslow/dev/qlab_from_csv/sample_cues.csv")
+            _selectedCsv = NSURL(fileURLWithPath: "/Users/janslow/dev/qlab-from-csv/sample_cues.csv")
             _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? "Unable to load sample_cues.csv"
         #endif
     }
