@@ -13,7 +13,7 @@ class CueQLabConnector {
     
     private let _groupCueConnector : GroupCueQLabConnector
     private let _startCueConnector : StartCueQLabConnector
-    private let _oscUdpCueConnector : OscUdpCueQLabConnector
+    private let _oscCueConnector : OscCueQLabConnector
     private let _scriptCueConnector : ScriptCueQLabConnector
     
     init(workspace : QLKWorkspace) {
@@ -21,7 +21,7 @@ class CueQLabConnector {
         
         _groupCueConnector = GroupCueQLabConnector(workspace: workspace)
         _startCueConnector = StartCueQLabConnector(workspace: workspace)
-        _oscUdpCueConnector = OscUdpCueQLabConnector(workspace: workspace)
+        _oscCueConnector = OscCueQLabConnector(workspace: workspace)
         _scriptCueConnector = ScriptCueQLabConnector(workspace: workspace)
         
         _groupCueConnector.cueConnector = self
@@ -46,8 +46,8 @@ class CueQLabConnector {
             _groupCueConnector.appendCue(cue as GroupCue, completion: completion)
         } else if (cue is StartCue) {
             _startCueConnector.appendCue(cue as StartCue, completion: completion)
-        } else if (cue is OscUdpCue) {
-            _oscUdpCueConnector.appendCue(cue as OscUdpCue, completion: completion)
+        } else if (cue is OscCue) {
+            _oscCueConnector.appendCue(cue as OscCue, completion: completion)
         } else if (cue is ScriptCue) {
             _scriptCueConnector.appendCue(cue as ScriptCue, completion: completion)
         } else {
