@@ -14,9 +14,9 @@ class LxGoCue : OscCueBase, OscUdpCue, Printable {
     }
     var cueName : String {
         if lxCueList == 0 {
-            return "LX \(lxNumber) Go (OSC:\(patch))"
+            return "LX \(lxNumber) Go (OSC\(patch))"
         } else {
-            return "LX \(lxNumber) in Cue List \(lxCueList) Go (OSC:\(patch))"
+            return "LX \(lxNumber) in Cue List \(lxCueList) Go (OSC\(patch))"
         }
     }
     var description : String {
