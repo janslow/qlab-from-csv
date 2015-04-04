@@ -8,15 +8,15 @@
 
 import Foundation
 
-class LxGoCue : OscUdpCue, Printable {
+class LxGoCue : OscCueBase, OscUdpCue, Printable {
     var cueNumber : String? {
         return nil
     }
     var cueName : String {
         if lxCueList == 0 {
-            return "LX \(lxNumber) Go"
+            return "LX \(lxNumber) Go (OSC\(patch))"
         } else {
-            return "LX \(lxNumber) in Cue List \(lxCueList) Go"
+            return "LX \(lxNumber) in Cue List \(lxCueList) Go (OSC\(patch))"
         }
     }
     var description : String {
@@ -35,12 +35,6 @@ class LxGoCue : OscUdpCue, Printable {
     
     init(lxNumber : String, preWait : Float) {
         self.lxNumber = lxNumber
-        self.preWait = preWait
-    }
-    
-    init(lxNumber : String, lxCueList : Int, preWait : Float) {
-        self.lxNumber = lxNumber
-        self.lxCueList = lxCueList
         self.preWait = preWait
     }
 }
