@@ -9,4 +9,5 @@
 import Foundation
 
 @objc public protocol OscCue : Cue {
+    var patch : Int { get }
 }

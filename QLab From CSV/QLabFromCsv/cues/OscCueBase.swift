@@ -9,4 +9,18 @@
 import Foundation
 
 @objc class OscCueBase {
+    private var _patch = 1
+    
+    var patch : Int {
+        get {
+            return _patch
+        }
+        set {
+            if newValue < 1 || newValue > 16 {
+                log.error("OscCueBase: OSC Patch must be between 1 and 16 (was \(newValue))")
+                return
+            }
+            _patch = newValue
+        }
+    }
 }

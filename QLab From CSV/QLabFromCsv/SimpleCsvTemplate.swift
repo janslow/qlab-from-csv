@@ -42,6 +42,10 @@ class SimpleCsvTemplate : CsvTemplate {
                 let cueListString = parts[i++]
                 cue.lxCueList = Int((cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as NSString).intValue)
             }
+            if i < parts.count && parts[i].hasPrefix("P") {
+                let patchString = parts[i++]
+                cue.patch = Int((patchString.substringFromIndex(advance(patchString.startIndex, 1)) as NSString).intValue)
+            }
             return cue
         },
         "Sound" : {
