@@ -15,11 +15,11 @@ class RowParser {
         self._csvTemplate = csvTemplate
     }
     
-    func load(rows : [Dictionary<String, String>]) -> [Cue] {
+    func load(csvFile : CsvFile, issues : ParseIssueAcceptor) -> [Cue] {
         // Create a GroupCue from each row.
-        var cues : [GroupCue] = rows.map({
+        var cues : [GroupCue] = csvFile.rows.map({
             (row : Dictionary<String, String>) -> GroupCue? in
-            return self.convertRowToCue(row, subCueCategories: self._csvTemplate.categories);
+            return self.convertRowToCue(row, subCueCategories: self._csvTemplate.categories, issues: issues);
             })
             .filter({ $0 != nil })
             .map({ $0! })
@@ -28,7 +28,7 @@ class RowParser {
             $0 as Cue
         })
     }
-    func convertRowToCue(row : Dictionary<String, String>, subCueCategories : Dictionary<String, ([String], Float) -> Cue>) -> GroupCue? {
+    func convertRowToCue(row : Dictionary<String, String>, subCueCategories : Dictionary<String, ([String], Float) -> Cue>, issues : ParseIssueAcceptor) -> GroupCue? {
         // Each row must have a QLab value.
         let cueNumber = row[self._csvTemplate.idCategory]
         if cueNumber == nil {
