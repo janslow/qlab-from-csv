@@ -8,15 +8,13 @@
 
 import Foundation
 
-@objc public protocol CuesViewController : ChildViewController {
+public protocol CuesViewController {
     var Cues : [Cue] { get }
     
     var IsValid : Bool { get }
 }
 
 @objc public class CuesViewControllerImpl : NSViewController, CuesViewController {
-    public var Parent : MasterViewController?
-    
     @IBOutlet weak var _inputFileTextField: NSTextField!
     @IBOutlet weak var _logFileTextField: NSTextField!
     @IBOutlet weak var _rowCountLabel: NSTextField!

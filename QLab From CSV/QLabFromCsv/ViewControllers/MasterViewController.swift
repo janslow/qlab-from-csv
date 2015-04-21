@@ -16,10 +16,6 @@ import Foundation
     func append()
 }
 
-@objc public protocol ChildViewController {
-    var Parent : MasterViewController? { get set }
-}
-
 @objc public class MasterViewControllerImpl : NSTabViewController, MasterViewController {
     @IBOutlet weak var qlabTab: NSTabViewItem!
     @IBOutlet weak var cuesTab: NSTabViewItem!

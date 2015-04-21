@@ -9,7 +9,7 @@
 import Cocoa
 import AppKit
 
-@objc public protocol QLabViewController : ChildViewController {
+public protocol QLabViewController {
     var Workspace : QLKWorkspace? { get }
     
     var IsConnected : Bool { get }
@@ -22,8 +22,6 @@ enum ConnectionState {
 }
 
 @objc public class QLabViewControllerImpl: NSViewController, QLKBrowserDelegate, QLabViewController {
-    public var Parent : MasterViewController?
-    
     @IBOutlet weak var serverComboBox: NSComboBox!
     @IBOutlet weak var workspaceComboBox: NSComboBox!
     @IBOutlet weak var cueListComboBox: NSComboBox!
