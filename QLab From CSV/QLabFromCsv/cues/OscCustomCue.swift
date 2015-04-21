@@ -8,6 +8,6 @@
 
 import Foundation
 
-@objc protocol OscCustomCue : OscCue {
+protocol OscCustomCue : OscCue {
     var customString : String { get }
 }
