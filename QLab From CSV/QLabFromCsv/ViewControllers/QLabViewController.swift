@@ -15,12 +15,6 @@ public protocol QLabViewController {
     var IsConnected : Bool { get }
 }
 
-enum ConnectionState {
-    case NotConnected
-    case Connecting(QLKWorkspace)
-    case Connected(QLKWorkspace)
-}
-
 @objc public class QLabViewControllerImpl: NSViewController, QLKBrowserDelegate, QLabViewController {
     @IBOutlet weak var serverComboBox: NSComboBox!
     @IBOutlet weak var workspaceComboBox: NSComboBox!

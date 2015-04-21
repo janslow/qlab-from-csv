@@ -44,6 +44,7 @@
 		1DE7EF1E1A6AC9270046B07F /* CueQLabConnectorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1D1A6AC9270046B07F /* CueQLabConnectorBase.swift */; };
 		1DE7EF201A6AC9D70046B07F /* StartCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1F1A6AC9D70046B07F /* StartCueQLabConnector.swift */; };
 		1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */; };
+		1DF3936E1AE6F26900F9F80C /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3936D1AE6F26900F9F80C /* ConnectionState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		1DE7EF1D1A6AC9270046B07F /* CueQLabConnectorBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueQLabConnectorBase.swift; sourceTree = "<group>"; };
 		1DE7EF1F1A6AC9D70046B07F /* StartCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCueQLabConnector.swift; sourceTree = "<group>"; };
 		1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CueQLabConnector.swift; path = CueCreators/CueQLabConnector.swift; sourceTree = "<group>"; };
+		1DF3936D1AE6F26900F9F80C /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				1DA02BCE1A4A40D500F095A6 /* QLabViewController.swift */,
+				1DF3936D1AE6F26900F9F80C /* ConnectionState.swift */,
 				1DA698D01A8ACB8F00321D25 /* CuesViewController.swift */,
 				1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */,
 			);
@@ -326,6 +329,7 @@
 				1DE7EF1E1A6AC9270046B07F /* CueQLabConnectorBase.swift in Sources */,
 				1D23D4701ACF5388009C0081 /* SimpleCsvTemplate.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
+				1DF3936E1AE6F26900F9F80C /* ConnectionState.swift in Sources */,
 				1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */,
 				1D23D4721ACF5967009C0081 /* OscCue.swift in Sources */,
 				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
