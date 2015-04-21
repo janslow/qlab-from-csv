@@ -133,8 +133,8 @@ import Foundation
     // Trigger cue creation because the log file has changed.
     @IBAction func onLogFileInputChange(sender: AnyObject) {
         var senderId = "\(sender)"
-        if let senderWithId = sender as? NSUserInterfaceItemIdentification {
-            senderId = senderWithId.identifier
+        if let senderIdentifier = (sender as? NSUserInterfaceItemIdentification)?.identifier {
+            senderId = senderIdentifier
         }
         log.debug("Cue creation triggered: Changed log configuration \(senderId).")
         createCues()
