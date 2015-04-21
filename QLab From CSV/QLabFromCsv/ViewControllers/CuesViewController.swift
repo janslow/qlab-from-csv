@@ -67,7 +67,7 @@ import Foundation
             dialog.directoryURL = defaultUrl
         }
         
-        if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
+        if dialog.runModal() == NSModalResponseOK && !dialog.URLs.isEmpty {
             _selectedCsv = dialog.URLs[0] as? NSURL
             _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? _selectedCsv?.path ?? ""
             log.debug("Selected input file: \(_selectedCsv?.path)")
@@ -103,7 +103,7 @@ import Foundation
         dialog.canChooseDirectories = true
         dialog.allowsMultipleSelection = false
         
-        if dialog.runModal() == NSOKButton && !dialog.URLs.isEmpty {
+        if dialog.runModal() == NSModalResponseOK && !dialog.URLs.isEmpty {
             if let url = dialog.URLs[0] as? NSURL {
                 if let path = url.path {
                     var isDirectory : ObjCBool = ObjCBool(false)
