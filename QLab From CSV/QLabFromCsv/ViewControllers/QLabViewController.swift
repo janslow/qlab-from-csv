@@ -81,13 +81,13 @@ enum ConnectionState {
     }
     
     public func browserDidUpdateServers(browser : QLKBrowser) {
-        serverComboBoxDataSource.setItems(browser.servers)
+        serverComboBoxDataSource.setItems(browser.servers as [AnyObject])
         onStateChange()
     }
     
     public func serverDidUpdateWorkspaces(server : QLKServer) {
         if serverComboBoxDataSource.getSelectedServer()?.host == server.host {
-            workspaceComboBoxDataSource.setItems(server.workspaces)
+            workspaceComboBoxDataSource.setItems(server.workspaces as [AnyObject])
             onStateChange()
         }
     }
@@ -105,7 +105,7 @@ enum ConnectionState {
     
     @IBAction func onServerChange(sender: NSComboBox) {
         let workspaces = serverComboBoxDataSource.getSelectedServer()?.workspaces ?? []
-        workspaceComboBoxDataSource.setItems(workspaces)
+        workspaceComboBoxDataSource.setItems(workspaces as [AnyObject])
         onStateChange()
     }
     
