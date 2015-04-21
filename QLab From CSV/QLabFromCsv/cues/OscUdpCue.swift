@@ -8,6 +8,6 @@
 
 import Foundation
 
-@objc protocol OscUdpCue : OscCue {
+protocol OscUdpCue : OscCue {
     var udpString : String { get }
 }

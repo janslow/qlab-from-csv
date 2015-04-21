@@ -34,7 +34,7 @@ class OscCueQLabConnector : CueQLabConnectorBase {
                     completion(uid: uid)
                     return
                 }
-                self.setOscDetails(uid, messageType: messageType, messageAttribute: messageAttribute, message: message, completion)
+                self.setOscDetails(uid, messageType: messageType, messageAttribute: messageAttribute, message: message, completion: completion)
             }
         }
     }

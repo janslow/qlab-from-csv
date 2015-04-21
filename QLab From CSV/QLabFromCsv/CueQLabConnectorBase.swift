@@ -19,7 +19,7 @@ class CueQLabConnectorBase {
     internal func createCue(cueType : String, cue nillableCue : Cue? = nil, completion : (uid : String) -> ()) {
         _workspace.sendMessage(cueType, toAddress:"/new", block: {
             (data : AnyObject!) in
-            let uid = data as String
+            let uid = data as! String
             log.debug("INSERT \(cueType) cue RESPONSE uid = \(uid)")
             
             if let cue = nillableCue {
@@ -48,13 +48,13 @@ class CueQLabConnectorBase {
     
     // Set the attribute of a cue, using a default value if the provided value is nil.
     internal func setAttribute(uid : String, attribute : String, nillableValue : AnyObject?, defaultValue : AnyObject, completion : () -> ()) {
-        setAttribute(uid, attribute: attribute, value: nillableValue ?? defaultValue, completion)
+        setAttribute(uid, attribute: attribute, value: nillableValue ?? defaultValue, completion: completion)
     }
     
     // Set the attribute of a cue, iff the value is non-nil.
     internal func setAttribute(uid : String, attribute : String, nillableValue : AnyObject?, completion : () -> ()) {
         if let value : AnyObject = nillableValue {
-            setAttribute(uid, attribute: attribute, value: value, completion)
+            setAttribute(uid, attribute: attribute, value: value, completion: completion)
         } else {
             completion()
         }
