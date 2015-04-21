@@ -16,7 +16,7 @@ class CueComboBoxDataSource : ComboBoxDataSource {
     }
     
     override func itemToString(item : AnyObject) -> String {
-        let cue = item as QLKCue
+        let cue = item as! QLKCue
         
         if _showNumber {
             let number = cue.number ?? "?"

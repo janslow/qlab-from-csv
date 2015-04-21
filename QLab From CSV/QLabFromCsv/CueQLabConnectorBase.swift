@@ -19,7 +19,7 @@ class CueQLabConnectorBase {
     internal func createCue(cueType : String, cue nillableCue : Cue? = nil, completion : (uid : String) -> ()) {
         _workspace.sendMessage(cueType, toAddress:"/new", block: {
             (data : AnyObject!) in
-            let uid = data as String
+            let uid = data as! String
             log.debug("INSERT \(cueType) cue RESPONSE uid = \(uid)")
             
             if let cue = nillableCue {

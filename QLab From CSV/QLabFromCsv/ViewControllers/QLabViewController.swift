@@ -96,7 +96,7 @@ enum ConnectionState {
         if let workspace = Workspace {
             let cueLists = (workspace.root.cues as [AnyObject]).filter({
                 // Exclude fake cue lists (i.e., Active Cues).
-                ($0 as QLKCue).number != nil
+                ($0 as! QLKCue).number != nil
             })
             cueListComboBoxDataSource.setItems(cueLists)
             onStateChange()
