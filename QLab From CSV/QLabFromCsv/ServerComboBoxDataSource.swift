@@ -10,7 +10,7 @@ import Foundation
 
 class ServerComboBoxDataSource : ComboBoxDataSource {
     override func itemToString(item : AnyObject) -> String {
-        let server = item as QLKServer
+        let server = item as! QLKServer
         return "\(server.name) (\(server.host))"
     }
     
