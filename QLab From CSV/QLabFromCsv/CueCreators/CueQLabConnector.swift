@@ -42,14 +42,14 @@ class CueQLabConnector {
         }
     }
     func appendCue(cue : Cue, completion : (uid : String) -> ()) {
-        if (cue is GroupCue) {
-            _groupCueConnector.appendCue(cue as GroupCue, completion: completion)
-        } else if (cue is StartCue) {
-            _startCueConnector.appendCue(cue as StartCue, completion: completion)
-        } else if (cue is OscCue) {
-            _oscCueConnector.appendCue(cue as OscCue, completion: completion)
-        } else if (cue is ScriptCue) {
-            _scriptCueConnector.appendCue(cue as ScriptCue, completion: completion)
+        if let groupCue = cue as? GroupCue {
+            _groupCueConnector.appendCue(groupCue, completion: completion)
+        } else if let startCue = cue as? StartCue {
+            _startCueConnector.appendCue(startCue, completion: completion)
+        } else if let oscCue = cue as? OscCue {
+            _oscCueConnector.appendCue(oscCue, completion: completion)
+        } else if let scriptCue = cue as? ScriptCue {
+            _scriptCueConnector.appendCue(scriptCue, completion: completion)
         } else {
             log.error("No QLab connector for \(cue)")
         }
