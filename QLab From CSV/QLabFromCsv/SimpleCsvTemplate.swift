@@ -9,31 +9,31 @@
 import Foundation
 
 class SimpleCsvTemplate : CsvTemplate {
-    var categories : Dictionary<String, ([String], Float) -> Cue> {
+    var ColumnToCueParserMap : Dictionary<String, CueParser> {
         get {
-            return _categories
+            return _columnToCueParserMap
         }
     }
     
-    var idCategory : String {
+    var IdColumn : String {
         get {
             return "QLab"
         }
     }
     
-    var pageCategory : String? {
+    var PageColumn : String? {
         get {
             return "Page"
         }
     }
     
-    var commentCategory : String? {
+    var CommentColumn : String? {
         get {
             return "Comment"
         }
     }
     
-    private let _categories = [
+    private let _columnToCueParserMap = [
         "LX" : {
             (parts : [String], preWait : Float) -> Cue in
             var i = 0
