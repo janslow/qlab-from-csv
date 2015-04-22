@@ -8,9 +8,11 @@
 
 import Foundation
 
+public typealias CueParser = (parts : [String], preWait : Float) -> Cue
+
 public protocol CsvTemplate {
-    var categories : Dictionary<String, ([String], Float) -> Cue> { get }
-    var idCategory : String { get }
-    var pageCategory : String? { get }
-    var commentCategory : String? { get }
+    var ColumnToCueParserMap : Dictionary<String, CueParser> { get }
+    var IdColumn : String { get }
+    var PageColumn : String? { get }
+    var CommentColumn : String? { get }
 }

@@ -52,13 +52,13 @@ public class CsvParser {
             for (index, header) in enumerate(headers) {
                 scanner.scanCharactersFromSet(whitespace, intoString: nil)
                 
-                var value : NSString = ""
+                var value = ""
                 if scanner.scanCharactersFromSet(doubleQuote, intoString: nil) {
                     var result : NSString?
                     while true {
                         scanner.scanUpToCharactersFromSet(doubleQuote, intoString: &result)
-                        if result != nil {
-                            value = value + result!
+                        if let resultString = result {
+                            value = value + (resultString as String)
                         }
                         if scanner.scanString("\"\"", intoString: nil) {
                             value = value + "\""
@@ -71,8 +71,8 @@ public class CsvParser {
                     var result : NSString?
                     // Case where value is not quoted
                     scanner.scanUpToString(delimiter, intoString: &result)
-                    if result != nil {
-                        value = result!
+                    if let resultString = result {
+                        value = resultString as String
                     }
                 }
                 // Trim whitespace

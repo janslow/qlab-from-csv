@@ -10,7 +10,7 @@ import Foundation
 
 class WorkspaceComboBoxDataSource : ComboBoxDataSource {
     override func itemToString(item : AnyObject) -> String {
-        let workspace = item as QLKWorkspace
+        let workspace = item as! QLKWorkspace
         return workspace.name
     }
     

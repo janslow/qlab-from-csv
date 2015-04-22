@@ -8,6 +8,6 @@
 
 import Foundation
 
-@objc protocol ScriptCue : Cue {
+protocol ScriptCue : Cue {
     var script : String { get }
 }
