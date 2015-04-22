@@ -19,7 +19,7 @@ class RowParser {
         // Create a GroupCue from each row.
         var cues : [GroupCue] = rows.map({
             (row : Dictionary<String, String>) -> GroupCue? in
-            return self.convertRowToCue(row, subCueCategories: self._csvTemplate.categories);
+            return self.convertRowToCue(row);
             })
             .filter({ $0 != nil })
             .map({ $0! })
@@ -28,9 +28,9 @@ class RowParser {
             $0 as Cue
         })
     }
-    func convertRowToCue(row : Dictionary<String, String>, subCueCategories : Dictionary<String, ([String], Float) -> Cue>) -> GroupCue? {
+    func convertRowToCue(row : Dictionary<String, String>) -> GroupCue? {
         // Each row must have a QLab value.
-        let cueNumber = row[self._csvTemplate.idCategory]
+        let cueNumber = row[self._csvTemplate.IdColumn]
         if cueNumber == nil {
             log.error("Row Parser: Cue must have a QLab number")
             log.debug("\(row)")
@@ -38,29 +38,29 @@ class RowParser {
         }
         // Comment and Page values are optional.
         var comment : String?
-        if let commentCategory = self._csvTemplate.commentCategory {
-            comment = row[commentCategory]
+        if let commentColumn = self._csvTemplate.CommentColumn {
+            comment = row[commentColumn]
         } else {
             comment = nil
         }
         var page : String?
-        if let pageCategory = self._csvTemplate.pageCategory {
-            page = row[pageCategory]
+        if let pageColumn = self._csvTemplate.PageColumn {
+            page = row[pageColumn]
         } else {
             page = nil
         }
         // Create all the child cues by creating cues for each category.
         var children : [Cue] = []
-        for (categoryName, categoryCueCreator) in subCueCategories {
+        for (columnName, cueCreator) in self._csvTemplate.ColumnToCueParserMap {
             // If there is a sub-cue value for the specified category, create the cues for that type.
-            if let subCueString = row[categoryName] {
-                children += createSubCues(subCueString, cueCreator: categoryCueCreator)
+            if let subCueString = row[columnName] {
+                children += createSubCues(subCueString, cueCreator: cueCreator)
             }
         }
         // Construct and return the GroupCue
         return GroupCue(cueNumber: cueNumber!, comment: comment, page: page, children: children)
     }
-    func createSubCues(cueString : String, cueCreator : ([String], Float) -> Cue) -> [Cue] {
+    func createSubCues(cueString : String, cueCreator : CueParser) -> [Cue] {
         // Split the sub-cue string by commas.
         var cueStrings: [String] = cueString.componentsSeparatedByString(",")
         // For each sub-cue string...
@@ -84,7 +84,7 @@ class RowParser {
                     }
                 }
                 // ...Create and return the cue.
-                return cueCreator(parts, preWait)
+                return cueCreator(parts: parts, preWait: preWait)
             })
         return cues
     }

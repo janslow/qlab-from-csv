@@ -13,7 +13,6 @@
 		1D1A74D91A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1A74D81A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift */; };
 		1D23D46B1ACF48F3009C0081 /* libQLabKitLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D23D46A1ACF48F3009C0081 /* libQLabKitLibrary.a */; };
 		1D23D46E1ACF52B1009C0081 /* CsvTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D46D1ACF52B1009C0081 /* CsvTemplate.swift */; };
-		1D23D4701ACF5388009C0081 /* SimpleCsvTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */; };
 		1D23D4721ACF5967009C0081 /* OscCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4711ACF5967009C0081 /* OscCue.swift */; };
 		1D23D4741ACF5F5D009C0081 /* OscCueBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4731ACF5F5D009C0081 /* OscCueBase.swift */; };
 		1D23D4761ACF61F5009C0081 /* OscCustomCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4751ACF61F5009C0081 /* OscCustomCue.swift */; };
@@ -44,6 +43,8 @@
 		1DE7EF1E1A6AC9270046B07F /* CueQLabConnectorBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1D1A6AC9270046B07F /* CueQLabConnectorBase.swift */; };
 		1DE7EF201A6AC9D70046B07F /* StartCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7EF1F1A6AC9D70046B07F /* StartCueQLabConnector.swift */; };
 		1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */; };
+		1DF2C4681AE824A4008A22F3 /* CsvTemplateImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2C4671AE824A4008A22F3 /* CsvTemplateImpl.swift */; };
+		1DF2C46A1AE825C1008A22F3 /* StandardCsvTemplateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF2C4691AE825C1008A22F3 /* StandardCsvTemplateFactory.swift */; };
 		1DF3936A1AE6F1A900F9F80C /* MasterViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF393691AE6F1A900F9F80C /* MasterViewControllerImpl.swift */; };
 		1DF3936E1AE6F26900F9F80C /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3936D1AE6F26900F9F80C /* ConnectionState.swift */; };
 		1DF393701AE6F27F00F9F80C /* QLabViewControllerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3936F1AE6F27F00F9F80C /* QLabViewControllerImpl.swift */; };
@@ -58,7 +59,6 @@
 		1D1A74D81A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScriptCueQLabConnector.swift; path = CueCreators/ScriptCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D23D46A1ACF48F3009C0081 /* libQLabKitLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQLabKitLibrary.a; path = "../../../Library/Developer/Xcode/DerivedData/QLabFromCsv-bkjmkwhjqndzlcdshghxqdizhcfg/Build/Products/Debug/libQLabKitLibrary.a"; sourceTree = "<group>"; };
 		1D23D46D1ACF52B1009C0081 /* CsvTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvTemplate.swift; sourceTree = "<group>"; };
-		1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCsvTemplate.swift; sourceTree = "<group>"; };
 		1D23D4711ACF5967009C0081 /* OscCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscCue.swift; sourceTree = "<group>"; };
 		1D23D4731ACF5F5D009C0081 /* OscCueBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscCueBase.swift; sourceTree = "<group>"; };
 		1D23D4751ACF61F5009C0081 /* OscCustomCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscCustomCue.swift; sourceTree = "<group>"; };
@@ -93,6 +93,8 @@
 		1DE7EF1D1A6AC9270046B07F /* CueQLabConnectorBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueQLabConnectorBase.swift; sourceTree = "<group>"; };
 		1DE7EF1F1A6AC9D70046B07F /* StartCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCueQLabConnector.swift; sourceTree = "<group>"; };
 		1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CueQLabConnector.swift; path = CueCreators/CueQLabConnector.swift; sourceTree = "<group>"; };
+		1DF2C4671AE824A4008A22F3 /* CsvTemplateImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CsvTemplateImpl.swift; sourceTree = "<group>"; };
+		1DF2C4691AE825C1008A22F3 /* StandardCsvTemplateFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardCsvTemplateFactory.swift; sourceTree = "<group>"; };
 		1DF393691AE6F1A900F9F80C /* MasterViewControllerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewControllerImpl.swift; sourceTree = "<group>"; };
 		1DF3936D1AE6F26900F9F80C /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		1DF3936F1AE6F27F00F9F80C /* QLabViewControllerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLabViewControllerImpl.swift; sourceTree = "<group>"; };
@@ -117,7 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				1D23D46D1ACF52B1009C0081 /* CsvTemplate.swift */,
-				1D23D46F1ACF5388009C0081 /* SimpleCsvTemplate.swift */,
+				1DF2C4671AE824A4008A22F3 /* CsvTemplateImpl.swift */,
+				1DF2C4691AE825C1008A22F3 /* StandardCsvTemplateFactory.swift */,
 			);
 			name = CsvTemplates;
 			sourceTree = "<group>";
@@ -337,7 +340,6 @@
 				1D6B76111A514C2000B8E24F /* GroupCueQLabConnector.swift in Sources */,
 				1D1A74D91A7D2BE7007D7E3C /* ScriptCueQLabConnector.swift in Sources */,
 				1DE7EF1E1A6AC9270046B07F /* CueQLabConnectorBase.swift in Sources */,
-				1D23D4701ACF5388009C0081 /* SimpleCsvTemplate.swift in Sources */,
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
 				1DF3936E1AE6F26900F9F80C /* ConnectionState.swift in Sources */,
 				1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */,
@@ -345,6 +347,7 @@
 				1D23D4721ACF5967009C0081 /* OscCue.swift in Sources */,
 				1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */,
 				1DE7EF201A6AC9D70046B07F /* StartCueQLabConnector.swift in Sources */,
+				1DF2C4681AE824A4008A22F3 /* CsvTemplateImpl.swift in Sources */,
 				1D5CEECC1A6AE29E00BAABAE /* OscCueQLabConnector.swift in Sources */,
 				1DADB8DD1A818FEB00E5F85D /* NSLogDestination.swift in Sources */,
 				1D23D4741ACF5F5D009C0081 /* OscCueBase.swift in Sources */,
@@ -358,6 +361,7 @@
 				1D23D4761ACF61F5009C0081 /* OscCustomCue.swift in Sources */,
 				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
+				1DF2C46A1AE825C1008A22F3 /* StandardCsvTemplateFactory.swift in Sources */,
 				1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
