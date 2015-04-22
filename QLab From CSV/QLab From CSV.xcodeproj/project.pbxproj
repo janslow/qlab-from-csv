@@ -19,10 +19,11 @@
 		1D23D4781ACF62D8009C0081 /* OscCustomCueImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4771ACF62D8009C0081 /* OscCustomCueImpl.swift */; };
 		1D23D47A1ACFFEFB009C0081 /* IssueSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4791ACFFEFB009C0081 /* IssueSeverity.swift */; };
 		1D2BC8921ACFFFDF008E6406 /* ParseIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BC8911ACFFFDF008E6406 /* ParseIssue.swift */; };
-		1D2BC8941AD00067008E6406 /* ParseIssueAcceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BC8931AD00067008E6406 /* ParseIssueAcceptor.swift */; };
 		1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */; };
 		1D5CEECC1A6AE29E00BAABAE /* OscCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */; };
 		1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */; };
+		1D60021A1AE8529E0002C28D /* ParseIssueAcceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */; };
+		1D60021B1AE854FF0002C28D /* ParseIssueAcceptorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BC8931AD00067008E6406 /* ParseIssueAcceptorImpl.swift */; };
 		1D6B76111A514C2000B8E24F /* GroupCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6B76101A514C2000B8E24F /* GroupCueQLabConnector.swift */; };
 		1D8F9D811A4F8AB200F94D55 /* ComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */; };
 		1D8F9D831A4F8CCA00F94D55 /* CueComboBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */; };
@@ -70,10 +71,11 @@
 		1D2A4C891A46353000903B9C /* RowParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowParser.swift; sourceTree = "<group>"; };
 		1D2A4CC01A477F6F00903B9C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1D2BC8911ACFFFDF008E6406 /* ParseIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssue.swift; sourceTree = "<group>"; };
-		1D2BC8931AD00067008E6406 /* ParseIssueAcceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssueAcceptor.swift; sourceTree = "<group>"; };
+		1D2BC8931AD00067008E6406 /* ParseIssueAcceptorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssueAcceptorImpl.swift; sourceTree = "<group>"; };
 		1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ViewControllers/MasterViewController.swift; sourceTree = "<group>"; };
 		1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OscCueQLabConnector.swift; path = CueCreators/OscCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscUdpCue.swift; sourceTree = "<group>"; };
+		1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssueAcceptor.swift; sourceTree = "<group>"; };
 		1D6B76101A514C2000B8E24F /* GroupCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupCueQLabConnector.swift; path = CueCreators/GroupCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D8F9D801A4F8AB200F94D55 /* ComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxDataSource.swift; sourceTree = "<group>"; };
 		1D8F9D821A4F8CCA00F94D55 /* CueComboBoxDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueComboBoxDataSource.swift; sourceTree = "<group>"; };
@@ -138,7 +140,8 @@
 				1D2A4C891A46353000903B9C /* RowParser.swift */,
 				1D23D4791ACFFEFB009C0081 /* IssueSeverity.swift */,
 				1D2BC8911ACFFFDF008E6406 /* ParseIssue.swift */,
-				1D2BC8931AD00067008E6406 /* ParseIssueAcceptor.swift */,
+				1D2BC8931AD00067008E6406 /* ParseIssueAcceptorImpl.swift */,
+				1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -374,6 +377,8 @@
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
 				1DF2C46A1AE825C1008A22F3 /* StandardCsvTemplateFactory.swift in Sources */,
 				1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */,
+				1D60021A1AE8529E0002C28D /* ParseIssueAcceptor.swift in Sources */,
+				1D60021B1AE854FF0002C28D /* ParseIssueAcceptorImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
