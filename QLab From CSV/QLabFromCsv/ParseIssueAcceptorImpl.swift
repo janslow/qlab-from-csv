@@ -10,50 +10,50 @@ import Foundation
 
 public class ParseIssueAcceptorImpl : ParseIssueAcceptor {
     private class ParseIssueImpl : ParseIssue {
-        var severity : IssueSeverity
-        var line : Int
-        var cause : String?
-        var code : String
-        var details : String
+        var Severity : IssueSeverity
+        var Line : Int
+        var Cause : String?
+        var Code : String
+        var Details : String
         
         init(severity : IssueSeverity, line : Int, cause : String?, code : String, details : String) {
-            self.severity = severity
-            self.line = line
-            self.cause = cause
-            self.code = code
-            self.details = details
+            Severity = severity
+            Line = line
+            Cause = cause
+            Code = code
+            Details = details
         }
         
         var description : String {
             get {
-                var s = "\(self.severity) parse issue at line \(self.line)"
-                if let cause = self.cause {
+                var s = "\(Severity) parse issue at line \(Line)"
+                if let cause = Cause {
                     s += " (\"\(cause)\")"
                 }
-                s += ": \(self.code) (\(self.details))"
+                s += ": \(Code) (\(Details))"
                 return s
             }
         }
     }
     
-    public var issues : [ParseIssue] {
+    public var Issues : [ParseIssue] {
         get {
             return _issues
         }
     }
     
-    public var hasFatalErrors : Bool {
+    public var HasFatalErrors : Bool {
         get {
             return !self.getBySeverity(IssueSeverity.FATAL).isEmpty
         }
     }
     
-    public var currentLine : Int = 0
+    public var CurrentLine : Int = 0
     
     private var _issues : [ParseIssue] = []
     
     public func add(issue : ParseIssue) {
-        switch (issue.severity) {
+        switch (issue.Severity) {
         case IssueSeverity.FATAL, IssueSeverity.ERROR:
             log.error(issue.description)
             break
@@ -69,13 +69,13 @@ public class ParseIssueAcceptorImpl : ParseIssueAcceptor {
     }
     
     public func add(severity : IssueSeverity, cause : String?, code : String, details : String) {
-        self.add(severity, line: self.currentLine, cause: cause, code: code, details: details)
+        self.add(severity, line: CurrentLine, cause: cause, code: code, details: details)
     }
     
     public func getBySeverity(severity : IssueSeverity) -> [ParseIssue] {
         return _issues.filter({
             (issue : ParseIssue) in
-            issue.severity == severity
+            issue.Severity == severity
         })
     }
 }

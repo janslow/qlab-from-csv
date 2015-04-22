@@ -9,11 +9,11 @@
 import Foundation
 
 public protocol ParseIssueAcceptor {
-    var issues : [ParseIssue] { get }
+    var Issues : [ParseIssue] { get }
     
-    var hasFatalErrors : Bool { get }
+    var HasFatalErrors : Bool { get }
     
-    var currentLine : Int { get }
+    var CurrentLine : Int { get }
     
     func add(issue : ParseIssue)
     func add(severity : IssueSeverity, line : Int, cause : String?, code : String, details : String)

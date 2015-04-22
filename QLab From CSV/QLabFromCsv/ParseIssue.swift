@@ -10,9 +10,9 @@
 import Foundation
 
 public protocol ParseIssue : Printable {
-    var severity : IssueSeverity { get }
-    var line : Int { get }
-    var cause : String? { get }
-    var code : String { get }
-    var details : String { get }
+    var Severity : IssueSeverity { get }
+    var Line : Int { get }
+    var Cause : String? { get }
+    var Code : String { get }
+    var Details : String { get }
 }

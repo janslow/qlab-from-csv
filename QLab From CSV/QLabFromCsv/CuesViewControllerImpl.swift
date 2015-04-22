@@ -73,7 +73,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         resetCsv()
         if let csvPath = _selectedCsv?.path {
             _csvFile = _csvParser.parseFromFile(csvPath, issues: _csvIssueAcceptor)
-            if !_csvIssueAcceptor.hasFatalErrors {
+            if !_csvIssueAcceptor.HasFatalErrors {
                 if let csv = _csvFile {
                     _rowCountLabel.stringValue = "\(csv.rows.count) rows plus header row, \(csv.headers.count) header columns."
                     log.debug("Parsed file with \(_rowCountLabel.stringValue)")
@@ -135,7 +135,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     }
     
     private func displayIssues() {
-        let issues = _csvIssueAcceptor.issues + _cueIssueAcceptor.issues
+        let issues = _csvIssueAcceptor.Issues + _cueIssueAcceptor.Issues
         if issues.isEmpty {
             log.info("No issues")
         } else {
@@ -151,10 +151,10 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
                 let cueParser = RowParser(csvTemplate: csvTemplate)
                 var cues = cueParser.load(csvFile, issues: _cueIssueAcceptor)
                 
-                if !_cueIssueAcceptor.hasFatalErrors {
+                if !_cueIssueAcceptor.HasFatalErrors {
                     cues = applyLogs(cues, issues: _cueIssueAcceptor)
                     
-                    if !_cueIssueAcceptor.hasFatalErrors {
+                    if !_cueIssueAcceptor.HasFatalErrors {
                         _cues = cues
                         log.debug("Parsed \(_cues.count) cues.")
                         
