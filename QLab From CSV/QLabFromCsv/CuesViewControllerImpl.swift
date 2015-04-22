@@ -16,7 +16,6 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     @IBOutlet weak var _logDisabledRadio: NSButtonCell!
     
     private let _csvParser = CsvParser.csv()
-    private let _cueParser = RowParser(csvTemplate: SimpleCsvTemplate())
     private var _selectedCsv : NSURL? = nil
     private var _csvHeaders : [String] = []
     private var _csvRows : [Dictionary<String, String>] = []
@@ -134,12 +133,17 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     
     // Update _cues by regenerating all cues from _csvRows and the current configuration.
     private func createCues() {
-        var cues = _cueParser.load(_csvRows)
-        
-        _cues = applyLogs(cues)
-        log.debug("Parsed \(_cues.count) cues.")
-        
-        MAIN_VIEW_CONTROLLER?.fireCheckValid()
+        if let csvTemplate = StandardCsvTemplateFactory.build(_csvHeaders) {
+            let cueParser = RowParser(csvTemplate: csvTemplate)
+            let cues = cueParser.load(_csvRows)
+            
+            _cues = applyLogs(cues)
+            log.debug("Parsed \(_cues.count) cues.")
+            
+            MAIN_VIEW_CONTROLLER?.fireCheckValid()
+        } else {
+            log.error("Unable to create CSV template")
+        }
     }
     
     private func applyLogs(cues : [Cue]) -> [Cue] {
