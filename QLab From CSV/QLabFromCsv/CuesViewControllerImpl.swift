@@ -40,7 +40,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         
         #if DEBUG
             // Default CSV file when in debug mode.
-            _selectedCsv = NSURL(fileURLWithPath: "/Users/janslow/dev/qlab-from-csv/sample_cues.csv")
+            _selectedCsv = NSURL(fileURLWithPath: "/Users/janslow/dev/qlab-from-csv/x32_sample_cues_preprocessed.csv")
             _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? "Unable to load sample_cues.csv"
         #endif
     }
@@ -164,7 +164,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     }
     
     private func createCsvTemplate(csvFile : CsvFile) -> CsvTemplate? {
-        let nillableCsvTemplate = StandardCsvTemplateFactory.build(csvFile.headers, issues: _cueIssueAcceptor)
+        let nillableCsvTemplate = X32CsvTemplateFactory.build(csvFile.headers, issues: _cueIssueAcceptor)
         if _cueIssueAcceptor.HasFatalErrors {
            return nil
         }
