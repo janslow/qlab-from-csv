@@ -136,6 +136,33 @@
 			name = CsvTemplates;
 			sourceTree = "<group>";
 		};
+		1D5068CF1AEC16A3002C80F2 /* X32 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = X32;
+			sourceTree = "<group>";
+		};
+		1D5068D01AEC16B4002C80F2 /* OSC */ = {
+			isa = PBXGroup;
+			children = (
+				1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */,
+				1D23D4711ACF5967009C0081 /* OscCue.swift */,
+				1D23D4731ACF5F5D009C0081 /* OscCueBase.swift */,
+				1D23D4751ACF61F5009C0081 /* OscCustomCue.swift */,
+				1D23D4771ACF62D8009C0081 /* OscCustomCueImpl.swift */,
+			);
+			name = OSC;
+			sourceTree = "<group>";
+		};
+		1D5068D11AEC16C9002C80F2 /* ETC */ = {
+			isa = PBXGroup;
+			children = (
+				1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */,
+			);
+			name = ETC;
+			sourceTree = "<group>";
+		};
 		1D8F9D841A4F90CB00F94D55 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,17 +270,14 @@
 		1DE11CA81A45A0C5001C7FE8 /* Cues */ = {
 			isa = PBXGroup;
 			children = (
+				1D5068D11AEC16C9002C80F2 /* ETC */,
+				1D5068CF1AEC16A3002C80F2 /* X32 */,
 				1DE11CA41A459FEE001C7FE8 /* Cue.swift */,
 				1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */,
 				1DE11CA91A45A268001C7FE8 /* StartCue.swift */,
-				1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */,
-				1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */,
+				1D5068D01AEC16B4002C80F2 /* OSC */,
 				1D1A74D41A7D277A007D7E3C /* ScriptCue.swift */,
 				1D1A74D61A7D29CE007D7E3C /* LogScriptCue.swift */,
-				1D23D4711ACF5967009C0081 /* OscCue.swift */,
-				1D23D4731ACF5F5D009C0081 /* OscCueBase.swift */,
-				1D23D4751ACF61F5009C0081 /* OscCustomCue.swift */,
-				1D23D4771ACF62D8009C0081 /* OscCustomCueImpl.swift */,
 			);
 			name = Cues;
 			path = cues;
