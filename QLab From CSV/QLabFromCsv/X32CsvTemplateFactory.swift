@@ -74,17 +74,13 @@ public class X32CsvTemplateFactory {
             }
             if let channel = parts[0].toInt() {
                 return [
-                    self.createAssignToDCACue(channel, dca: 0, preWait: preWait)
+                    X32AssignChannelToDCACue(channel: channel, dca: nil, preWait: preWait),
+                    X32SetChannelMixOnCue(channel: channel, on: false, preWait: preWait)
                 ]
             } else {
                 issues.add(IssueSeverity.ERROR, line: line, cause: parts[0], code: "INVALID_CHANNEL", details: "The channel must be an integer value")
                 return []
             }
         }
-    }
-    
-    private static func createAssignToDCACue(channel : Int, dca : Int, preWait : Float) -> OscCustomCue {
-        let channelString = String(format: "%02d", channel)
-        return OscCustomCueImpl(customString: "/ch/\(channelString)/grp/\(dca)", preWait: preWait)
     }
 }
