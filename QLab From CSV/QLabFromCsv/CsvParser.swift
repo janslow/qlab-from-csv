@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias CsvFile = (headers: [String], rows: [Dictionary<String,String>])
+
 public class CsvParser {
     public class func csv() -> CsvParser {
         return CsvParser(delimiter: ",")
@@ -19,12 +21,12 @@ public class CsvParser {
         self.delimiter = delimiter
     }
     
-    func parse(contents : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
+    func parse(contents : String, issues : ParseIssueAcceptor) -> CsvFile? {
         var lines: [String] = []
         contents.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()).enumerateLines { line, stop in lines.append(line) }
         
         if lines.count < 1 {
-            log.error("CSV Parser: There must be at least one line including the header.")
+            issues.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "MISSING_HEADER", details: "The first line of the CSV must be a header row")
             return nil
         }
         
@@ -88,11 +90,11 @@ public class CsvParser {
         
         return (headers, rows)
     }
-    func parseFromFile(path : String) -> (headers: [String], rows: [Dictionary<String,String>])? {
+    func parseFromFile(path : String, issues : ParseIssueAcceptor) -> CsvFile? {
         if let contents = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) {
-            return parse(contents)
+            return parse(contents, issues: issues)
         } else {
-            log.error("CSV Parser: Unable to read CSV file.")
+            issues.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "IO_ERROR", details: "Unable to read file")
             return nil
         }
     }
