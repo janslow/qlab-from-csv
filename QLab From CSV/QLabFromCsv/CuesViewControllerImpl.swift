@@ -74,15 +74,12 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         if let csvPath = _selectedCsv?.path {
             _csvFile = _csvParser.parseFromFile(csvPath, issues: _csvIssueAcceptor)
             if !_csvIssueAcceptor.HasFatalErrors {
-                if let csv = _csvFile {
-                    _rowCountLabel.stringValue = "\(csv.rows.count) rows plus header row, \(csv.headers.count) header columns."
-                    log.debug("Parsed file with \(_rowCountLabel.stringValue)")
-                    
-                    createCues()
-                    return
-                } else {
-                    _csvIssueAcceptor.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "UNKNOWN", details: "Unknown error whilst parsing CSV file")
-                }
+                let csv = _csvFile!
+                _rowCountLabel.stringValue = "\(csv.rows.count) rows plus header row, \(csv.headers.count) header columns."
+                log.debug("Parsed file with \(_rowCountLabel.stringValue)")
+                
+                createCues(csv)
+                return
             }
         } else {
             _csvIssueAcceptor.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "NO_FILE", details: "No input file selected.")
@@ -126,12 +123,14 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     
     // Trigger cue creation because the log file has changed.
     @IBAction func onLogFileInputChange(sender: AnyObject) {
-        var senderId = "\(sender)"
-        if let senderIdentifier = (sender as? NSUserInterfaceItemIdentification)?.identifier {
-            senderId = senderIdentifier
+        if let csvFile = _csvFile {
+            var senderId = "\(sender)"
+            if let senderIdentifier = (sender as? NSUserInterfaceItemIdentification)?.identifier {
+                senderId = senderIdentifier
+            }
+            log.debug("Cue creation triggered: Changed log configuration \(senderId).")
+            createCues(csvFile)
         }
-        log.debug("Cue creation triggered: Changed log configuration \(senderId).")
-        createCues()
     }
     
     private func displayIssues() {
@@ -144,33 +143,32 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     }
     
     // Update _cues by regenerating all cues from _csvRows and the current configuration.
-    private func createCues() {
+    private func createCues(csvFile : CsvFile) {
         resetCues()
-        if let csvFile = _csvFile {
-            let nillableCsvTemplate = StandardCsvTemplateFactory.build(csvFile.headers, issues: _cueIssueAcceptor)
+        if let csvTemplate = createCsvTemplate(csvFile) {
+            let cueParser = RowParser(csvTemplate: csvTemplate)
+            var cues = cueParser.load(csvFile, issues: _cueIssueAcceptor)
+            
             if !_cueIssueAcceptor.HasFatalErrors {
-                if let csvTemplate = nillableCsvTemplate {
-                    let cueParser = RowParser(csvTemplate: csvTemplate)
-                    var cues = cueParser.load(csvFile, issues: _cueIssueAcceptor)
+                cues = applyLogs(cues, issues: _cueIssueAcceptor)
+                
+                if !_cueIssueAcceptor.HasFatalErrors {
+                    _cues = cues
+                    log.debug("Parsed \(_cues.count) cues.")
                     
-                    if !_cueIssueAcceptor.HasFatalErrors {
-                        cues = applyLogs(cues, issues: _cueIssueAcceptor)
-                        
-                        if !_cueIssueAcceptor.HasFatalErrors {
-                            _cues = cues
-                            log.debug("Parsed \(_cues.count) cues.")
-                            
-                            MAIN_VIEW_CONTROLLER?.fireCheckValid()
-                        }
-                    }
-                } else {
-                    self._cueIssueAcceptor.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "UNKNOWN", details: "Unknown error when parsing header.")
+                    MAIN_VIEW_CONTROLLER?.fireCheckValid()
                 }
             }
-        } else {
-            self._cueIssueAcceptor.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "UNKNOWN", details: "No CSV file is loaded.")
         }
         displayIssues()
+    }
+    
+    private func createCsvTemplate(csvFile : CsvFile) -> CsvTemplate? {
+        let nillableCsvTemplate = StandardCsvTemplateFactory.build(csvFile.headers, issues: _cueIssueAcceptor)
+        if _cueIssueAcceptor.HasFatalErrors {
+           return nil
+        }
+        return nillableCsvTemplate!
     }
     
     private func applyLogs(cues : [Cue], issues : ParseIssueAcceptor) -> [Cue] {
