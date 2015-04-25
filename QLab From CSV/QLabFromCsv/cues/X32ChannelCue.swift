@@ -14,7 +14,7 @@ class X32ChannelCue : OscCueBase, OscCustomCue {
         return nil
     }
     var cueName : String {
-        return "X32Ch\(channel) => \(channelOscString)"
+        return "X32 => Ch\(channel) => \(channelOscString)"
     }
     var description : String {
         return "X32Ch\(channel)"
