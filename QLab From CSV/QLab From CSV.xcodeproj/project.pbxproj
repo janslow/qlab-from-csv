@@ -74,6 +74,13 @@
 		1D2BC8911ACFFFDF008E6406 /* ParseIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssue.swift; sourceTree = "<group>"; };
 		1D2BC8931AD00067008E6406 /* ParseIssueAcceptorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssueAcceptorImpl.swift; sourceTree = "<group>"; };
 		1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ViewControllers/MasterViewController.swift; sourceTree = "<group>"; };
+		1D5068D21AEC189B002C80F2 /* X32ChannelCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32ChannelCue.swift; sourceTree = "<group>"; };
+		1D5068D41AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32AssignChannelToDCACue.swift; sourceTree = "<group>"; };
+		1D5068D61AEC1D08002C80F2 /* X32SetChannelMixOnCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32SetChannelMixOnCue.swift; sourceTree = "<group>"; };
+		1D5068D81AEC1F0E002C80F2 /* X32DCACue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32DCACue.swift; sourceTree = "<group>"; };
+		1D5068DA1AEC1F82002C80F2 /* X32SetDCANameCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32SetDCANameCue.swift; sourceTree = "<group>"; };
+		1D5068DC1AEC21D2002C80F2 /* X32SetDCAColourCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32SetDCAColourCue.swift; sourceTree = "<group>"; };
+		1D5068DE1AEC21F8002C80F2 /* X32Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32Colour.swift; sourceTree = "<group>"; };
 		1D5068CC1AEBF4FD002C80F2 /* X32CsvTemplateFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32CsvTemplateFactory.swift; sourceTree = "<group>"; };
 		1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OscCueQLabConnector.swift; path = CueCreators/OscCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscUdpCue.swift; sourceTree = "<group>"; };
@@ -139,6 +146,13 @@
 		1D5068CF1AEC16A3002C80F2 /* X32 */ = {
 			isa = PBXGroup;
 			children = (
+				1D5068D21AEC189B002C80F2 /* X32ChannelCue.swift */,
+				1D5068D41AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift */,
+				1D5068D61AEC1D08002C80F2 /* X32SetChannelMixOnCue.swift */,
+				1D5068D81AEC1F0E002C80F2 /* X32DCACue.swift */,
+				1D5068DA1AEC1F82002C80F2 /* X32SetDCANameCue.swift */,
+				1D5068DC1AEC21D2002C80F2 /* X32SetDCAColourCue.swift */,
+				1D5068DE1AEC21F8002C80F2 /* X32Colour.swift */,
 			);
 			name = X32;
 			sourceTree = "<group>";
@@ -365,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5068D91AEC1F0E002C80F2 /* X32DCACue.swift in Sources */,
 				1D23D4781ACF62D8009C0081 /* OscCustomCueImpl.swift in Sources */,
 				1D1A74D51A7D277A007D7E3C /* ScriptCue.swift in Sources */,
 				1DA02BE91A4A428700F095A6 /* Cue.swift in Sources */,
@@ -384,6 +399,8 @@
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
 				1DF3936E1AE6F26900F9F80C /* ConnectionState.swift in Sources */,
 				1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */,
+				1D5068D51AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift in Sources */,
+				1D5068DB1AEC1F82002C80F2 /* X32SetDCANameCue.swift in Sources */,
 				1D2BC8921ACFFFDF008E6406 /* ParseIssue.swift in Sources */,
 				1DF3936A1AE6F1A900F9F80C /* MasterViewControllerImpl.swift in Sources */,
 				1D23D4721ACF5967009C0081 /* OscCue.swift in Sources */,
@@ -400,9 +417,13 @@
 				1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */,
 				1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */,
 				1DAC45B21A4EE9AB004ED504 /* ServerComboBoxDataSource.swift in Sources */,
+				1D5068D71AEC1D08002C80F2 /* X32SetChannelMixOnCue.swift in Sources */,
 				1D23D4761ACF61F5009C0081 /* OscCustomCue.swift in Sources */,
 				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
+				1D5068D31AEC189B002C80F2 /* X32ChannelCue.swift in Sources */,
+				1D5068DD1AEC21D2002C80F2 /* X32SetDCAColourCue.swift in Sources */,
+				1D5068DF1AEC21F8002C80F2 /* X32Colour.swift in Sources */,
 				1DF2C46A1AE825C1008A22F3 /* StandardCsvTemplateFactory.swift in Sources */,
 				1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */,
 				1D60021A1AE8529E0002C28D /* ParseIssueAcceptor.swift in Sources */,

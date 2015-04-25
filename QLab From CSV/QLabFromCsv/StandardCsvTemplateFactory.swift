@@ -71,7 +71,7 @@ public class StandardCsvTemplateFactory {
                 return []
             }
             var i = 0
-            let cue = LxGoCue(lxNumber: parts[i++], preWait: preWait)
+            let cue = ETCEosGoCue(lxNumber: parts[i++], preWait: preWait)
             if i < parts.count && parts[i].hasPrefix("L") {
                 var cueListString = parts[i++]
                 cueListString = cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as String
