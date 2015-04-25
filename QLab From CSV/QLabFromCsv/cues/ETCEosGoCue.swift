@@ -8,22 +8,22 @@
 
 import Foundation
 
-class LxGoCue : OscCueBase, OscUdpCue, Printable {
+class ETCEosGoCue : OscCueBase, OscUdpCue, Printable {
     var cueNumber : String? {
         return nil
     }
     var cueName : String {
         if lxCueList == 0 {
-            return "LX \(lxNumber) Go (OSC\(patch))"
+            return "ETC Eos Cue \(lxNumber) Go (OSC\(patch))"
         } else {
-            return "LX \(lxNumber) in Cue List \(lxCueList) Go (OSC\(patch))"
+            return "ETC Eos Cue \(lxNumber) in Cue List \(lxCueList) Go (OSC\(patch))"
         }
     }
     var description : String {
         if lxCueList == 0 {
-            return "LX\(lxNumber)"
+            return "EosGo\(lxNumber)"
         } else {
-            return "LX\(lxCueList)/\(lxNumber)"
+            return "EosGo\(lxCueList)/\(lxNumber)"
         }
     }
     var preWait : Float

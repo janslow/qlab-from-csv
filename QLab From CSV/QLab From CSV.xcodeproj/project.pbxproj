@@ -34,7 +34,7 @@
 		1DA02BE91A4A428700F095A6 /* Cue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA41A459FEE001C7FE8 /* Cue.swift */; };
 		1DA02BEA1A4A428700F095A6 /* GroupCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */; };
 		1DA02BEB1A4A428700F095A6 /* StartCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA91A45A268001C7FE8 /* StartCue.swift */; };
-		1DA02BEC1A4A428700F095A6 /* LxGoCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */; };
+		1DA02BEC1A4A428700F095A6 /* ETCEosGoCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CAB1A45A9E8001C7FE8 /* ETCEosGoCue.swift */; };
 		1DA02BED1A4A428700F095A6 /* CsvParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE11CA21A4506FF001C7FE8 /* CsvParser.swift */; };
 		1DA02BEE1A4A428700F095A6 /* RowParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2A4C891A46353000903B9C /* RowParser.swift */; };
 		1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0193341A478611000A9F53 /* QLabKitImport.m */; };
@@ -97,7 +97,7 @@
 		1DE11CA41A459FEE001C7FE8 /* Cue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cue.swift; sourceTree = "<group>"; };
 		1DE11CA61A45A0BB001C7FE8 /* GroupCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCue.swift; sourceTree = "<group>"; };
 		1DE11CA91A45A268001C7FE8 /* StartCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCue.swift; sourceTree = "<group>"; };
-		1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LxGoCue.swift; sourceTree = "<group>"; };
+		1DE11CAB1A45A9E8001C7FE8 /* ETCEosGoCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETCEosGoCue.swift; sourceTree = "<group>"; };
 		1DE7EF1D1A6AC9270046B07F /* CueQLabConnectorBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CueQLabConnectorBase.swift; sourceTree = "<group>"; };
 		1DE7EF1F1A6AC9D70046B07F /* StartCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartCueQLabConnector.swift; sourceTree = "<group>"; };
 		1DEAF4C51A507C8B00BA7FD3 /* CueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CueQLabConnector.swift; path = CueCreators/CueQLabConnector.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		1D5068D11AEC16C9002C80F2 /* ETC */ = {
 			isa = PBXGroup;
 			children = (
-				1DE11CAB1A45A9E8001C7FE8 /* LxGoCue.swift */,
+				1DE11CAB1A45A9E8001C7FE8 /* ETCEosGoCue.swift */,
 			);
 			name = ETC;
 			sourceTree = "<group>";
@@ -369,6 +369,7 @@
 				1DA02BEB1A4A428700F095A6 /* StartCue.swift in Sources */,
 				1D1A74D71A7D29CE007D7E3C /* LogScriptCue.swift in Sources */,
 				1D23D47A1ACFFEFB009C0081 /* IssueSeverity.swift in Sources */,
+				1D5068CD1AEBF4FD002C80F2 /* X32CsvTemplateFactory.swift in Sources */,
 				1DA02BEC1A4A428700F095A6 /* LxGoCue.swift in Sources */,
 				1D8F9D831A4F8CCA00F94D55 /* CueComboBoxDataSource.swift in Sources */,
 				1DF393721AE6F2FD00F9F80C /* CuesViewControllerImpl.swift in Sources */,
