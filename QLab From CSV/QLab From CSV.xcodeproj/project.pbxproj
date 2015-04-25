@@ -20,6 +20,8 @@
 		1D23D47A1ACFFEFB009C0081 /* IssueSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23D4791ACFFEFB009C0081 /* IssueSeverity.swift */; };
 		1D2BC8921ACFFFDF008E6406 /* ParseIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BC8911ACFFFDF008E6406 /* ParseIssue.swift */; };
 		1D2FBF4D1A8D4A7800A285CB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */; };
+		1D5068D31AEC189B002C80F2 /* X32ChannelCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5068D21AEC189B002C80F2 /* X32ChannelCue.swift */; };
+		1D5068D51AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5068D41AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift */; };
 		1D5CEECC1A6AE29E00BAABAE /* OscCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */; };
 		1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */; };
 		1D60021A1AE8529E0002C28D /* ParseIssueAcceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */; };
@@ -73,6 +75,8 @@
 		1D2BC8911ACFFFDF008E6406 /* ParseIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssue.swift; sourceTree = "<group>"; };
 		1D2BC8931AD00067008E6406 /* ParseIssueAcceptorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssueAcceptorImpl.swift; sourceTree = "<group>"; };
 		1D2FBF4C1A8D4A7800A285CB /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ViewControllers/MasterViewController.swift; sourceTree = "<group>"; };
+		1D5068D21AEC189B002C80F2 /* X32ChannelCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32ChannelCue.swift; sourceTree = "<group>"; };
+		1D5068D41AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32AssignChannelToDCACue.swift; sourceTree = "<group>"; };
 		1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OscCueQLabConnector.swift; path = CueCreators/OscCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscUdpCue.swift; sourceTree = "<group>"; };
 		1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssueAcceptor.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		1D5068CF1AEC16A3002C80F2 /* X32 */ = {
 			isa = PBXGroup;
 			children = (
+				1D5068D21AEC189B002C80F2 /* X32ChannelCue.swift */,
+				1D5068D41AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift */,
 			);
 			name = X32;
 			sourceTree = "<group>";
@@ -369,8 +375,7 @@
 				1DA02BEB1A4A428700F095A6 /* StartCue.swift in Sources */,
 				1D1A74D71A7D29CE007D7E3C /* LogScriptCue.swift in Sources */,
 				1D23D47A1ACFFEFB009C0081 /* IssueSeverity.swift in Sources */,
-				1D5068CD1AEBF4FD002C80F2 /* X32CsvTemplateFactory.swift in Sources */,
-				1DA02BEC1A4A428700F095A6 /* LxGoCue.swift in Sources */,
+				1DA02BEC1A4A428700F095A6 /* ETCEosGoCue.swift in Sources */,
 				1D8F9D831A4F8CCA00F94D55 /* CueComboBoxDataSource.swift in Sources */,
 				1DF393721AE6F2FD00F9F80C /* CuesViewControllerImpl.swift in Sources */,
 				1DA02BED1A4A428700F095A6 /* CsvParser.swift in Sources */,
@@ -381,6 +386,7 @@
 				1DA02BEF1A4A428700F095A6 /* QLabKitImport.m in Sources */,
 				1DF3936E1AE6F26900F9F80C /* ConnectionState.swift in Sources */,
 				1DEAF4C61A507C8B00BA7FD3 /* CueQLabConnector.swift in Sources */,
+				1D5068D51AEC1A63002C80F2 /* X32AssignChannelToDCACue.swift in Sources */,
 				1D2BC8921ACFFFDF008E6406 /* ParseIssue.swift in Sources */,
 				1DF3936A1AE6F1A900F9F80C /* MasterViewControllerImpl.swift in Sources */,
 				1D23D4721ACF5967009C0081 /* OscCue.swift in Sources */,
@@ -400,6 +406,7 @@
 				1D23D4761ACF61F5009C0081 /* OscCustomCue.swift in Sources */,
 				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
+				1D5068D31AEC189B002C80F2 /* X32ChannelCue.swift in Sources */,
 				1DF2C46A1AE825C1008A22F3 /* StandardCsvTemplateFactory.swift in Sources */,
 				1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */,
 				1D60021A1AE8529E0002C28D /* ParseIssueAcceptor.swift in Sources */,
