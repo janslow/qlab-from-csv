@@ -13,11 +13,8 @@ public protocol ParseIssueAcceptor {
     
     var HasFatalErrors : Bool { get }
     
-    var CurrentLine : Int { get }
-    
     func add(issue : ParseIssue)
-    func add(severity : IssueSeverity, line : Int, cause : String?, code : String, details : String)
-    func add(severity : IssueSeverity, cause : String?, code : String, details : String)
+    func add(severity : IssueSeverity, line : Int?, cause : String?, code : String, details : String)
     
     func getBySeverity(severity : IssueSeverity) -> [ParseIssue]
 }

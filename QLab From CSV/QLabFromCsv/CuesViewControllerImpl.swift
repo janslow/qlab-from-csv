@@ -81,11 +81,11 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
                     createCues()
                     return
                 } else {
-                    _csvIssueAcceptor.add(IssueSeverity.FATAL, cause: nil, code: "UNKNOWN", details: "Unknown error whilst parsing CSV file")
+                    _csvIssueAcceptor.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "UNKNOWN", details: "Unknown error whilst parsing CSV file")
                 }
             }
         } else {
-            _csvIssueAcceptor.add(IssueSeverity.FATAL, line: -1, cause: nil, code: "NO_FILE", details: "No input file selected.")
+            _csvIssueAcceptor.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "NO_FILE", details: "No input file selected.")
         }
         _rowCountLabel.stringValue = "Unable to parse as CSV file."
         displayIssues()
@@ -165,7 +165,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
                 // TODO: Add FATAL issue
             }
         } else {
-            self._cueIssueAcceptor.add(IssueSeverity.FATAL, cause: nil, code: "UNKNOWN", details: "No CSV file is loaded")
+            self._cueIssueAcceptor.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "UNKNOWN", details: "No CSV file is loaded.")
         }
         displayIssues()
     }

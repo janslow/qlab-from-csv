@@ -11,12 +11,12 @@ import Foundation
 public class ParseIssueAcceptorImpl : ParseIssueAcceptor {
     private class ParseIssueImpl : ParseIssue {
         var Severity : IssueSeverity
-        var Line : Int
+        var Line : Int?
         var Cause : String?
         var Code : String
         var Details : String
         
-        init(severity : IssueSeverity, line : Int, cause : String?, code : String, details : String) {
+        init(severity : IssueSeverity, line : Int?, cause : String?, code : String, details : String) {
             Severity = severity
             Line = line
             Cause = cause
@@ -26,7 +26,10 @@ public class ParseIssueAcceptorImpl : ParseIssueAcceptor {
         
         var description : String {
             get {
-                var s = "\(Severity) parse issue at line \(Line)"
+                var s = "\(Severity) parse issue"
+                if let line = Line {
+                    s += " at line \(line)"
+                }
                 if let cause = Cause {
                     s += " (\"\(cause)\")"
                 }
@@ -48,8 +51,6 @@ public class ParseIssueAcceptorImpl : ParseIssueAcceptor {
         }
     }
     
-    public var CurrentLine : Int = 0
-    
     private var _issues : [ParseIssue] = []
     
     public func add(issue : ParseIssue) {
@@ -64,12 +65,8 @@ public class ParseIssueAcceptorImpl : ParseIssueAcceptor {
         _issues.append(issue)
     }
     
-    public func add(severity : IssueSeverity, line : Int, cause : String?, code : String, details : String) {
+    public func add(severity : IssueSeverity, line : Int?, cause : String?, code : String, details : String) {
         self.add(ParseIssueImpl(severity: severity, line: line, cause: cause, code: code, details: details))
-    }
-    
-    public func add(severity : IssueSeverity, cause : String?, code : String, details : String) {
-        self.add(severity, line: CurrentLine, cause: cause, code: code, details: details)
     }
     
     public func getBySeverity(severity : IssueSeverity) -> [ParseIssue] {

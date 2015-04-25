@@ -26,7 +26,7 @@ public class CsvParser {
         contents.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()).enumerateLines { line, stop in lines.append(line) }
         
         if lines.count < 1 {
-            issues.add(IssueSeverity.FATAL, line: 0, cause: nil, code: "MISSING_HEADER", details: "The first line of the CSV must be a header row")
+            issues.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "MISSING_HEADER", details: "The first line of the CSV must be a header row")
             return nil
         }
         
@@ -94,7 +94,7 @@ public class CsvParser {
         if let contents = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) {
             return parse(contents, issues: issues)
         } else {
-            issues.add(IssueSeverity.FATAL, line: -1, cause: nil, code: "IO_ERROR", details: "Unable to read file")
+            issues.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "IO_ERROR", details: "Unable to read file")
             return nil
         }
     }

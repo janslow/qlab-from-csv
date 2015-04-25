@@ -11,7 +11,7 @@ import Foundation
 
 public protocol ParseIssue : Printable {
     var Severity : IssueSeverity { get }
-    var Line : Int { get }
+    var Line : Int? { get }
     var Cause : String? { get }
     var Code : String { get }
     var Details : String { get }
