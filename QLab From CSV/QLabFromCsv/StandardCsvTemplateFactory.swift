@@ -13,12 +13,12 @@ public class StandardCsvTemplateFactory {
     private static let COMMENT_COLUMN = "Comment"
     private static let PAGE_COLUMN = "Page"
     
-    public static func build(columnNames : [String]) -> CsvTemplate? {
+    public static func build(columnNames : [String], issues : ParseIssueAcceptor) -> CsvTemplate? {
         var remainingColumnNames = columnNames
         if let index = find(remainingColumnNames, ID_COLUMN) {
             remainingColumnNames.removeAtIndex(index)
         } else {
-            log.error("Missing ID column : \(ID_COLUMN)")
+            issues.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "MISSING_HEADER_COLUMN", details: "Missing ID column : \(ID_COLUMN)")
             return nil
         }
         
@@ -40,17 +40,15 @@ public class StandardCsvTemplateFactory {
         
         var columnToCueParserMap = [String: CueParser]()
         for columnName in remainingColumnNames {
-            if let cueParser = buildCueParser(columnName) {
+            if let cueParser = buildCueParser(columnName, issues: issues) {
                 columnToCueParserMap[columnName] = cueParser
-            } else {
-                log.error("Error converting column \(columnName)")
             }
         }
         
         return CsvTemplateImpl(idColumn: ID_COLUMN, columnToCueParserMap: columnToCueParserMap, commentColumn: hasCommentColumn ? COMMENT_COLUMN : nil, pageColumn: hasPageColumn ? PAGE_COLUMN : nil)
     }
     
-    private static func buildCueParser(columnName : String) -> CueParser? {
+    private static func buildCueParser(columnName : String, issues : ParseIssueAcceptor) -> CueParser? {
         switch columnName {
         case "Sound", "SFX", "Video":
             let prefix = columnName.substringToIndex(columnName.startIndex)
@@ -61,6 +59,7 @@ public class StandardCsvTemplateFactory {
             break
         }
         
+        issues.add(IssueSeverity.WARN, line: 1, cause: columnName, code: "UNKNOWN_COLUMN_NAME", details: "Unable to create CueParser for column.")
         return nil
     }
     

@@ -147,22 +147,25 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     private func createCues() {
         resetCues()
         if let csvFile = _csvFile {
-            if let csvTemplate = StandardCsvTemplateFactory.build(csvFile.headers) {
-                let cueParser = RowParser(csvTemplate: csvTemplate)
-                var cues = cueParser.load(csvFile, issues: _cueIssueAcceptor)
-                
-                if !_cueIssueAcceptor.HasFatalErrors {
-                    cues = applyLogs(cues, issues: _cueIssueAcceptor)
+            let nillableCsvTemplate = StandardCsvTemplateFactory.build(csvFile.headers, issues: _cueIssueAcceptor)
+            if !_cueIssueAcceptor.HasFatalErrors {
+                if let csvTemplate = nillableCsvTemplate {
+                    let cueParser = RowParser(csvTemplate: csvTemplate)
+                    var cues = cueParser.load(csvFile, issues: _cueIssueAcceptor)
                     
                     if !_cueIssueAcceptor.HasFatalErrors {
-                        _cues = cues
-                        log.debug("Parsed \(_cues.count) cues.")
+                        cues = applyLogs(cues, issues: _cueIssueAcceptor)
                         
-                        MAIN_VIEW_CONTROLLER?.fireCheckValid()
+                        if !_cueIssueAcceptor.HasFatalErrors {
+                            _cues = cues
+                            log.debug("Parsed \(_cues.count) cues.")
+                            
+                            MAIN_VIEW_CONTROLLER?.fireCheckValid()
+                        }
                     }
+                } else {
+                    self._cueIssueAcceptor.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "UNKNOWN", details: "Unknown error when parsing header.")
                 }
-            } else {
-                // TODO: Add FATAL issue
             }
         } else {
             self._cueIssueAcceptor.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "UNKNOWN", details: "No CSV file is loaded.")
