@@ -65,25 +65,35 @@ public class StandardCsvTemplateFactory {
     
     private static func buildLXCueParser() -> CueParser {
         return {
-            (parts : [String], preWait : Float) -> Cue in
+            (parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] in
+            if (parts.count < 1) {
+                issues.add(IssueSeverity.ERROR, line: line, cause: nil, code: "MISSING_LX_NUMBER", details: "The LX cue number is missing.")
+                return []
+            }
             var i = 0
             let cue = LxGoCue(lxNumber: parts[i++], preWait: preWait)
             if i < parts.count && parts[i].hasPrefix("L") {
-                let cueListString = parts[i++]
+                var cueListString = parts[i++]
+                cueListString = cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as String
+                
                 cue.lxCueList = Int((cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as NSString).intValue)
             }
             if i < parts.count && parts[i].hasPrefix("P") {
                 let patchString = parts[i++]
                 cue.patch = Int((patchString.substringFromIndex(advance(patchString.startIndex, 1)) as NSString).intValue)
             }
-            return cue
+            return [cue]
         }
     }
     
     private static func buildStartCueParser(prefix : String) -> CueParser {
         return {
-            (parts : [String], preWait : Float) -> Cue in
-            return StartCue(targetNumber: prefix + parts[0], preWait: preWait)
+            (parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] in
+            if (parts.count < 1) {
+                issues.add(IssueSeverity.ERROR, line: line, cause: nil, code: "MISSING_LX_NUMBER", details: "The cue number is missing.")
+                return []
+            }
+            return [StartCue(targetNumber: prefix + parts[0], preWait: preWait)]
         }
     }
 }

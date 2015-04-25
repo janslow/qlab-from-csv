@@ -17,24 +17,19 @@ class RowParser {
     
     func load(csvFile : CsvFile, issues : ParseIssueAcceptor) -> [Cue] {
         // Create a GroupCue from each row.
-        var cues : [GroupCue?] = csvFile.rows.map({
-            (row : Dictionary<String, String>) -> GroupCue? in
-            return self.convertRowToCue(row, subCueCategories: self._csvTemplate.ColumnToCueParserMap, issues: issues);
-            }).filter({
-                (cue : GroupCue?) -> Bool in
-                return cue != nil
-            })
-        // Sort the cues by cue number.
-        return cues.map({
-            $0 as! Cue
-        })
+        var cues : [Cue] = []
+        for (i, row) in enumerate(csvFile.rows) {
+            if let cue = convertRowToCue(row, subCueCategories: self._csvTemplate.ColumnToCueParserMap, issues: issues, line : i) {
+                cues.append(cue)
+            }
+        }
+        return cues
     }
-    func convertRowToCue(row : Dictionary<String, String>, subCueCategories : Dictionary<String, CueParser>, issues : ParseIssueAcceptor) -> GroupCue? {
+    func convertRowToCue(row : Dictionary<String, String>, subCueCategories : Dictionary<String, CueParser>, issues : ParseIssueAcceptor, line : Int) -> GroupCue? {
         // Each row must have a QLab value.
         let cueNumber = row[self._csvTemplate.IdColumn]
         if cueNumber == nil {
-            log.error("Row Parser: Cue must have a QLab number")
-            log.debug("\(row)")
+            issues.add(IssueSeverity.ERROR, line: line, cause: nil, code: "MISSING_QLAB_NUMBER", details: "Cue must have a QLab number.")
             return nil
         }
         // Comment and Page values are optional.
@@ -55,38 +50,40 @@ class RowParser {
         for (columnName, cueCreator) in self._csvTemplate.ColumnToCueParserMap {
             // If there is a sub-cue value for the specified category, create the cues for that type.
             if let subCueString = row[columnName] {
-                children += createSubCues(subCueString, cueCreator: cueCreator)
+                children += createSubCues(subCueString, cueCreator: cueCreator, issues: issues, line : line)
             }
         }
         // Construct and return the GroupCue
         return GroupCue(cueNumber: cueNumber!, comment: comment, page: page, children: children)
     }
-    func createSubCues(cueString : String, cueCreator : CueParser) -> [Cue] {
+    func createSubCues(cueString : String, cueCreator : CueParser, issues : ParseIssueAcceptor, line : Int) -> [Cue] {
         // Split the sub-cue string by commas.
         var cueStrings: [String] = cueString.componentsSeparatedByString(",")
         // For each sub-cue string...
-        var cues : [Cue] = cueStrings.map({
-                // ...Trim the whitespace...
-                $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            }).filter({
-                // ...Ignore any empty strings...
-                !$0.isEmpty
-            }).map({
-                (s : String) -> Cue in
-                // ...Split the string into parts...
-                var parts : [String] = s.componentsSeparatedByString("/")
-                // ...Extract the pre-wait time...
-                var preWait : Float = 0.0
-                if parts.count > 1 {
-                    let preWaitString = parts[parts.count - 1]
-                    if preWaitString.hasPrefix("d") {
-                        preWait = (preWaitString.substringFromIndex(advance(preWaitString.startIndex, 1)) as NSString).floatValue
-                        parts = Array(parts[0...parts.count - 2])
-                    }
+        return cueStrings.map({
+            // ...Trim the whitespace...
+            $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        }).filter({
+            // ...Ignore any empty strings...
+            !$0.isEmpty
+        }).map({
+            (s : String) -> [Cue] in
+            // ...Split the string into parts...
+            var parts : [String] = s.componentsSeparatedByString("/")
+            // ...Extract the pre-wait time...
+            var preWait : Float = 0.0
+            if parts.count > 1 {
+                let preWaitString = parts[parts.count - 1]
+                if preWaitString.hasPrefix("d") {
+                    preWait = (preWaitString.substringFromIndex(advance(preWaitString.startIndex, 1)) as NSString).floatValue
+                    parts = Array(parts[0...parts.count - 2])
                 }
-                // ...Create and return the cue.
-                return cueCreator(parts: parts, preWait: preWait)
-            })
-        return cues
+            }
+            // ...Create and return the cue.
+            return cueCreator(parts: parts, preWait: preWait, issues: issues, line: line)
+        }).reduce([] as [Cue], combine: {
+            (aggregate : [Cue], next : [Cue]) in
+            aggregate + next
+        })
     }
 }

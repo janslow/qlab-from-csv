@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias CueParser = (parts : [String], preWait : Float) -> Cue
+public typealias CueParser = (parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue]
 
 public protocol CsvTemplate {
     var ColumnToCueParserMap : Dictionary<String, CueParser> { get }
