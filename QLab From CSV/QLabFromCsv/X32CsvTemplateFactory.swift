@@ -62,28 +62,24 @@ public class X32CsvTemplateFactory {
         return nil
     }
     
-    private static func buildLXCueParser() -> CueParser {
-        return {
-            (parts : [String], preWait : Float) -> Cue in
-            var i = 0
-            let cue = LxGoCue(lxNumber: parts[i++], preWait: preWait)
-            if i < parts.count && parts[i].hasPrefix("L") {
-                let cueListString = parts[i++]
-                cue.lxCueList = Int((cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as NSString).intValue)
-            }
-            if i < parts.count && parts[i].hasPrefix("P") {
-                let patchString = parts[i++]
-                cue.patch = Int((patchString.substringFromIndex(advance(patchString.startIndex, 1)) as NSString).intValue)
-            }
-            return cue
-        }
-    }
-    
     private static func buildMuteCueParser() -> CueParser {
         return {
-            (parts : [String], preWait : Float) -> Cue in
-            let channel = parts[0].toInt()!
-            return self.createAssignToDCACue(channel, dca: 0, preWait: preWait)
+            (parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] in
+            if parts.count < 1 {
+                issues.add(IssueSeverity.ERROR, line: line, cause: nil, code: "MISSING_CHANNEL", details: "The channel number to mute/unassign is missing")
+                return []
+            }
+            if parts.count > 1 {
+                issues.add(IssueSeverity.WARN, line: line, cause: "\(parts)", code: "EXTRA_PARAMETERS", details: "Only the channel number was expected")
+            }
+            if let channel = parts[0].toInt() {
+                return [
+                    self.createAssignToDCACue(channel, dca: 0, preWait: preWait)
+                ]
+            } else {
+                issues.add(IssueSeverity.ERROR, line: line, cause: parts[0], code: "INVALID_CHANNEL", details: "The channel must be an integer value")
+                return []
+            }
         }
     }
     
