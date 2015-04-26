@@ -28,6 +28,7 @@
 		1D5068E41AEC2859002C80F2 /* X32SetDCANameCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5068DA1AEC1F82002C80F2 /* X32SetDCANameCue.swift */; };
 		1D5068E51AEC2859002C80F2 /* X32SetDCAColourCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5068DC1AEC21D2002C80F2 /* X32SetDCAColourCue.swift */; };
 		1D5068E61AEC2859002C80F2 /* X32Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5068DE1AEC21F8002C80F2 /* X32Colour.swift */; };
+		1D5068E81AEC3BAF002C80F2 /* X32CsvParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5068E71AEC3BAF002C80F2 /* X32CsvParser.swift */; };
 		1D5CEECC1A6AE29E00BAABAE /* OscCueQLabConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */; };
 		1D5CEECE1A6AE5A300BAABAE /* OscUdpCue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */; };
 		1D60021A1AE8529E0002C28D /* ParseIssueAcceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */; };
@@ -89,6 +90,7 @@
 		1D5068DA1AEC1F82002C80F2 /* X32SetDCANameCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32SetDCANameCue.swift; sourceTree = "<group>"; };
 		1D5068DC1AEC21D2002C80F2 /* X32SetDCAColourCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32SetDCAColourCue.swift; sourceTree = "<group>"; };
 		1D5068DE1AEC21F8002C80F2 /* X32Colour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32Colour.swift; sourceTree = "<group>"; };
+		1D5068E71AEC3BAF002C80F2 /* X32CsvParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = X32CsvParser.swift; sourceTree = "<group>"; };
 		1D5CEECB1A6AE29E00BAABAE /* OscCueQLabConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OscCueQLabConnector.swift; path = CueCreators/OscCueQLabConnector.swift; sourceTree = "<group>"; };
 		1D5CEECD1A6AE5A300BAABAE /* OscUdpCue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OscUdpCue.swift; sourceTree = "<group>"; };
 		1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseIssueAcceptor.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				1D2BC8911ACFFFDF008E6406 /* ParseIssue.swift */,
 				1D2BC8931AD00067008E6406 /* ParseIssueAcceptorImpl.swift */,
 				1D6002191AE8529E0002C28D /* ParseIssueAcceptor.swift */,
+				1D5068E71AEC3BAF002C80F2 /* X32CsvParser.swift */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				1D990A3F1A4F26D5003A2425 /* WorkspaceComboBoxDataSource.swift in Sources */,
 				1DA02BCD1A4A40D500F095A6 /* AppDelegate.swift in Sources */,
 				1DF2C46A1AE825C1008A22F3 /* StandardCsvTemplateFactory.swift in Sources */,
+				1D5068E81AEC3BAF002C80F2 /* X32CsvParser.swift in Sources */,
 				1DADB8DB1A816A4800E5F85D /* XCGLogger.swift in Sources */,
 				1D60021A1AE8529E0002C28D /* ParseIssueAcceptor.swift in Sources */,
 				1D60021B1AE854FF0002C28D /* ParseIssueAcceptorImpl.swift in Sources */,

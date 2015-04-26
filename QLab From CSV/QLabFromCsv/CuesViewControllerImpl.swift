@@ -15,7 +15,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     @IBOutlet weak var _logEnabledRadio: NSButtonCell!
     @IBOutlet weak var _logDisabledRadio: NSButtonCell!
     
-    private let _csvParser = CsvParser.csv()
+    private let _csvParser = X32CsvParser()
     private var _selectedCsv : NSURL? = nil
     
     private var _csvFile : CsvFile? = nil
@@ -40,7 +40,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         
         #if DEBUG
             // Default CSV file when in debug mode.
-            _selectedCsv = NSURL(fileURLWithPath: "/Users/janslow/dev/qlab-from-csv/x32_sample_cues_preprocessed.csv")
+            _selectedCsv = NSURL(fileURLWithPath: "/Users/janslow/dev/qlab-from-csv/x32_sample_cues.csv")
             _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? "Unable to load sample_cues.csv"
         #endif
     }
