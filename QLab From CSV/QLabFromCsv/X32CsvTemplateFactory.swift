@@ -84,10 +84,11 @@ public class X32CsvTemplateFactory {
                 issues.add(IssueSeverity.WARN, line: line, cause: "\(parts)", code: "EXTRA_PARAMETERS", details: "Only the channel number was expected")
             }
             if let channel = parts[0].toInt() {
-                return [
+                let cues : [Cue] = [
                     X32AssignChannelToDCACue(channel: channel, dca: nil, preWait: preWait),
                     X32SetChannelMixOnCue(channel: channel, on: false, preWait: preWait)
                 ]
+                return [DCAGroupCue(comment: "Mute channel \(channel)", dca: 0, children: cues)]
             } else {
                 issues.add(IssueSeverity.ERROR, line: line, cause: parts[0], code: "INVALID_CHANNEL", details: "The channel must be an integer value")
                 return []
@@ -118,7 +119,7 @@ public class X32CsvTemplateFactory {
             X32SetDCANameCue(dca: dca, name: "", preWait: preWait),
             X32SetDCAColourCue(dca: dca, colour: X32Colour.OFF, preWait: preWait)
         ]
-        let disableDCACue : Cue = GroupCue(cueNumber: "", comment: "Disable DCA \(dca)", page: nil, children: cues)
+        let disableDCACue : Cue = DCAGroupCue(comment: "Disable", dca: dca, children: cues)
         return [disableDCACue]
     }
     
@@ -151,7 +152,21 @@ public class X32CsvTemplateFactory {
             cues.append(X32AssignChannelToDCACue(channel: channel, dca: dca, preWait: preWait))
             cues.append(X32SetChannelMixOnCue(channel: channel, on: true, preWait: preWait))
         }
-        let enableDCACue : Cue = GroupCue(cueNumber: "", comment: "Enable DCA \(dca) - \(name)", page: nil, children: cues)
+        let enableDCACue : Cue = DCAGroupCue(comment: "Enable as \"\(name)\"", dca: dca, children: cues)
         return [enableDCACue]
+    }
+    
+    private class DCAGroupCue : GroupCue {
+        override var cueName : String {
+            return "DCA\(dca) => \(comment!)"
+        }
+        override var description : String {
+            return "DCA\(dca)"
+        }
+        let dca : Int
+        init(comment : String, dca : Int, children : [Cue]) {
+            self.dca = dca
+            super.init(cueNumber: "", comment: comment, page: nil, children: children)
+        }
     }
 }
