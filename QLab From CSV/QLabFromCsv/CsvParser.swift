@@ -24,7 +24,10 @@ public class CsvParser {
     func parse(contents : String, issues : ParseIssueAcceptor) -> CsvFile? {
         var lines: [String] = []
         contents.stringByTrimmingCharactersInSet(NSCharacterSet.newlineCharacterSet()).enumerateLines { line, stop in lines.append(line) }
-        
+        return parse(lines, issues : issues)
+    }
+    
+    func parse(lines : [String], issues : ParseIssueAcceptor) -> CsvFile? {
         if lines.count < 1 {
             issues.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "MISSING_HEADER", details: "The first line of the CSV must be a header row")
             return nil
