@@ -13,7 +13,7 @@ public class X32CsvTemplateFactory {
     private static let COMMENT_COLUMN = "Comment"
     private static let PAGE_COLUMN = "Page"
     
-    private static let MUTE_COLUMN = "Mute"
+    public static let MUTE_COLUMN = "Mute"
     
     public static func build(columnNames : [String], issues : ParseIssueAcceptor) -> CsvTemplate? {
         var remainingColumnNames = columnNames
