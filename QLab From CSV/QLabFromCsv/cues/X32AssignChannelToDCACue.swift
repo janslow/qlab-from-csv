@@ -23,8 +23,14 @@ class X32AssignChannelToDCACue : X32ChannelCue {
         return "X32Ch\(channel)DCA"
     }
     
-    init(channel: Int, dca: Int?, preWait: Float) {
-        self.dca = dca
-        super.init(channel: channel, channelOscString: "grp/dca \(dca ?? 0)", preWait: preWait)
+    init(channel: Int, dca dcaNillable: Int?, preWait: Float) {
+        self.dca = dcaNillable
+        let dcaBitmap : Int
+        if let dca = dcaNillable {
+            dcaBitmap = 1 << (dca - 1)
+        } else {
+            dcaBitmap = 0
+        }
+        super.init(channel: channel, channelOscString: "grp/dca \(dcaBitmap)", preWait: preWait)
     }
 }
