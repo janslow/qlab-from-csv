@@ -136,11 +136,11 @@ public class X32CsvTemplateFactory {
             $0.toInt()
         }).filter({
             (channel : Int?) -> Bool in
-            if (channel != nil) {
+            if channel == nil {
                 issues.add(IssueSeverity.ERROR, line: line, cause: "\(parts)", code: "INVALID_DCA_CHANNELS", details: "Channel numbers to must be integers")
-                return true
+                return false
             }
-            return false
+            return true
         }).map({
             $0!
         })
