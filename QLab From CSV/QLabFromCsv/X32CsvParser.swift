@@ -85,8 +85,10 @@ public class X32CsvParser {
     func transformCuesCsv(cues : CsvFile, channelMappings : Dictionary<String, Int>, issues : ParseIssueAcceptor) -> CsvFile? {
         var success = true
         let allChannels = Set(channelMappings.values)
+        var i = 0
         var rows = cues.rows.map({
             (oldRow : Dictionary<String, String>) -> Dictionary<String, String> in
+            i += 1
             var row = oldRow
             var unassignedChannels = allChannels
             for column in cues.headers {
@@ -102,11 +104,11 @@ public class X32CsvParser {
                                 (character : String) -> Int? in
                                 if let channel = channelMappings[character] {
                                     if unassignedChannels.remove(channel) == nil {
-                                        issues.add(IssueSeverity.WARN, line: nil, cause: character, code: "REASSIGNED_CHARACTER", details: "Character has already been assigned.")
+                                        issues.add(IssueSeverity.WARN, line: i, cause: character, code: "REASSIGNED_CHARACTER", details: "Character has already been assigned.")
                                     }
                                     return channel
                                 } else {
-                                    issues.add(IssueSeverity.ERROR, line: nil, cause: character, code: "UNKNOWN_CHARACTER", details: "Character doesn't have an associated channel number.")
+                                    issues.add(IssueSeverity.ERROR, line: i, cause: character, code: "UNKNOWN_CHARACTER", details: "Character doesn't have an associated channel number.")
                                     return nil
                                 }
                             }).filter({ $0 != nil }).map({ $0! })
