@@ -94,7 +94,18 @@ public class X32CsvParser {
             for column in cues.headers {
                 if column.hasPrefix("DCA") || column.hasPrefix("VCA") {
                     if let cell = row[column] {
-                        let characters : [String] = cell.componentsSeparatedByString(",").map({
+                        let parts : [String] = cell.componentsSeparatedByString(":").map({
+                            $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                        })
+                        let charactersString : String
+                        var name : String? = nil
+                        if parts.count > 1 {
+                            name = parts[0]
+                            charactersString = parts[1]
+                        } else {
+                            charactersString = parts[0]
+                        }
+                        let characters : [String] = charactersString.componentsSeparatedByString(",").map({
                             $0.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                         })
                         if characters.isEmpty {
@@ -112,7 +123,10 @@ public class X32CsvParser {
                                     return nil
                                 }
                             }).filter({ $0 != nil }).map({ $0! })
-                            let name = "+".join(characters)
+
+                            if name == nil {
+                                name = "+".join(characters)
+                            }
                             let channelsString = "+".join(channels.map({ String($0) }))
                             
                             row[column] = "\(name)/\(channelsString)"
