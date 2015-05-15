@@ -146,7 +146,7 @@ public class X32CsvTemplateFactory {
         })
         var cues : [Cue] = [
             X32SetDCANameCue(dca: dca, name: name, preWait: preWait),
-            X32SetDCAColourCue(dca: dca, colour: X32Colour.BLUE, preWait: preWait)
+            X32SetDCAColourCue(dca: dca, colour: X32Colour.WHITE, preWait: preWait)
         ]
         for channel in channels {
             cues.append(X32AssignChannelToDCACue(channel: channel, dca: dca, preWait: preWait))
