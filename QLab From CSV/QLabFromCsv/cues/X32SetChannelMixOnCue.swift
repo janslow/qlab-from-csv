@@ -22,7 +22,7 @@ class X32SetChannelMixOnCue : X32ChannelCue {
     
     init(channel: Int, on: Bool, preWait: Float) {
         self.on = on
-        let onString = on ? "on" : "off"
+        let onString = on ? "1" : "0"
         super.init(channel: channel, channelOscString: "mix/on \(onString)", preWait: preWait)
     }
 }
