@@ -129,7 +129,7 @@ public class X32CsvParser {
                             }
                             let channelsString = "+".join(channels.map({ String($0) }))
                             
-                            row[column] = "\(name)/\(channelsString)"
+                            row[column] = "\(name!)/\(channelsString)"
                         }
                     } else {
                         row[column] = "*"
