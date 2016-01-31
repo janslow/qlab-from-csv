@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -536,11 +536,11 @@
                                 <tabViewItems>
                                     <tabViewItem label="File" identifier="1" id="IAK-FL-iVS">
                                         <view key="view" id="dJd-AM-Wry">
-                                            <rect key="frame" x="10" y="33" width="123" height="0.0"/>
+                                            <rect key="frame" x="10" y="33" width="404" height="88"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-qL-Rdj" userLabel="Input File Text Field">
-                                                    <rect key="frame" x="17" y="-25" width="370" height="22"/>
+                                                    <rect key="frame" x="17" y="63" width="370" height="22"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Input File" bezelStyle="round" id="QzP-H8-ctQ">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -548,7 +548,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xnh-6f-MsO" userLabel="Input File Browse Button">
-                                                    <rect key="frame" x="277" y="-61" width="116" height="32"/>
+                                                    <rect key="frame" x="277" y="27" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Kd-59-jye">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -558,7 +558,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceh-Yp-Ved" userLabel="Reload Button">
-                                                    <rect key="frame" x="165" y="-61" width="116" height="32"/>
+                                                    <rect key="frame" x="165" y="27" width="116" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Reload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F1N-OR-PgE">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -568,8 +568,53 @@
                                                     </connections>
                                                 </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NB5-uA-e4I" userLabel="Row count">
-                                                    <rect key="frame" x="15" y="-79" width="374" height="17"/>
+                                                    <rect key="frame" x="15" y="9" width="374" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="9cC-wU-ifV">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
+                                        </view>
+                                    </tabViewItem>
+                                    <tabViewItem label="X32" identifier="" id="iH0-A6-W2k">
+                                        <view key="view" ambiguous="YES" id="3X3-od-NYi">
+                                            <rect key="frame" x="10" y="33" width="404" height="88"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rkW-IX-RMp" userLabel="Server Combo Box">
+                                                    <rect key="frame" x="98" y="61" width="306" height="26"/>
+                                                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Select an OSC Patch" bezelStyle="round" completes="NO" numberOfVisibleItems="5" id="Dml-A8-Trt">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <objectValues>
+                                                            <string>1</string>
+                                                            <string>2</string>
+                                                            <string>3</string>
+                                                            <string>4</string>
+                                                            <string>5</string>
+                                                            <string>6</string>
+                                                            <string>7</string>
+                                                            <string>8</string>
+                                                            <string>9</string>
+                                                            <string>10</string>
+                                                            <string>11</string>
+                                                            <string>12</string>
+                                                            <string>13</string>
+                                                            <string>14</string>
+                                                            <string>15</string>
+                                                            <string>16</string>
+                                                        </objectValues>
+                                                    </comboBoxCell>
+                                                    <connections>
+                                                        <action selector="onX32PatchInputChange:" target="UZH-aN-PyL" id="jNX-Fl-JTz"/>
+                                                    </connections>
+                                                </comboBox>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZt-4P-LkX" userLabel="Server Label">
+                                                    <rect key="frame" x="6" y="67" width="86" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="OSC Patch" id="04O-cC-as8">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -597,7 +642,7 @@
                                                 <matrix identifier="logRadios" verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17d-3X-29o" userLabel="Log Enable">
                                                     <rect key="frame" x="17" y="65" width="160" height="18"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    <size key="cellSize" width="76" height="18"/>
+                                                    <size key="cellSize" width="75" height="18"/>
                                                     <size key="intercellSpacing" width="4" height="2"/>
                                                     <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="TcN-ia-6Jz">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -647,6 +692,7 @@
                         <outlet property="_logEnabledRadio" destination="Bss-Qa-Y6V" id="UNt-On-i63"/>
                         <outlet property="_logFileTextField" destination="J0b-Ph-wIt" id="umj-28-E6I"/>
                         <outlet property="_rowCountLabel" destination="NB5-uA-e4I" id="HSi-Zo-cVc"/>
+                        <outlet property="_x32PatchComboBox" destination="rkW-IX-RMp" id="1bh-AQ-t5Q"/>
                     </connections>
                 </viewController>
             </objects>
