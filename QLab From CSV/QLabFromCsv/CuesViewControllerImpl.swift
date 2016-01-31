@@ -14,6 +14,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     @IBOutlet weak var _rowCountLabel: NSTextField!
     @IBOutlet weak var _logEnabledRadio: NSButtonCell!
     @IBOutlet weak var _logDisabledRadio: NSButtonCell!
+    @IBOutlet weak var _x32PatchComboBox: NSComboBox!
     
     private let _csvParser = X32CsvParser()
     private var _selectedCsv : NSURL? = nil
@@ -78,7 +79,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
                 _rowCountLabel.stringValue = "\(csv.rows.count) rows plus header row, \(csv.headers.count) header columns."
                 log.debug("Parsed file with \(_rowCountLabel.stringValue)")
                 
-                createCues(csv, patch: 2)
+                createCues(csv)
                 return
             }
         } else {
@@ -95,16 +96,15 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         dialog.allowsMultipleSelection = false
         
         if dialog.runModal() == NSModalResponseOK && !dialog.URLs.isEmpty {
-            if let url = dialog.URLs[0] as? NSURL {
-                if let path = url.path {
-                    var isDirectory : ObjCBool = ObjCBool(false)
-                    if NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory: &isDirectory) && isDirectory.boolValue {
-                        _logFileTextField.stringValue = NSURL(string: "log.csv", relativeToURL: url)?.path ?? ""
-                    } else {
-                        _logFileTextField.stringValue = url.path ?? ""
-                    }
-                    onLogFileInputChange(sender)
+            let url = dialog.URLs[0]
+            if let path = url.path {
+                var isDirectory : ObjCBool = ObjCBool(false)
+                if NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory: &isDirectory) && isDirectory.boolValue {
+                    _logFileTextField.stringValue = NSURL(string: "log.csv", relativeToURL: url)?.path ?? ""
+                } else {
+                    _logFileTextField.stringValue = url.path ?? ""
                 }
+                onLogFileInputChange(sender)
             }
         }
     }
@@ -129,7 +129,18 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
                 senderId = senderIdentifier
             }
             log.debug("Cue creation triggered: Changed log configuration \(senderId).")
-            createCues(csvFile, patch: 2)
+            createCues(csvFile)
+        }
+    }
+    
+    @IBAction func onX32PatchInputChange(sender: AnyObject) {
+        if let csvFile = _csvFile {
+            var senderId = "\(sender)"
+            if let senderIdentifier = (sender as? NSUserInterfaceItemIdentification)?.identifier {
+                senderId = senderIdentifier
+            }
+            log.debug("Cue creation triggered: Changed X32 patch \(senderId).")
+            createCues(csvFile)
         }
     }
     
@@ -143,9 +154,9 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     }
     
     // Update _cues by regenerating all cues from _csvRows and the current configuration.
-    private func createCues(csvFile : CsvFile, patch: Int) {
+    private func createCues(csvFile : CsvFile) {
         resetCues()
-        if let csvTemplate = createCsvTemplate(csvFile, patch: patch) {
+        if let csvTemplate = createCsvTemplate(csvFile) {
             let cueParser = RowParser(csvTemplate: csvTemplate)
             var cues = cueParser.load(csvFile, issues: _cueIssueAcceptor)
             
@@ -163,7 +174,12 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         displayIssues()
     }
     
-    private func createCsvTemplate(csvFile : CsvFile, patch: Int) -> CsvTemplate? {
+    private func getX32Patch() -> Int? {
+        return Int(_x32PatchComboBox.stringValue)
+    }
+    
+    private func createCsvTemplate(csvFile : CsvFile) -> CsvTemplate? {
+        let patch = getX32Patch() ?? 1
         let nillableCsvTemplate = X32CsvTemplateFactory.build(csvFile.headers, patch: patch, issues: _cueIssueAcceptor)
         if _cueIssueAcceptor.HasFatalErrors {
            return nil
