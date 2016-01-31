@@ -65,7 +65,7 @@ public struct XCGLogDetails {
 
 // MARK: - XCGLogDestinationProtocol
 // - Protocol for output classes to conform to
-public protocol XCGLogDestinationProtocol: DebugPrintable {
+public protocol XCGLogDestinationProtocol: CustomDebugStringConvertible {
     var owner: XCGLogger {get set}
     var identifier: String {get set}
     var outputLogLevel: XCGLogger.LogLevel {get set}
@@ -77,7 +77,7 @@ public protocol XCGLogDestinationProtocol: DebugPrintable {
 
 // MARK: - XCGConsoleLogDestination
 // - A standard log destination that outputs log details to the console
-public class XCGConsoleLogDestination : XCGLogDestinationProtocol, DebugPrintable {
+public class XCGConsoleLogDestination : XCGLogDestinationProtocol, CustomDebugStringConvertible {
     public var owner: XCGLogger
     public var identifier: String
     public var outputLogLevel: XCGLogger.LogLevel = .Debug
@@ -100,11 +100,18 @@ public class XCGConsoleLogDestination : XCGLogDestinationProtocol, DebugPrintabl
             extendedDetails += "[" + logDetails.logLevel.description() + "] "
         }
 
+        var locationExtendedDetails: [String] = []
         if showFileName {
-            extendedDetails += "[" + logDetails.fileName.lastPathComponent + (showLineNumber ? ":" + String(logDetails.lineNumber) : "") + "] "
+            if let fileName = logDetails.fileName?.lastPathComponent {
+                locationExtendedDetails.append(fileName)
+            }
         }
-        else if showLineNumber {
-            extendedDetails += "[" + String(logDetails.lineNumber) + "] "
+        if showLineNumber {
+            locationExtendedDetails.append(String(logDetails.lineNumber))
+        }
+        
+        if !locationExtendedDetails.isEmpty {
+            extendedDetails += "[\(locationExtendedDetails.joinWithSeparator(":"))] "
         }
 
         var formattedDate: String = logDetails.date.description
@@ -152,7 +159,7 @@ public class XCGConsoleLogDestination : XCGLogDestinationProtocol, DebugPrintabl
 
 // MARK: - XCGFileLogDestination
 // - A standard log destination that outputs log details to a file
-public class XCGFileLogDestination : XCGLogDestinationProtocol, DebugPrintable {
+public class XCGFileLogDestination : XCGLogDestinationProtocol, CustomDebugStringConvertible {
     public var owner: XCGLogger
     public var identifier: String
     public var outputLogLevel: XCGLogger.LogLevel = .Debug
@@ -200,11 +207,18 @@ public class XCGFileLogDestination : XCGLogDestinationProtocol, DebugPrintable {
             extendedDetails += "[" + logDetails.logLevel.description() + "] "
         }
 
+        var locationExtendedDetails: [String] = []
         if showFileName {
-            extendedDetails += "[" + logDetails.fileName.lastPathComponent + (showLineNumber ? ":" + String(logDetails.lineNumber) : "") + "] "
+            if let fileName = logDetails.fileName?.lastPathComponent {
+                locationExtendedDetails.append(fileName)
+            }
         }
-        else if showLineNumber {
-            extendedDetails += "[" + String(logDetails.lineNumber) + "] "
+        if showLineNumber {
+            locationExtendedDetails.append(String(logDetails.lineNumber))
+        }
+        
+        if !locationExtendedDetails.isEmpty {
+            extendedDetails += "[\(locationExtendedDetails.joinWithSeparator(":"))] "
         }
 
         var formattedDate: String = logDetails.date.description
@@ -212,7 +226,7 @@ public class XCGFileLogDestination : XCGLogDestinationProtocol, DebugPrintable {
             formattedDate = unwrappedDataFormatter.stringFromDate(logDetails.date)
         }
 
-        var fullLogMessage: String =  "\(formattedDate) \(extendedDetails)\(logDetails.functionName): \(logDetails.logMessage)\n"
+        let fullLogMessage: String =  "\(formattedDate) \(extendedDetails)\(logDetails.functionName): \(logDetails.logMessage)\n"
 
         if let encodedData = fullLogMessage.dataUsingEncoding(NSUTF8StringEncoding) {
             logFileHandle?.writeData(encodedData)
@@ -230,7 +244,7 @@ public class XCGFileLogDestination : XCGLogDestinationProtocol, DebugPrintable {
             formattedDate = unwrappedDataFormatter.stringFromDate(logDetails.date)
         }
 
-        var fullLogMessage: String =  "\(formattedDate) \(extendedDetails): \(logDetails.logMessage)\n"
+        let fullLogMessage: String =  "\(formattedDate) \(extendedDetails): \(logDetails.logMessage)\n"
 
         if let encodedData = fullLogMessage.dataUsingEncoding(NSUTF8StringEncoding) {
             logFileHandle?.writeData(encodedData)
@@ -250,13 +264,12 @@ public class XCGFileLogDestination : XCGLogDestinationProtocol, DebugPrintable {
         if let unwrappedWriteToFileURL = writeToFileURL {
             if let path = unwrappedWriteToFileURL.path {
                 NSFileManager.defaultManager().createFileAtPath(path, contents: nil, attributes: nil)
-                var fileError : NSError? = nil
-                logFileHandle = NSFileHandle(forWritingToURL: unwrappedWriteToFileURL, error: &fileError)
+                logFileHandle = try? NSFileHandle(forWritingToURL: unwrappedWriteToFileURL)
                 if logFileHandle == nil {
-                    owner._logln("Attempt to open log file for writing failed: \(fileError?.localizedDescription)", logLevel: .Error)
+                    owner._logln("Attempt to open log file for writing failed.", logLevel: .Error)
                 }
                 else {
-                    owner.logAppDetails(selectedLogDestination: self)
+                    owner.logAppDetails(self)
 
                     let logDetails = XCGLogDetails(logLevel: .Info, date: NSDate(), logMessage: "XCGLogger writing to log to: \(unwrappedWriteToFileURL)", functionName: "", fileName: "", lineNumber: 0)
                     owner._logln(logDetails.logMessage, logLevel: logDetails.logLevel)
@@ -281,7 +294,7 @@ public class XCGFileLogDestination : XCGLogDestinationProtocol, DebugPrintable {
 
 // MARK: - XCGLogger
 // - The main logging class
-public class XCGLogger : DebugPrintable {
+public class XCGLogger : CustomDebugStringConvertible {
     // MARK: - Constants
     public struct constants {
         public static let defaultInstanceIdentifier = "com.cerebralgardens.xcglogger.defaultInstance"
@@ -366,7 +379,7 @@ public class XCGLogger : DebugPrintable {
 
     // MARK: - Setup methods
     public class func setup(logLevel: LogLevel = .Debug, showLogLevel: Bool = true, showFileNames: Bool = true, showLineNumbers: Bool = true, writeToFile: AnyObject? = nil) {
-        defaultInstance().setup(logLevel: logLevel, showLogLevel: showLogLevel, showFileNames: showFileNames, showLineNumbers: showLineNumbers, writeToFile: writeToFile)
+        defaultInstance().setup(logLevel, showLogLevel: showLogLevel, showFileNames: showFileNames, showLineNumbers: showLineNumbers, writeToFile: writeToFile)
     }
 
     public func setup(logLevel: LogLevel = .Debug, showLogLevel: Bool = true, showFileNames: Bool = true, showLineNumbers: Bool = true, writeToFile: AnyObject? = nil) {
@@ -419,7 +432,7 @@ public class XCGLogger : DebugPrintable {
     }
 
     public class func exec(logLevel: LogLevel = .Debug, closure: () -> () = {}) {
-        self.defaultInstance().exec(logLevel: logLevel, closure: closure)
+        self.defaultInstance().exec(logLevel, closure: closure)
     }
 
     public func exec(logLevel: LogLevel = .Debug, closure: () -> () = {}) {
@@ -510,51 +523,51 @@ public class XCGLogger : DebugPrintable {
     }
 
     public class func verboseExec(closure: () -> () = {}) {
-        self.defaultInstance().exec(logLevel: XCGLogger.LogLevel.Verbose, closure: closure)
+        self.defaultInstance().exec(.Verbose, closure: closure)
     }
 
     public func verboseExec(closure: () -> () = {}) {
-        self.exec(logLevel: XCGLogger.LogLevel.Verbose, closure: closure)
+        self.exec(.Verbose, closure: closure)
     }
     
     public class func debugExec(closure: () -> () = {}) {
-        self.defaultInstance().exec(logLevel: XCGLogger.LogLevel.Debug, closure: closure)
+        self.defaultInstance().exec(.Debug, closure: closure)
     }
 
     public func debugExec(closure: () -> () = {}) {
-        self.exec(logLevel: XCGLogger.LogLevel.Debug, closure: closure)
+        self.exec(.Debug, closure: closure)
     }
     
     public class func infoExec(closure: () -> () = {}) {
-        self.defaultInstance().exec(logLevel: XCGLogger.LogLevel.Info, closure: closure)
+        self.defaultInstance().exec(.Info, closure: closure)
     }
 
     public func infoExec(closure: () -> () = {}) {
-        self.exec(logLevel: XCGLogger.LogLevel.Info, closure: closure)
+        self.exec(.Info, closure: closure)
     }
     
     public class func warningExec(closure: () -> () = {}) {
-        self.defaultInstance().exec(logLevel: XCGLogger.LogLevel.Warning, closure: closure)
+        self.defaultInstance().exec(.Warning, closure: closure)
     }
 
     public func warningExec(closure: () -> () = {}) {
-        self.exec(logLevel: XCGLogger.LogLevel.Warning, closure: closure)
+        self.exec(.Warning, closure: closure)
     }
 
     public class func errorExec(closure: () -> () = {}) {
-        self.defaultInstance().exec(logLevel: XCGLogger.LogLevel.Error, closure: closure)
+        self.defaultInstance().exec(.Error, closure: closure)
     }
 
     public func errorExec(closure: () -> () = {}) {
-        self.exec(logLevel: XCGLogger.LogLevel.Error, closure: closure)
+        self.exec(.Error, closure: closure)
     }
     
     public class func severeExec(closure: () -> () = {}) {
-        self.defaultInstance().exec(logLevel: XCGLogger.LogLevel.Severe, closure: closure)
+        self.defaultInstance().exec(.Severe, closure: closure)
     }
 
     public func severeExec(closure: () -> () = {}) {
-        self.exec(logLevel: XCGLogger.LogLevel.Severe, closure: closure)
+        self.exec(.Severe, closure: closure)
     }
 
     // MARK: - Misc methods
