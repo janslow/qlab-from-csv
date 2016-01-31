@@ -29,9 +29,12 @@ class X32ChannelCue : OscCueBase, OscCustomCue {
     let channel : Int
     let channelOscString : String
     
-    init(channel : Int, channelOscString : String, preWait : Float) {
+    init(patch: Int, channel : Int, channelOscString : String, preWait : Float) {
         self.channel = channel
         self.channelOscString = channelOscString
         self.preWait = preWait
+        
+        super.init()
+        self.patch = patch
     }
 }

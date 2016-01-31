@@ -20,8 +20,8 @@ class X32SetDCAColourCue : X32DCACue {
         return "X32DCA\(dca)Colour"
     }
     
-    init(dca: Int, colour: X32Colour, preWait: Float) {
+    init(patch: Int, dca: Int, colour: X32Colour, preWait: Float) {
         self.colour = colour
-        super.init(dca: dca, dcaOscString: "config/color \(colour.rawValue)", preWait: preWait)
+        super.init(patch: patch, dca: dca, dcaOscString: "config/color \(colour.rawValue)", preWait: preWait)
     }
 }

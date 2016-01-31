@@ -78,7 +78,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
                 _rowCountLabel.stringValue = "\(csv.rows.count) rows plus header row, \(csv.headers.count) header columns."
                 log.debug("Parsed file with \(_rowCountLabel.stringValue)")
                 
-                createCues(csv)
+                createCues(csv, patch: 2)
                 return
             }
         } else {
@@ -129,7 +129,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
                 senderId = senderIdentifier
             }
             log.debug("Cue creation triggered: Changed log configuration \(senderId).")
-            createCues(csvFile)
+            createCues(csvFile, patch: 2)
         }
     }
     
@@ -143,9 +143,9 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
     }
     
     // Update _cues by regenerating all cues from _csvRows and the current configuration.
-    private func createCues(csvFile : CsvFile) {
+    private func createCues(csvFile : CsvFile, patch: Int) {
         resetCues()
-        if let csvTemplate = createCsvTemplate(csvFile) {
+        if let csvTemplate = createCsvTemplate(csvFile, patch: patch) {
             let cueParser = RowParser(csvTemplate: csvTemplate)
             var cues = cueParser.load(csvFile, issues: _cueIssueAcceptor)
             
@@ -163,8 +163,8 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         displayIssues()
     }
     
-    private func createCsvTemplate(csvFile : CsvFile) -> CsvTemplate? {
-        let nillableCsvTemplate = X32CsvTemplateFactory.build(csvFile.headers, issues: _cueIssueAcceptor)
+    private func createCsvTemplate(csvFile : CsvFile, patch: Int) -> CsvTemplate? {
+        let nillableCsvTemplate = X32CsvTemplateFactory.build(csvFile.headers, patch: patch, issues: _cueIssueAcceptor)
         if _cueIssueAcceptor.HasFatalErrors {
            return nil
         }

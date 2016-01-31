@@ -21,7 +21,7 @@ class OscCustomCueImpl : OscCueBase, OscCustomCue, CustomStringConvertible {
     var preWait : Float
     var customString : String
     
-    init(customString : String, preWait : Float) {
+    init(patch: Int, customString : String, preWait : Float) {
         self.customString = customString
         self.preWait = preWait
     }

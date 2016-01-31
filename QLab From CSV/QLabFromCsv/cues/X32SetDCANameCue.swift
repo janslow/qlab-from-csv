@@ -19,8 +19,8 @@ class X32SetDCANameCue : X32DCACue {
         return "X32DCA\(dca)Name"
     }
     
-    init(dca: Int, name: String, preWait: Float) {
+    init(patch: Int, dca: Int, name: String, preWait: Float) {
         self.name = name
-        super.init(dca: dca, dcaOscString: "config/name \"\(name)\"", preWait: preWait)
+        super.init(patch: patch, dca: dca, dcaOscString: "config/name \"\(name)\"", preWait: preWait)
     }
 }

@@ -15,7 +15,7 @@ public class X32CsvTemplateFactory {
     
     public static let MUTE_COLUMN = "Mute"
     
-    public static func build(columnNames : [String], issues : ParseIssueAcceptor) -> CsvTemplate? {
+    public static func build(columnNames : [String], patch: Int, issues : ParseIssueAcceptor) -> CsvTemplate? {
         var remainingColumnNames = columnNames
         if let index = remainingColumnNames.indexOf(ID_COLUMN) {
             remainingColumnNames.removeAtIndex(index)
@@ -42,7 +42,7 @@ public class X32CsvTemplateFactory {
         
         var columnToCueParserMap = [String: CueParser]()
         for columnName in remainingColumnNames {
-            if let cueParser = buildCueParser(columnName, issues: issues) {
+            if let cueParser = buildCueParser(patch, columnName: columnName, issues: issues) {
                 columnToCueParserMap[columnName] = cueParser
             }
         }
@@ -50,10 +50,10 @@ public class X32CsvTemplateFactory {
         return CsvTemplateImpl(idColumn: ID_COLUMN, columnToCueParserMap: columnToCueParserMap, commentColumn: hasCommentColumn ? COMMENT_COLUMN : nil, pageColumn: hasPageColumn ? PAGE_COLUMN : nil)
     }
     
-    private static func buildCueParser(columnName : String, issues : ParseIssueAcceptor) -> CueParser? {
+    private static func buildCueParser(patch: Int, columnName : String, issues : ParseIssueAcceptor) -> CueParser? {
         switch columnName {
         case MUTE_COLUMN:
-            return buildMuteCueParser()
+            return buildMuteCueParser(patch)
         default:
             break
         }
@@ -62,7 +62,7 @@ public class X32CsvTemplateFactory {
             var dcaString = columnName.substringFromIndex(columnName.startIndex.advancedBy(3))
             dcaString = dcaString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
             if let dca = Int(dcaString) {
-                return buildDCACueParser(dca)
+                return buildDCACueParser(patch, dca: dca)
             } else {
                 issues.add(IssueSeverity.ERROR, line: 1, cause: columnName, code: "INVALID_DCA_COLUMN_NAME", details: "Unable to parse DCA number from column name")
                 return nil
@@ -73,7 +73,7 @@ public class X32CsvTemplateFactory {
         return nil
     }
     
-    private static func buildMuteCueParser() -> CueParser {
+    private static func buildMuteCueParser(patch: Int) -> CueParser {
         return {
             (parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] in
             if parts.count < 1 {
@@ -85,8 +85,8 @@ public class X32CsvTemplateFactory {
             }
             if let channel = Int(parts[0]) {
                 let cues : [Cue] = [
-                    X32AssignChannelToDCACue(channel: channel, dca: nil, preWait: preWait),
-                    X32SetChannelMixOnCue(channel: channel, on: false, preWait: preWait)
+                    X32AssignChannelToDCACue(patch: patch, channel: channel, dca: nil, preWait: preWait),
+                    X32SetChannelMixOnCue(patch: patch, channel: channel, on: false, preWait: preWait)
                 ]
                 return [DCAGroupCue(comment: "Mute channel \(channel)", dca: 0, children: cues)]
             } else {
@@ -96,7 +96,7 @@ public class X32CsvTemplateFactory {
         }
     }
     
-    private static func buildDCACueParser(dca : Int) -> CueParser {
+    private static func buildDCACueParser(patch: Int, dca : Int) -> CueParser {
         return {
             (parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] in
             if parts.count < 1 {
@@ -104,26 +104,26 @@ public class X32CsvTemplateFactory {
                 return []
             }
             if parts[0] == "*" {
-                return self.parseInactiveDCACue(dca, parts: parts, preWait: preWait, issues: issues, line: line)
+                return self.parseInactiveDCACue(patch, dca: dca, parts: parts, preWait: preWait, issues: issues, line: line)
             } else {
-                return self.parseActiveDCACue(dca, parts: parts, preWait: preWait, issues: issues, line: line)
+                return self.parseActiveDCACue(patch, dca: dca, parts: parts, preWait: preWait, issues: issues, line: line)
             }
         }
     }
     
-    private static func parseInactiveDCACue(dca : Int, parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] {
+    private static func parseInactiveDCACue(patch: Int,     dca : Int, parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] {
         if parts.count > 1 {
             issues.add(IssueSeverity.WARN, line: line, cause: "\(parts)", code: "EXTRA_PARAMETERS", details: "Only the DCA name was expected")
         }
         let cues : [Cue] = [
-            X32SetDCANameCue(dca: dca, name: "", preWait: preWait),
-            X32SetDCAColourCue(dca: dca, colour: X32Colour.OFF, preWait: preWait)
+            X32SetDCANameCue(patch: patch, dca: dca, name: "", preWait: preWait),
+            X32SetDCAColourCue(patch: patch, dca: dca, colour: X32Colour.OFF, preWait: preWait)
         ]
         let disableDCACue : Cue = DCAGroupCue(comment: "Disable", dca: dca, children: cues)
         return [disableDCACue]
     }
     
-    private static func parseActiveDCACue(dca : Int, parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] {
+    private static func parseActiveDCACue(patch: Int, dca : Int, parts : [String], preWait : Float, issues : ParseIssueAcceptor, line : Int) -> [Cue] {
         if parts.count < 2 {
             issues.add(IssueSeverity.ERROR, line: line, cause: nil, code: "MISSING_PARAMETERS", details: "The DCA name and channel numbers are missing")
             return []
@@ -145,12 +145,12 @@ public class X32CsvTemplateFactory {
             }
         })
         var cues : [Cue] = [
-            X32SetDCANameCue(dca: dca, name: name, preWait: preWait),
-            X32SetDCAColourCue(dca: dca, colour: X32Colour.WHITE, preWait: preWait)
+            X32SetDCANameCue(patch: patch, dca: dca, name: name, preWait: preWait),
+            X32SetDCAColourCue(patch: patch, dca: dca, colour: X32Colour.WHITE, preWait: preWait)
         ]
         for channel in channels {
-            cues.append(X32AssignChannelToDCACue(channel: channel, dca: dca, preWait: preWait))
-            cues.append(X32SetChannelMixOnCue(channel: channel, on: true, preWait: preWait))
+            cues.append(X32AssignChannelToDCACue(patch: patch, channel: channel, dca: dca, preWait: preWait))
+            cues.append(X32SetChannelMixOnCue(patch: patch, channel: channel, on: true, preWait: preWait))
         }
         let enableDCACue : Cue = DCAGroupCue(comment: "Enable as \"\(name)\"", dca: dca, children: cues)
         return [enableDCACue]

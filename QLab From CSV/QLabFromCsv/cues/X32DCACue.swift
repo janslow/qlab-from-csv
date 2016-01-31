@@ -27,9 +27,12 @@ class X32DCACue : OscCueBase, OscCustomCue {
     let dca : Int
     let dcaOscString : String
     
-    init(dca : Int, dcaOscString : String, preWait : Float) {
+    init(patch: Int, dca : Int, dcaOscString : String, preWait : Float) {
         self.dca = dca
         self.dcaOscString = dcaOscString
         self.preWait = preWait
+        
+        super.init()
+        super.patch = patch
     }
 }
