@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc class OscCueBase {
+class OscCueBase {
     private var _patch = 1
     
     var patch : Int {

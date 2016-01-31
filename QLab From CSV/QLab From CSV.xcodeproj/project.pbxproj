@@ -346,7 +346,8 @@
 		1DE11C8F1A44EB24001C7FE8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jay Anslow";
 				TargetAttributes = {
 					1DA02BC71A4A40D500F095A6 = {
@@ -474,6 +475,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-bkjmkwhjqndzlcdshghxqdizhcfg/Build/Products/Debug",
 				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jayanslow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QLabFromCsv/QLabFromCsv-Bridging-Header.h";
 			};
@@ -492,6 +494,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-frmkbetinvdpmyazzjjneuaiykjs/Build/Products/Debug",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/QLabFromCsv-bkjmkwhjqndzlcdshghxqdizhcfg/Build/Products/Debug",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jayanslow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QLabFromCsv/QLabFromCsv-Bridging-Header.h";
 			};
@@ -516,6 +519,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;

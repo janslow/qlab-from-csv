@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ETCEosGoCue : OscCueBase, OscUdpCue, Printable {
+class ETCEosGoCue : OscCueBase, OscUdpCue, CustomStringConvertible {
     var cueNumber : String? {
         return nil
     }

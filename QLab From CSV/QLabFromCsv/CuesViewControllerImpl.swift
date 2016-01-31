@@ -62,7 +62,7 @@ public class CuesViewControllerImpl : NSViewController, CuesViewController {
         }
         
         if dialog.runModal() == NSModalResponseOK && !dialog.URLs.isEmpty {
-            _selectedCsv = dialog.URLs[0] as? NSURL
+            _selectedCsv = dialog.URLs[0]
             _inputFileTextField.stringValue = _selectedCsv?.lastPathComponent ?? _selectedCsv?.path ?? ""
             log.debug("Selected input file: \(_selectedCsv?.path)")
             onReloadClick(sender)

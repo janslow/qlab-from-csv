@@ -15,7 +15,7 @@ public class StandardCsvTemplateFactory {
     
     public static func build(columnNames : [String], issues : ParseIssueAcceptor) -> CsvTemplate? {
         var remainingColumnNames = columnNames
-        if let index = find(remainingColumnNames, ID_COLUMN) {
+        if let index = remainingColumnNames.indexOf(ID_COLUMN) {
             remainingColumnNames.removeAtIndex(index)
         } else {
             issues.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "MISSING_HEADER_COLUMN", details: "Missing ID column : \(ID_COLUMN)")
@@ -23,7 +23,7 @@ public class StandardCsvTemplateFactory {
         }
         
         let hasCommentColumn : Bool
-        if let index = find(remainingColumnNames, COMMENT_COLUMN) {
+        if let index = remainingColumnNames.indexOf(COMMENT_COLUMN) {
             hasCommentColumn = true
             remainingColumnNames.removeAtIndex(index)
         } else {
@@ -31,7 +31,7 @@ public class StandardCsvTemplateFactory {
         }
         
         let hasPageColumn : Bool
-        if let index = find(remainingColumnNames, PAGE_COLUMN) {
+        if let index = remainingColumnNames.indexOf(PAGE_COLUMN) {
             hasPageColumn = true
             remainingColumnNames.removeAtIndex(index)
         } else {
@@ -74,13 +74,13 @@ public class StandardCsvTemplateFactory {
             let cue = ETCEosGoCue(lxNumber: parts[i++], preWait: preWait)
             if i < parts.count && parts[i].hasPrefix("L") {
                 var cueListString = parts[i++]
-                cueListString = cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as String
+                cueListString = cueListString.substringFromIndex(cueListString.startIndex.advancedBy(1)) as String
                 
-                cue.lxCueList = Int((cueListString.substringFromIndex(advance(cueListString.startIndex, 1)) as NSString).intValue)
+                cue.lxCueList = Int((cueListString.substringFromIndex(cueListString.startIndex.advancedBy(1)) as NSString).intValue)
             }
             if i < parts.count && parts[i].hasPrefix("P") {
                 let patchString = parts[i++]
-                cue.patch = Int((patchString.substringFromIndex(advance(patchString.startIndex, 1)) as NSString).intValue)
+                cue.patch = Int((patchString.substringFromIndex(patchString.startIndex.advancedBy(1)) as NSString).intValue)
             }
             return [cue]
         }

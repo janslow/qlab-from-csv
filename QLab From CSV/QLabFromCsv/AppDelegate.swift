@@ -37,7 +37,7 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func setUpLogging() {
-        log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true)
+        log.setup(.Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true)
         let nsLogDestination = NSLogDestination(owner: log, identifier: "AppDelegate")
         log.addLogDestination(nsLogDestination)
     }

@@ -9,7 +9,7 @@
 
 import Foundation
 
-public protocol ParseIssue : Printable {
+public protocol ParseIssue : CustomStringConvertible {
     var Severity : IssueSeverity { get }
     var Line : Int? { get }
     var Cause : String? { get }

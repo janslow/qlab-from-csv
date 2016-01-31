@@ -2,3 +2,4 @@ xcdebugger
 xcuserdata/
 DerivedData
 .DS_Store
+*.xcscmblueprint
