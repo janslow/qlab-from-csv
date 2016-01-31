@@ -17,7 +17,7 @@ public class X32CsvTemplateFactory {
     
     public static func build(columnNames : [String], issues : ParseIssueAcceptor) -> CsvTemplate? {
         var remainingColumnNames = columnNames
-        if let index = find(remainingColumnNames, ID_COLUMN) {
+        if let index = remainingColumnNames.indexOf(ID_COLUMN) {
             remainingColumnNames.removeAtIndex(index)
         } else {
             issues.add(IssueSeverity.FATAL, line: 1, cause: nil, code: "MISSING_HEADER_COLUMN", details: "Missing ID column : \(ID_COLUMN)")
@@ -25,7 +25,7 @@ public class X32CsvTemplateFactory {
         }
         
         let hasCommentColumn : Bool
-        if let index = find(remainingColumnNames, COMMENT_COLUMN) {
+        if let index = remainingColumnNames.indexOf(COMMENT_COLUMN) {
             hasCommentColumn = true
             remainingColumnNames.removeAtIndex(index)
         } else {
@@ -33,7 +33,7 @@ public class X32CsvTemplateFactory {
         }
         
         let hasPageColumn : Bool
-        if let index = find(remainingColumnNames, PAGE_COLUMN) {
+        if let index = remainingColumnNames.indexOf(PAGE_COLUMN) {
             hasPageColumn = true
             remainingColumnNames.removeAtIndex(index)
         } else {
@@ -59,9 +59,9 @@ public class X32CsvTemplateFactory {
         }
         
         if columnName.hasPrefix("VCA") || columnName.hasPrefix("DCA") {
-            var dcaString = columnName.substringFromIndex(advance(columnName.startIndex, 3))
+            var dcaString = columnName.substringFromIndex(columnName.startIndex.advancedBy(3))
             dcaString = dcaString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            if let dca = dcaString.toInt() {
+            if let dca = Int(dcaString) {
                 return buildDCACueParser(dca)
             } else {
                 issues.add(IssueSeverity.ERROR, line: 1, cause: columnName, code: "INVALID_DCA_COLUMN_NAME", details: "Unable to parse DCA number from column name")
@@ -83,7 +83,7 @@ public class X32CsvTemplateFactory {
             if parts.count > 1 {
                 issues.add(IssueSeverity.WARN, line: line, cause: "\(parts)", code: "EXTRA_PARAMETERS", details: "Only the channel number was expected")
             }
-            if let channel = parts[0].toInt() {
+            if let channel = Int(parts[0]) {
                 let cues : [Cue] = [
                     X32AssignChannelToDCACue(channel: channel, dca: nil, preWait: preWait),
                     X32SetChannelMixOnCue(channel: channel, on: false, preWait: preWait)
@@ -133,16 +133,16 @@ public class X32CsvTemplateFactory {
         }
         let name = parts[0]
         let channels : [Int] = parts[1].componentsSeparatedByString("+").map({
-            $0.toInt()
-        }).filter({
-            (channel : Int?) -> Bool in
-            if channel == nil {
-                issues.add(IssueSeverity.ERROR, line: line, cause: "\(parts)", code: "INVALID_DCA_CHANNELS", details: "Channel numbers to must be integers")
-                return false
+            Int($0)
+        }).flatMap({
+            (channelNillable : Int?) -> Int? in
+            if let chan = channelNillable {
+                return chan
             }
-            return true
-        }).map({
-            $0!
+            else {
+                issues.add(IssueSeverity.ERROR, line: line, cause: "\(parts)", code: "INVALID_DCA_CHANNELS", details: "Channel numbers to must be integers")
+                return nil
+            }
         })
         var cues : [Cue] = [
             X32SetDCANameCue(dca: dca, name: name, preWait: preWait),

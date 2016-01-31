@@ -58,7 +58,7 @@ public class X32CsvParser {
         if let csv = csvParser.parse(lines, issues: issues) {
             var channelMappings = Dictionary<String, Int>()
             for row in csv.rows {
-                if let character = row[CHARACTER_COLUMN], channelString = row[CHANNEL_COLUMN], channel = channelString.toInt() {
+                if let character = row[CHARACTER_COLUMN], channelString = row[CHANNEL_COLUMN], channel = Int(channelString) {
                     channelMappings[character] = channel
                 } else {
                     issues.add(IssueSeverity.ERROR, line: nil, cause: "\(row)", code: "INVALID_CHANNEL_MAPPING", details: "Unable to parse channel mapping")
@@ -74,7 +74,7 @@ public class X32CsvParser {
     }
     
     func parseFromFile(path : String, issues : ParseIssueAcceptor) -> CsvFile? {
-        if let contents = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) {
+        if let contents = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding) {
             return parse(contents, issues: issues)
         } else {
             issues.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "IO_ERROR", details: "Unable to read file")
@@ -83,10 +83,9 @@ public class X32CsvParser {
     }
     
     func transformCuesCsv(cues : CsvFile, channelMappings : Dictionary<String, Int>, issues : ParseIssueAcceptor) -> CsvFile? {
-        var success = true
         let allChannels = Set(channelMappings.values)
         var i = 0
-        var rows = cues.rows.map({
+        let rows = cues.rows.map({
             (oldRow : Dictionary<String, String>) -> Dictionary<String, String> in
             i += 1
             var row = oldRow
@@ -125,9 +124,9 @@ public class X32CsvParser {
                             }).filter({ $0 != nil }).map({ $0! })
 
                             if name == nil {
-                                name = "+".join(characters)
+                                name = characters.joinWithSeparator("+")
                             }
-                            let channelsString = "+".join(channels.map({ String($0) }))
+                            let channelsString = channels.map({ String($0) }).joinWithSeparator("+")
                             
                             row[column] = "\(name!)/\(channelsString)"
                         }
@@ -136,14 +135,10 @@ public class X32CsvParser {
                     }
                 }
             }
-            row[X32CsvTemplateFactory.MUTE_COLUMN] = ",".join(Array(unassignedChannels).map({ String($0) }))
+            row[X32CsvTemplateFactory.MUTE_COLUMN] = Array(unassignedChannels).map({ String($0) }).joinWithSeparator(",")
             return row
         })
         
-        if success {
-            return (headers: cues.headers + [X32CsvTemplateFactory.MUTE_COLUMN], rows: rows)
-        } else {
-            return nil
-        }
+        return (headers: cues.headers + [X32CsvTemplateFactory.MUTE_COLUMN], rows: rows)
     }
 }
