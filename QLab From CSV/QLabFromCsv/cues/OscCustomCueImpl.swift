@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OscCustomCueImpl : OscCueBase, OscCustomCue, Printable {
+class OscCustomCueImpl : OscCueBase, OscCustomCue, CustomStringConvertible {
     var cueNumber : String? {
         return nil
     }

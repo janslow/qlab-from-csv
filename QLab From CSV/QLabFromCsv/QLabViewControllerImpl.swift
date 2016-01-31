@@ -125,7 +125,7 @@ public class QLabViewControllerImpl: NSViewController, QLKBrowserDelegate, QLabV
                 let alert = NSAlert()
                 alert.addButtonWithTitle("OK")
                 alert.messageText = "Connection Error"
-                alert.informativeText = reply as? String
+                alert.informativeText = reply as! String
                 alert.alertStyle = NSAlertStyle.WarningAlertStyle
                 alert.runModal()
             }

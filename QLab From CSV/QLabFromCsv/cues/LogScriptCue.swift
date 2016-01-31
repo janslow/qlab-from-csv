@@ -9,7 +9,7 @@
 
 import Foundation
 
-class LogScriptCue : ScriptCue, Printable {
+class LogScriptCue : ScriptCue, CustomStringConvertible {
     var cueNumber : String? {
         return nil
     }

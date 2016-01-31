@@ -9,7 +9,7 @@
 import Foundation
 
 // - A log destination that outputs log details to the System log.
-public class NSLogDestination : XCGLogDestinationProtocol, DebugPrintable {
+public class NSLogDestination : XCGLogDestinationProtocol, CustomDebugStringConvertible {
     public var owner: XCGLogger
     public var identifier: String
     public var outputLogLevel: XCGLogger.LogLevel = .Warning

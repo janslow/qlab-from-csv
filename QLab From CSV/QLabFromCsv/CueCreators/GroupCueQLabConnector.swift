@@ -74,7 +74,7 @@ class GroupCueQLabConnector : CueQLabConnectorBase {
     }
     
     private func selectCues(uids : [String], completion : () -> ()) {
-        let uidsString = ",".join(uids)
+        let uidsString = uids.joinWithSeparator(",")
         self._workspace.sendMessage(nil, toAddress:"/select_id/\(uidsString)") {
             (data : AnyObject!) in
             log.debug("SELECT WHERE cue.uid IN \(uids) RESPONSE \(data)")

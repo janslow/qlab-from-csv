@@ -37,7 +37,7 @@ public class CsvParser {
         var rows : [Dictionary<String, String>] = []
         
         
-        for (lineNumber, line) in enumerate(lines) {
+        for (lineNumber, line) in lines.enumerate() {
             if lineNumber == 0 {
                 continue
             }
@@ -49,7 +49,7 @@ public class CsvParser {
             let doubleQuote = NSCharacterSet(charactersInString: "\"")
             let whitespace = NSCharacterSet.whitespaceCharacterSet()
             
-            for (index, header) in enumerate(headers) {
+            for (_, header) in headers.enumerate() {
                 scanner.scanCharactersFromSet(whitespace, intoString: nil)
                 
                 var value = ""
@@ -76,7 +76,7 @@ public class CsvParser {
                     }
                 }
                 // Trim whitespace
-                var trimmedVal = value.stringByTrimmingCharactersInSet(whitespace)
+                let trimmedVal = value.stringByTrimmingCharactersInSet(whitespace)
                 // If value is non-empty store it in the row
                 if !trimmedVal.isEmpty {
                     row[header] = trimmedVal
@@ -91,7 +91,7 @@ public class CsvParser {
         return (headers, rows)
     }
     func parseFromFile(path : String, issues : ParseIssueAcceptor) -> CsvFile? {
-        if let contents = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil) {
+        if let contents = try? String(contentsOfFile: path, encoding: NSUTF8StringEncoding) {
             return parse(contents, issues: issues)
         } else {
             issues.add(IssueSeverity.FATAL, line: nil, cause: nil, code: "IO_ERROR", details: "Unable to read file")

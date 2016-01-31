@@ -18,7 +18,7 @@ class RowParser {
     func load(csvFile : CsvFile, issues : ParseIssueAcceptor) -> [Cue] {
         // Create a GroupCue from each row.
         var cues : [Cue] = []
-        for (i, row) in enumerate(csvFile.rows) {
+        for (i, row) in csvFile.rows.enumerate() {
             if let cue = convertRowToCue(row, subCueCategories: self._csvTemplate.ColumnToCueParserMap, issues: issues, line : i) {
                 cues.append(cue)
             }
@@ -75,7 +75,7 @@ class RowParser {
             if parts.count > 1 {
                 let preWaitString = parts[parts.count - 1]
                 if preWaitString.hasPrefix("d") {
-                    preWait = (preWaitString.substringFromIndex(advance(preWaitString.startIndex, 1)) as NSString).floatValue
+                    preWait = (preWaitString.substringFromIndex(preWaitString.startIndex.advancedBy(1)) as NSString).floatValue
                     parts = Array(parts[0...parts.count - 2])
                 }
             }
